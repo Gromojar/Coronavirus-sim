@@ -1,31 +1,31 @@
 #przyciski
 {
 	margin-left:auto;
-	width:50%;
+	width:100vw;
 	border-radius:10px;
 	background-color:red;
-	color:yellow;
-	height:30px;
+	color:white;
+	height:50px;
 	outline:none;
 }
 #ulepszszybkosc
 {
 	margin-left:auto;
-	width:50%;
+	width:100vw;
 	border-radius:10px;
 	background-color:red;
-	color:yellow;
-	height:30px;
+	color:white;
+	height:50px;
 	outline:none;
 }
 #ulepszklik
 {
 	margin-left:auto;
-	width:50%;
+	width:100vw;
 	border-radius:10px;
 	background-color:red;
-	color:yellow;
-	height:30px;
+	color:white;
+	height:50px;
 	outline:none;
     position:aboslute;
 }
@@ -36,19 +36,18 @@
 }
 .design
 {
-left:20px;
-color:yellow;
-bottom:400px;
+left:700px;
+color:red;
 }
 .design2
 {
-left:20px;
-color:yellow;
-bottom:350px;
+left:700px;
+color:red;
+
 }
 .design3
 {
-left:20px;
-color:yellow;
-bottom:300px;
+left:700px;
+color:red;
+
 }
