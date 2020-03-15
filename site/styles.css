@@ -4,7 +4,7 @@
 	width:50%;
 	border-radius:10px;
 	background-color:red;
-	color:white;
+	color:yellow;
 	height:30px;
 	outline:none;
 }
@@ -14,7 +14,7 @@
 	width:50%;
 	border-radius:10px;
 	background-color:red;
-	color:white;
+	color:yellow;
 	height:30px;
 	outline:none;
 }
@@ -24,7 +24,7 @@
 	width:50%;
 	border-radius:10px;
 	background-color:red;
-	color:white;
+	color:yellow;
 	height:30px;
 	outline:none;
     position:aboslute;
@@ -37,18 +37,18 @@
 .design
 {
 left:20px;
-color:white;
+color:yellow;
 bottom:400px;
 }
 .design2
 {
 left:20px;
-color:white;
+color:yellow;
 bottom:350px;
 }
 .design3
 {
 left:20px;
-color:white;
+color:yellow;
 bottom:300px;
 }
