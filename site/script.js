@@ -13,10 +13,10 @@ setTimeout(timeDisp, speed);
 function myFunction()
 {
 
-clicked = clicked + kliczek;
+clicked++
 pktpoziom++;
 licznik++;
-  document.getElementById("value").innerHTML = clicked;
+  document.getElementById("value").innerHTML = "Zarażonych: " + clicked;
 
 }
 
@@ -27,13 +27,14 @@ if(pktpoziom >=100)
 {
 pkt = pkt + 1;
 pktpoziom = 0;
-document.getElementById("value2").innerHTML = pkt;
+document.getElementById("value2").innerHTML = "Punkty ulepszeń: " + pkt;
 }
+document.getElementById("value2").innerHTML = "Punkty ulepszeń: " + pkt;
   clicked = clicked + kliczek;
   pktpoziom++;
   licznik = licznik+1;
-  document.getElementById("value").innerHTML = clicked;
-document.getElementById("value3").innerHTML = szybkosczar;
+  document.getElementById("value").innerHTML = "Zarażonych: " + clicked;
+document.getElementById("value3").innerHTML = "Szybkość zarażania: " + szybkosczar + " ms";
 if(licznik >= 10)
 {
   var min = Math.ceil(20);
@@ -61,9 +62,9 @@ function szybkosc()
       pkt = pkt - prog;
       prog = prog *2;
       szybkosczar = szybkosczar - 100;
-      document.getElementById("value2").innerHTML = pkt;
+      document.getElementById("value2").innerHTML = "Punkty ulepszeń: " + pkt;
       document.getElementById("komunikat").innerHTML = " ";
-      document.getElementById("value3").innerHTML = szybkosczar;
+      document.getElementById("value3").innerHTML = "Szybkość zarażania: " + szybkosczar + " ms";
 	}
 	else
 	{
@@ -78,9 +79,9 @@ function klicz()
 		kliczek = kliczek +1;
 		pkt = pkt - prog2;
         prog2 = prog2 *2;
-              document.getElementById("value2").innerHTML = pkt;
+              document.getElementById("value2").innerHTML = "Punkty ulepszeń: " + pkt;
       document.getElementById("komunikat2").innerHTML = " ";
-      document.getElementById("value3").innerHTML = szybkosczar;
+      document.getElementById("value3").innerHTML = "Szybkość zarażania: " + szybkosczar + " ms";
 
 	}
 		else

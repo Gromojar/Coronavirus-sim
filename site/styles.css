@@ -1,19 +1,54 @@
-.naglowek
-{
-	background-color:gray;
-	border-width:2px;
-	border-color:red;
-}
 #przyciski
 {
-	color:black;
-	display:block;
+	margin-left:auto;
+	width:50%;
+	border-radius:10px;
+	background-color:red;
+	color:white;
+	height:30px;
+	outline:none;
 }
-#przycisk
+#ulepszszybkosc
 {
-	visibility:hidden;
+	margin-left:auto;
+	width:50%;
+	border-radius:10px;
+	background-color:red;
+	color:white;
+	height:30px;
+	outline:none;
+}
+#ulepszklik
+{
+	margin-left:auto;
+	width:50%;
+	border-radius:10px;
+	background-color:red;
+	color:white;
+	height:30px;
+	outline:none;
+    position:aboslute;
 }
 #map
 {
-	
+	display:fixed;
+
+}
+.design
+{
+left:20px;
+color:white;
+bottom:400px;
+}
+.design2
+{
+left:20px;
+color:white;
+bottom:350px;
+}
+.design3
+{
+left:20px;
+color:white;
+bottom:300px;
 }
