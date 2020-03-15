@@ -62,7 +62,7 @@ function szybkosc()
       speed = speed-100;
       pkt = pkt - prog;
       prog = prog *2;
-      szybkosczar = szybkosczar + 100;
+      szybkosczar = szybkosczar - 100;
       document.getElementById("value2").innerHTML = pkt;
       document.getElementById("komunikat").innerHTML = " ";
       document.getElementById("value3").innerHTML = szybkosczar;
