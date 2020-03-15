@@ -6,8 +6,14 @@
 }
 #przyciski
 {
+        width:50%;
+
 	color:black;
 	display:block;
+}
+#ulepszszybkosc
+{
+width:50%;
 }
 #przycisk
 {
