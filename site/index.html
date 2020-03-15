@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Test</title>
+	<meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+	<title>Coronavirus simulator</title>
 </head>
 <body>
-<h1>Hejka</h1>
+	<div id="map"><img src="map.png"></div>
+	<button id="przyciski" onclick="myFunction()">Kliknij, by ewoluować</button>
+	<button id="ulepszszybkosc" onclick="szybkosc()">Ulepsz szybkość</button>
+	<span id="komunikat"></span>
+	<div>Zarażeni: </div><div id="value">0</div>
+    <div>Punkty zarażenia: </div><div id="value2">0</div>
+    <div id=Szybkosc zarazania:>Szybkość zarażania: <span id="value3"></span>ms</div>
 </body>
 </html>
