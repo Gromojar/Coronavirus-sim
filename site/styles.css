@@ -1,0 +1,19 @@
+.naglowek
+{
+	background-color:gray;
+	border-width:2px;
+	border-color:red;
+}
+#przyciski
+{
+	color:black;
+	display:block;
+}
+#przycisk
+{
+	visibility:hidden;
+}
+#map
+{
+	
+}
