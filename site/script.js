@@ -29,7 +29,7 @@ src.appendChild(img);
 
 
 function timeDisp() {
-	console.log(pktpoziom);
+
 if(pktpoziom >=100)
 {
 pkt = pkt + 1;
