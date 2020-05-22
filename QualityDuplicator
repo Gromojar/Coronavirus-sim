@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+.Kontener
+{
+width:500px;
+height:300px;
+text-align:center;
+background-color:Pink;
+border-radius:10px;
+
+}
+</style>
+<body>
+<title> Quality check </title>
+<center>
+<div class="Kontener">
+<h3>Sprawdź duplikaty na obu listach</h1>
+<br><br>
+<label for="asd">Czy jest na tej liście? (oddzielone przecinkami)</label>
+<input type="text" id="asd" name="asd"><br><br>
+<label for="asd2">Co? (oddzielone przecinkami)</label>
+<input type="text" id="asd2" name="asd"><br><br>
+
+<button onclick="funkcja()">Sprawdź</button>
+
+<p id="wynik"></p>
+<p>True - Jest na liście</p>
+<p>False - Nie ma na liście</p>
+</div>
+</center>
+<center><p>Made with love for Quality Team!</p></center>
+<script>
+function funkcja() {
+var Domains = document.getElementById("asd").value;
+var Domains2 = document.getElementById("asd2").value;
+
+var sr = Domains.split(',');
+var sr2 = Domains2.split(','); 
+var dr = sr.map(v => v.replace(' ',''));
+var dr2 = sr2.map(v => v.replace(' ',''));
+var ar = dr.map(v => v.toLowerCase());
+var ar2 = dr2.map(v => v.toLowerCase());
+
+array1 = ar;
+array2 = ar2;
+console.log(ar);
+console.log(ar2);  
+
+function findCommonElement(array1, array2) { 
+      
+
+    for(let i = 0; i < array1.length; i++) { 
+          
+
+        for(let j = 0; j < array2.length; j++) { 
+              
+
+            if(array1[i] === array2[j]) { 
+              
+              
+				
+                return true; 
+				
+            } 
+        } 
+    } 
+      
+
+	
+    return false;  
+	
+} 
+document.getElementById("wynik").innerHTML = findCommonElement(array1, array2);
+
+}
+</script>
+
+</body>
+</html>
