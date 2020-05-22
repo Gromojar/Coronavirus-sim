@@ -4,7 +4,6 @@
 .Kontener
 {
 width:50vw;
-max-width:50vw;
 text-align:center;
 background-color:Pink;
 border-radius:10px;
@@ -19,7 +18,6 @@ background-color:black;
 
 
 }
-textarea { height: auto; width: auto;}
 </style>
 <body>
 <title> Quality check </title>
@@ -28,7 +26,6 @@ textarea { height: auto; width: auto;}
 <h3>Check duplicates in two seperate lists</h1>
 <br><br>
 <label for="asd">List to check(Separated by commas)</label>
-<br>
     <input type="file" name="inputfile"
             id="inputfile"> 
     <br> 
@@ -67,10 +64,8 @@ textarea { height: auto; width: auto;}
     </script> 
 <script>
 function funkcja() {
-
 var Domains = document.getElementById("asd").value;
 var Domains2 = document.getElementById("asd2").value;
-
 var sr = Domains.split(',');
 var sr2 = Domains2.split(','); 
 var dr = sr.map(v => v.replace(' ',''));
