@@ -64,7 +64,7 @@ background-color:black;
     </script> 
 <script>
 function funkcja() {
-document.getElementsById("txtt").disabled = true;
+
 var Domains = document.getElementById("asd").value;
 var Domains2 = document.getElementById("asd2").value;
 var sr = Domains.split(',');
@@ -73,7 +73,6 @@ var dr = sr.map(v => v.replace(' ',''));
 var dr2 = sr2.map(v => v.replace(' ',''));
 var ar = dr.map(v => v.toLowerCase());
 var ar2 = dr2.map(v => v.toLowerCase());
-
 array1 = ar;
 array2 = ar2;
 console.log(ar);
