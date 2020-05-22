@@ -3,11 +3,19 @@
 <style>
 .Kontener
 {
-width:500px;
-height:300px;
+width:50vw;
 text-align:center;
 background-color:Pink;
 border-radius:10px;
+
+}
+.btn
+{
+border-radius:10px;
+width:10%;
+color:white;
+background-color:black;
+
 
 }
 </style>
@@ -18,15 +26,18 @@ border-radius:10px;
 <h3>Check duplicates in two seperate lists</h1>
 <br><br>
 <label for="asd">List to check(Separated by commas)</label>
-<input type="textarea" rows="4" cols="50" id="asd" name="asd"><br><br>
+<br>
+<textarea rows="4" cols="50" id="asd" name="asd"></textarea><br><br>
 <label for="asd2">Other List to check(Separated by commas)</label>
-<input type="textarea" rows="4" cols="50" id="asd2" name="asd"><br><br>
+<br>
+<textarea rows="4" cols="50" id="asd2" name="asd"></textarea><br><br>
 
-<button onclick="funkcja()">Check</button>
+<button class="btn" onclick="funkcja()">Check</button>
 
 <p id="wynik"></p>
 <p>True - Some of domains are on the both lists</p>
 <p>False - No domain duplicates on both lists</p>
+<br>
 </div>
 </center>
 <center><p>Made with love for Quality Team!</p></center>
