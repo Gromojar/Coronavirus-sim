@@ -26,8 +26,13 @@ background-color:black;
 <h3>Check duplicates in two seperate lists</h1>
 <br><br>
 <label for="asd">List to check(Separated by commas)</label>
+    <input type="file" name="inputfile"
+            id="inputfile"> 
+    <br> 
+   
+    <textarea rows="4" cols="50" id="asd"></textarea>
 <br>
-<textarea rows="4" cols="50" id="asd" name="asd"></textarea><br><br>
+
 <label for="asd2">Other List to check(Separated by commas)</label>
 <br>
 <textarea rows="4" cols="50" id="asd2" name="asd"></textarea><br><br>
@@ -38,9 +43,25 @@ background-color:black;
 <p>True - Some of domains are on the both lists</p>
 <p>False - No domain duplicates on both lists</p>
 <br>
+
 </div>
 </center>
 <center><p>Made with love for Quality Team!</p></center>
+
+      
+    <script type="text/javascript"> 
+        document.getElementById('inputfile') 
+            .addEventListener('change', function() { 
+              
+            var fr=new FileReader(); 
+            fr.onload=function(){ 
+                document.getElementById('asd') 
+                        .innerHTML=fr.result; 
+            } 
+              
+            fr.readAsText(this.files[0]); 
+        }) 
+    </script> 
 <script>
 function funkcja() {
 var Domains = document.getElementById("asd").value;
