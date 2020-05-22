@@ -38,7 +38,7 @@ textarea { height: auto; width: auto;}
 
 <label for="asd2">Other List to check(Separated by commas)</label>
 <br>
-<textarea rows="4" cols="50" id="asd2" name="asd"></textarea><br><br>
+<textarea id="txt" rows="4" cols="50" id="asd2" name="asd"></textarea><br><br>
 
 <button class="btn" onclick="funkcja()">Check</button>
 
@@ -67,7 +67,7 @@ textarea { height: auto; width: auto;}
     </script> 
 <script>
 function funkcja() {
-	document.getElementById("asd").disabled = true;
+	document.getElementById("txt").disabled = true;
 var Domains = document.getElementById("asd").value;
 var Domains2 = document.getElementById("asd2").value;
 
