@@ -117,6 +117,7 @@ var h = "http://www9.smartadserver.com/";
 var i = "http://www10.smartadserver.com/";
 var j = "http://www14.smartadserver.com/";
 var k = "http://www15.smartadserver.com/";
+var l = "http://smart.styria-digital.com/";
 
 if(urltochange.includes(zero) === true)
 {
@@ -178,6 +179,11 @@ if(urltochange.includes(k) === true)
 urltochange2 = urltochange.replace("http://www15.smartadserver.com/", ",http://creatives.sascdn.com/");
   zmiana = 1;
 
+}
+if(urltochange.includes(l) === true)
+{
+urltochange2 = urltochange.replace("http://smart.styria-digital.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 
 if(zmiana === 1)
