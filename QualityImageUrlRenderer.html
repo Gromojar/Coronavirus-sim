@@ -11,6 +11,7 @@ border-radius:10px;
 <form action="#" method="post">
   <textarea class="klasa"  cols=200 rows=30 type="url" name="imglink" id="imglink"  placeholder="Insert image URL here" /></textarea><br>
   <input type="button" value="Show Image" id="btn1" />
+  <input type="button" value="Clear" id="btn2" onclick="Clearfunction()"/>
 </form>
 <div id="photo"></div>
 <br>
@@ -31,4 +32,10 @@ console.log(arr);
   
 
 });
+</script>
+<script>
+function Clearfunction()
+  {
+document.getElementById('photo').innerHTML = "";
+  }
 </script>
