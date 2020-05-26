@@ -21,6 +21,8 @@ border-radius:10px;
 document.getElementById('btn1').addEventListener('click', 
 function()
 {
+if(document.getElementById('imglink').value != "")
+{
 let globArr = [];
 var arr = document.getElementById('imglink').value;
 globArr = arr.split(",");
@@ -28,7 +30,7 @@ for (let i = 0; i < globArr.length; i++) {
    document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" alt="Image" />';
 }
 console.log(arr);
-
+}
   
 
 });
