@@ -6,12 +6,23 @@ border-radius:10px;
 }
 .yellow
 {
+  animation: pulse 5s infinite;
+position:absolute;
   width:50%;
 text-align:center;
 
 background-color:yellow;
 border-radius:10px;
 }
+  @keyframes pulse {
+  0% {
+    background-color: yellow;
+color:black;
+  }
+  100% {
+    background-color: red;
+color:white;
+  }
 .btn1
   {
 background-color:black;
