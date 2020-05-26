@@ -57,6 +57,7 @@ function Clearfunction()
 document.getElementById('photo').innerHTML = "";
 document.getElementById('imglink').value = "";
 document.getElementById('converter').value = "";
+    zmiana = 0;
   }
 </script>
 <script>
@@ -64,6 +65,7 @@ function Convertfunction()
 {
 var urltochange = document.getElementById('converter').value;
 var urltochange2;
+var zmiana = 0;
 var zero = "http://www.smartadserver.com/";
 var a = "http://www2.smartadserver.com/";
 var b = "http://www3.smartadserver.com/";
@@ -81,54 +83,70 @@ if(urltochange.includes(zero) === true || urltochange.includes(a) === true || ur
 if(urltochange.includes(zero) === true)
 {
 urltochange2 = urltochange.replace("http://www.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(a) === true)
 {
 urltochange2 = urltochange.replace("http://www2.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(b) === true)
 {
 urltochange2 = urltochange.replace("http://www3.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(c) === true)
 {
 urltochange2 = urltochange.replace("http://www4.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(d) === true)
 {
 urltochange2 = urltochange.replace("http://www5.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(e) === true)
 {
 urltochange2 = urltochange.replace("http://www6.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(f) === true)
 {
 urltochange2 = urltochange.replace("http://www7.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(g) === true)
 {
 urltochange2 = urltochange.replace("http://www8.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(h) === true)
 {
 urltochange2 = urltochange.replace("http://www9.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(i) === true)
 {
 urltochange2 = urltochange.replace("http://www10.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(j) === true)
 {
 urltochange2 = urltochange.replace("http://www14.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
 }
 if(urltochange.includes(k) === true)
 {
 urltochange2 = urltochange.replace("http://www15.smartadserver.com/", ",http://creatives.sascdn.com/");
+  zmiana = 1;
+
 }
 }
+if(zmiana = 1)
+{
 document.getElementById('converter').value = urltochange2;
-console.log(urltochange2);                                                                                                
+console.log(urltochange2);    
+}
 }
  </script>
 <script>
