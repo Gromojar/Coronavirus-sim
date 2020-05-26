@@ -27,8 +27,7 @@ if(document.getElementById('imglink').value != "")
 let globArr = [];
 
 var arr = document.getElementById('imglink').value;
-var arr2 = arr.replace("http://www3.smartadserver.com/", "http://creatives.sascdn.com/");
-globArr = arr2.split(",");
+globArr = arr.split(",");
 for (let i = 0; i < globArr.length; i++) {
    document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" alt="Image" />';
 }
