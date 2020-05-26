@@ -8,9 +8,6 @@ border-radius:10px;
 <center>
 <title>Smart Creative Image Renderer</title>
 <div class=klasa><br><br>
-  <textarea class=klasa" cols=200 rows=30 type="url" name="converter" id="converter"></textarea><br>
-  <input type="button" value="Konwertuj" id="btn3" onclick ="Convertfunction()"/>
-
 <form action="#" method="post">
   
   <textarea class="klasa"  cols=200 rows=30 type="url" name="imglink" id="imglink"  placeholder="Insert image URL here" /></textarea><br>
@@ -28,8 +25,10 @@ function()
 if(document.getElementById('imglink').value != "")
 {
 let globArr = [];
+
 var arr = document.getElementById('imglink').value;
-globArr = arr.split(",");
+var arr2 = arr.replace("http://www3.smartadserver.com/", "http://creatives.sascdn.com/");
+globArr = arr2.split(",");
 for (let i = 0; i < globArr.length; i++) {
    document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" alt="Image" />';
 }
@@ -50,7 +49,9 @@ document.getElementById('imglink').value = "";
 function Convertfunction()
 {
 var urltochange = document.getElementById('converter').value;
-urltochange = urltochange.replace("http://www3.smartadserver.com/", "http://creatives.sascdn.com/");
-urltochange = document.getElementById('converter').value;                                                                                                
+var urltochange2;
+urltochange2 = urltochange.replace("http://www3.smartadserver.com/", "http://creatives.sascdn.com/");
+document.getElementById('converter').value = urltochange2;
+console.log(urltochange2);                                                                                                
 }
  </script>
