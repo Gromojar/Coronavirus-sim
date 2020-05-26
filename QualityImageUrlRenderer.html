@@ -8,7 +8,7 @@ border-radius:10px;
 {
 text-align:center;
 height:10%vh;
-position:absolute;
+position:sticky;
 background-color:yellow;
 border-radius:10px;
 }
@@ -28,9 +28,7 @@ transform:scale(1.5);
 </style>
 <center>
 <title>Smart Creative Image Renderer</title>
-<div class="yellow">
-<p>TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE</p>
-</div>
+
 <div class=klasa><br><br>
   <label>URL CONVERTER</label><br>
   <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like // http://www.smartadserver.com/ //"></textarea><br>
@@ -47,7 +45,17 @@ transform:scale(1.5);
 <div id="photo"></div>
 <br>
 </div>
+<div class="yellow" id="warning">
+<input type="button" class="btn2" value="x" onclick="Collapse()"/>
+<p>TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE</p>
+</div>
 </center>
+<script>
+function Collapse()
+  {
+document.getElementById("warning").outerHTML = "";
+  }
+</script>
 <script>
 document.getElementById('btn1').addEventListener('click', 
 function()
