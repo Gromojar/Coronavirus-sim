@@ -10,7 +10,8 @@ border-radius:10px;
 <div class=klasa><br><br>
   <label>Url converter</label>
   <br><textarea cols = 200 rows=5 class="klasa" id="converter"></textarea><br>
-<input type="button" value="Konwertuj!" onclick="Convertfunction()"/>
+<input type="button" value="Convert!" onclick="Convertfunction()"/>
+<input type="button" value="Copy down" onclick="Copydown()"/>
 <form action="#" method="post">
   
   <textarea class="klasa"  cols=200 rows=30 type="url" name="imglink" id="imglink"  placeholder="Insert image URL here" /></textarea><br>
@@ -118,3 +119,9 @@ document.getElementById('converter').value = urltochange2;
 console.log(urltochange2);                                                                                                
 }
  </script>
+<script>
+function Copydown()
+  {
+    document.getElementById('converter').value = document.getElementById('imglink').value;
+  }
+</script>
