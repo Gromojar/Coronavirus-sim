@@ -8,7 +8,8 @@ border-radius:10px;
 <center>
 <title>Smart Creative Image Renderer</title>
 <div class=klasa><br><br>
-  <label>Url kreacji do przekonwertowania</label><textarea rows=30 class="klasa" id="converter"></textarea>
+  <label>Url converter</label>
+  <br><textarea cols = 200 rows=5 class="klasa" id="converter"></textarea><br>
 <input type="button" value="Konwertuj!" onclick="Convertfunction()"/>
 <form action="#" method="post">
   
@@ -51,8 +52,68 @@ function Convertfunction()
 {
 var urltochange = document.getElementById('converter').value;
 var urltochange2;
+var zero = "http://www.smartadserver.com/";
+var a = "http://www2.smartadserver.com/";
+var b = "http://www3.smartadserver.com/";
+var c = "http://www4.smartadserver.com/";
+var d = "http://www5.smartadserver.com/";
+var e = "http://www6.smartadserver.com/";
+var f = "http://www7.smartadserver.com/";
+var g = "http://www8.smartadserver.com/";
+var h = "http://www9.smartadserver.com/";
+var i = "http://www10.smartadserver.com/";
+var j = "http://www14.smartadserver.com/";
+var k = "http://www15.smartadserver.com/";
+if(urltochange.includes(zero) === true)
+{
+urltochange2 = urltochange.replace("http://www.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(a) === true)
+{
+urltochange2 = urltochange.replace("http://www2.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(b) === true)
+{
 urltochange2 = urltochange.replace("http://www3.smartadserver.com/", "http://creatives.sascdn.com/");
-urltochange2 = urltochange.replace("http://www14.smartadserver.com/", "http://creatives.sascdn.com/");  
+}
+if(urltochange.includes(c) === true)
+{
+urltochange2 = urltochange.replace("http://www4.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(d) === true)
+{
+urltochange2 = urltochange.replace("http://www5.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(e) === true)
+{
+urltochange2 = urltochange.replace("http://www6.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(f) === true)
+{
+urltochange2 = urltochange.replace("http://www7.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(g) === true)
+{
+urltochange2 = urltochange.replace("http://www8.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(h) === true)
+{
+urltochange2 = urltochange.replace("http://www9.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(i) === true)
+{
+urltochange2 = urltochange.replace("http://www10.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(j) === true)
+{
+urltochange2 = urltochange.replace("http://www14.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+if(urltochange.includes(k) === true)
+{
+urltochange2 = urltochange.replace("http://www15.smartadserver.com/", "http://creatives.sascdn.com/");
+}
+
+
 document.getElementById('converter').value = urltochange2;
 console.log(urltochange2);                                                                                                
 }
