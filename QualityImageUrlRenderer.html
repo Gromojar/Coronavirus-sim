@@ -78,8 +78,7 @@ var h = "http://www9.smartadserver.com/";
 var i = "http://www10.smartadserver.com/";
 var j = "http://www14.smartadserver.com/";
 var k = "http://www15.smartadserver.com/";
-if(urltochange.includes(zero) === true || urltochange.includes(a) === true || urltochange.includes(b) === true || urltochange.includes(c) === true || urltochange.includes(d) === true || urltochange.includes(e) === true || urltochange.includes(f) === true || urltochange.includes(g) === true || urltochange.includes(h) === true || urltochange.includes(i) === true || urltochange.includes(j) === true || urltochange.includes(k) === true)
-{
+
 if(urltochange.includes(zero) === true)
 {
 urltochange2 = urltochange.replace("http://www.smartadserver.com/", ",http://creatives.sascdn.com/");
@@ -142,7 +141,7 @@ urltochange2 = urltochange.replace("http://www15.smartadserver.com/", ",http://c
 
 }
 }
-if(zmiana = 1)
+if(zmiana === 1)
 {
 document.getElementById('converter').value = urltochange2;
 console.log(urltochange2);    
