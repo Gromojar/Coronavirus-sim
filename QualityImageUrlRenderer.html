@@ -1,0 +1,34 @@
+<style>
+.klasa
+{
+background-color:pink;
+border-radius:10px;
+}
+</style>
+<center>
+<title>Smart Creative Image Renderer</title>
+<div class=klasa><br><br>
+<form action="#" method="post">
+  <textarea class="klasa"  cols=200 rows=30 type="url" name="imglink" id="imglink"  placeholder="Insert image URL here" /></textarea><br>
+  <input type="button" value="Show Image" id="btn1" />
+</form>
+<div id="photo"></div>
+<br>
+</div>
+</center>
+<script>
+document.getElementById('btn1').addEventListener('click', 
+function()
+{
+let globArr = [];
+var arr = document.getElementById('imglink').value;
+globArr = arr.split(",");
+for (let i = 0; i < globArr.length; i++) {
+   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" alt="Image" />';
+}
+console.log(arr);
+
+  
+
+});
+</script>
