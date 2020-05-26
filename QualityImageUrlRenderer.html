@@ -8,7 +8,11 @@ border-radius:10px;
 <center>
 <title>Smart Creative Image Renderer</title>
 <div class=klasa><br><br>
+  <textarea class=klasa" cols=200 rows=30 type="url" name="converter" id="converter"></textarea><br>
+  <input type="button" value="Konwertuj" id="btn3" onclick ="Convertfunction()"/>
+
 <form action="#" method="post">
+  
   <textarea class="klasa"  cols=200 rows=30 type="url" name="imglink" id="imglink"  placeholder="Insert image URL here" /></textarea><br>
   <input type="button" value="Show Image" id="btn1" />
   <input type="button" value="Clear" id="btn2" onclick="Clearfunction()"/>
@@ -42,3 +46,10 @@ document.getElementById('photo').innerHTML = "";
 document.getElementById('imglink').value = "";
   }
 </script>
+<script>
+function Convertfunction()
+{
+var urltochange = document.getElementById('converter').value;
+urltochange = urltochange.replace("http://www3.smartadserver.com/", "http://creatives.sascdn.com/");
+urltochange = document.getElementById('converter').value;                                                                                                
+}
