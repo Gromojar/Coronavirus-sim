@@ -55,7 +55,7 @@ TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY 
   <label>CREATIVE IMAGE RENDERER</label><br><br>
 <form action="#" method="post">
   
-  <textarea class="klasa"  cols=200 rows=20 type="url" name="imglink" id="imglink"  placeholder="Insert CONVERTED old creative image URL here, separated by comma (,) like // http://creatives.sascdn.com/ //" /></textarea><br>
+  <textarea class="klasa"  cols=200 rows=20 type="url" name="imglink" id="imglink"  placeholder="Insert CONVERTED old creative image URL here, WITH HTTP:// like // http://creatives.sascdn.com/ //" /></textarea><br>
   <input type="button" class="btn1" value="Show Image" id="btn1" />&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="button" class="btn1" value="Clear" id="btn2" onclick="Clearfunction()"/>
 </form>
@@ -78,9 +78,11 @@ function()
 if(document.getElementById('imglink').value != "")
 {
 let globArr = [];
+var sarr = document.getElementById('imglink').value;
 
-var arr = document.getElementById('imglink').value;
+arr = sarr.replace(/http/g,',http');
 globArr = arr.split(",");
+
 for (let i = 0; i < globArr.length; i++) {
    document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" alt="Image" />';
 }
@@ -105,6 +107,8 @@ function Convertfunction()
 var urltochange = document.getElementById('converter').value;
 var urltochange2;
 var zmiana = 0;
+var przecinek = ",";
+var http = "http";
 var zero = "http://www.smartadserver.com/";
 var a = "http://www2.smartadserver.com/";
 var b = "http://www3.smartadserver.com/";
@@ -118,71 +122,113 @@ var i = "http://www10.smartadserver.com/";
 var j = "http://www14.smartadserver.com/";
 var k = "http://www15.smartadserver.com/";
 var l = "http://smart.styria-digital.com/";
+var m = "http://diff.smartadserver.com/";
+var n = "http://mobile.smartadserver.com/";
+var o = "http://ww86.smartadserver.com/";
+var p = "http://ww946.smartadserver.com/";
+var r = "http://ww691.smartadserver.com/";
+var s = "http://ww690.smartadserver.com/";
+var t = "http://ww488.smartadserver.com/";
 
 if(urltochange.includes(zero) === true)
 {
-urltochange2 = urltochange.replace("http://www.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(a) === true)
 {
-urltochange2 = urltochange.replace("http://www2.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www2.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(b) === true)
 {
-urltochange2 = urltochange.replace("http://www3.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www3.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(c) === true)
 {
-urltochange2 = urltochange.replace("http://www4.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www4.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(d) === true)
 {
-urltochange2 = urltochange.replace("http://www5.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www5.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(e) === true)
 {
-urltochange2 = urltochange.replace("http://www6.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www6.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(f) === true)
 {
-urltochange2 = urltochange.replace("http://www7.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www7.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(g) === true)
 {
-urltochange2 = urltochange.replace("http://www8.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www8.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(h) === true)
 {
-urltochange2 = urltochange.replace("http://www9.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www9.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(i) === true)
 {
-urltochange2 = urltochange.replace("http://www10.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www10.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(j) === true)
 {
-urltochange2 = urltochange.replace("http://www14.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www14.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 if(urltochange.includes(k) === true)
 {
-urltochange2 = urltochange.replace("http://www15.smartadserver.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/www15.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 
 }
 if(urltochange.includes(l) === true)
 {
-urltochange2 = urltochange.replace("http://smart.styria-digital.com/", ",http://creatives.sascdn.com/");
+urltochange2 = urltochange.replace(/smart.styria-digital.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(m) === true)
+{
+urltochange2 = urltochange.replace(/diff.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(n) === true)
+{
+urltochange2 = urltochange.replace(/mobile.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(o) === true)
+{
+urltochange2 = urltochange.replace(/ww86.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(p) === true)
+{
+urltochange2 = urltochange.replace(/http://ww946.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(r) === true)
+{
+urltochange2 = urltochange.replace(/http://ww691.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(s) === true)
+{
+urltochange2 = urltochange.replace(/http://ww690.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(t) === true)
+{
+urltochange2 = urltochange.replace(/http://ww488.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 
@@ -191,6 +237,7 @@ if(zmiana === 1)
 document.getElementById('converter').value = urltochange2;
 console.log(urltochange2);    
 }
+
 }
  </script>
 <script>
