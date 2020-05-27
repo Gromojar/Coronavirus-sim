@@ -37,7 +37,12 @@ color:white;
     background-color: red;
 color:white;
   }
-
+.supported
+{
+position:absolute;
+opacity:0.5;
+border-radius:10px;
+}
 
 </style>
 <center>
@@ -45,7 +50,32 @@ color:white;
 TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE&nbsp;&nbsp;<input type="button" class="susu" value="x" onclick="Collapse()"/>
 </div>
 <title>Smart Creative Image Renderer</title>
-
+<div class="supported" id="warning2">
+  <h6>Urls currently supported by the tool:</h6><input type="button" class="susu2" value="x" onclick="Collapse2()"/>
+<p>http://www.smartadserver.com</p>
+<p>http://www2.smartadserver.com</p>
+<p>http://www3.smartadserver.com</p>
+<p>http://www4.smartadserver.com</p>
+<p>http://www5.smartadserver.com</p>
+<p>http://www6.smartadserver.com</p>
+<p>http://www7.smartadserver.com</p>
+<p>http://www8.smartadserver.com</p>
+<p>http://www9.smartadserver.com</p>
+<p>http://www10.smartadserver.com</p>
+<p>http://www14.smartadserver.com</p>
+<p>http://www15.smartadserver.com</p>
+<p>http://smart.styria-digital.com</p>
+<p>http://diff.smartadserver.com</p>
+<p>http://mobile.smartadserver.com</p>
+<p>http://ww86.smartadserver.com</p>
+<p>http://ww946.smartadserver.com</p>
+<p>http://ww691.smartadserver.com</p>
+<p>http://ww690.smartadserver.com</p>
+<p>http://ww488.smartadserver.com</p>
+<p>http://smart.idealista.it</p>
+<p>http://smart.idealista.com</p>
+<p>http://ww1.smartadserver.com</p>
+</div>
 <div class=klasa><br><br>
   <label>URL CONVERTER</label><br>
   <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like // http://www.smartadserver.com/ //"></textarea><br>
@@ -69,6 +99,10 @@ TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY 
 function Collapse()
   {
 document.getElementById("warning").outerHTML = "";
+  }
+  function Collapse2()
+  {
+document.getElementById("warning2").outerHTML = "";
   }
 </script>
 <script>
