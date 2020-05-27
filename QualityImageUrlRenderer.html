@@ -129,6 +129,8 @@ var p = "http://ww946.smartadserver.com/";
 var r = "http://ww691.smartadserver.com/";
 var s = "http://ww690.smartadserver.com/";
 var t = "http://ww488.smartadserver.com/";
+var u = "http://smart.idealista.it/";
+var w = "http://smart.idealista.com/";
 
 if(urltochange.includes(zero) === true)
 {
@@ -229,6 +231,16 @@ urltochange2 = urltochange.replace(/http://ww690.smartadserver.com/g, "creatives
 if(urltochange.includes(t) === true)
 {
 urltochange2 = urltochange.replace(/http://ww488.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(u) === true)
+{
+urltochange2 = urltochange.replace(/http://smart.idealista.it/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(w) === true)
+{
+urltochange2 = urltochange.replace(/http://smart.idealista.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
 
