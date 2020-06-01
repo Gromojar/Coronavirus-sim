@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<style>
+.result
+{
+width:64%;
+margin-right: 5px;
+}
+#site
+{
+width:64%;
+}
+.button {
+    margin: 5px 20px;
+    color: white !important;
+    text-transform: uppercase;
+    text-decoration: none;
+	border width:none;
+    background: blue;
+    padding: 15px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: lightgreen;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+</style>
+<html>
+<body>
+			<p>ADT (Adult Content): must be 750+</p>
+			<p>DLM (Downloads and Piracy): must be 1000</p>
+			<p>DRG (Drugs): must be 750+</p>
+			<p>ALC (Alcohol): must be 600+</p>
+			<p>HAT (Hate Speech): must be 1000</p>
+			<p>VIO (Violence): must be 750+</p>
+			<p>OFF (Offensive language): must be 750+</p>
+			<p>SAM (Bots): must be 1000 (if lower, hold back for a few days and then re-check)</p>
+			<p>TRAQ (General Quality): must be 500+ (if lower, will require deeper review)</p>
+<input type="text" id="site" placeholder="Input home page naked URL here (example: google.com)"/>
+<button class="button" onclick="Skanuj()">Go</button><br><br>
+<iframe class="result" id="result" src = ""></iframe>
+
+</body>
+</html>
+<script>
+function Skanuj()
+{
+var arr;
+var frame;
+var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=" + document.getElementById("site").value;
+
+document.getElementById("result").src = text;
+frame = document.getElementById("result").text;
+}
+</script>
