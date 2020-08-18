@@ -59,19 +59,15 @@ if(mydata.bsc.adt <= 800)
 {
 document.getElementById("result").innerHTML = "PORN WEBSITE";
 }
+else
+{
+document.getElementById("result").innerHTML = "OK!";
+}
 }
 </script>
 <html>
 <body>
-			<p>ADT (Adult Content): must be 750+</p>
-			<p>DLM (Downloads and Piracy): must be 1000</p>
-			<p>DRG (Drugs): must be 750+</p>
-			<p>ALC (Alcohol): must be 600+</p>
-			<p>HAT (Hate Speech): must be 1000</p>
-			<p>VIO (Violence): must be 750+</p>
-			<p>OFF (Offensive language): must be 750+</p>
-			<p>SAM (Bots): must be 1000 (if lower, hold back for a few days and then re-check)</p>
-			<p>TRAQ (General Quality): must be 500+ (if lower, will require deeper review)</p>
+			
 <input type="text" id="site" placeholder="Input home page naked URL here (example: google.com)"/>
 <button class="button" onclick="Skanuj()">Go</button><br><br>
 <div class="result" id="result"></div>
