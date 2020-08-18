@@ -52,6 +52,8 @@ document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
 
 request.open('GET', text, true);  // `false` makes the request synchronous
+request.onload = function () {}
+
 request.send();
 }
 }
