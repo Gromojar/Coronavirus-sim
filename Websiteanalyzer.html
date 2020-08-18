@@ -1,38 +1,11 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
-.result
+.container
 {
-width:64%;
-margin-right: 5px;
-}
-#site
-{
-width:64%;
-}
-.button {
-    margin: 5px 20px;
-    color: white !important;
-    text-transform: uppercase;
-    text-decoration: none;
-	border width:none;
-    background: blue;
-    padding: 15px;
-    border-radius: 50px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
+	text-align: center;
 }
 
-.button:hover {
-    cursor: pointer;
-    background: lightgreen;
-    letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.4s ease 0s;
-}
 </style>
 <script>
 var request = new XMLHttpRequest();
@@ -88,10 +61,11 @@ document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 <div class=container align="center">
 <div class="card text-white bg-primary mb-3" style="max-width: 70%;">
   <div class="card-header">Website analyser</div>
+<br><br>
 <input type="text" id="site" placeholder="Input home page naked URL here (example: google.com)"/>
 <br><br>
 <button class="btn btn-primary" onclick="Skanuj()">Scan</button><br><br>
-<br><br>
+
 <div class="result" id="result"></div>
 </div>
 	</div>
