@@ -52,8 +52,10 @@ request.open('GET', text, false);  // `false` makes the request synchronous
 request.onload = function () {}
 
 request.send();
-}
+var mydata = JSON.parse(request.response);
 
+console.log(mydata.bsc.adt);
+}
 </script>
 <html>
 <body>
