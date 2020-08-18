@@ -53,6 +53,8 @@ width:64%;
 </html>
 <script>
 var request = new XMLHttpRequest();
+var mydata;
+var adt;
 function Skanuj()
 {
 
@@ -66,5 +68,7 @@ request.onload = function () {
 request.send();
 document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
+mydata = JSON.parse(request.response);
+adt = mydata.adt;
 }
 </script>
