@@ -63,12 +63,14 @@ var frame;
 var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=" + document.getElementById("site").value;
 request.open('GET', text, true)
 request.onload = function () {
-
+(async () => {
+  const res = await fetch(`text`);
+  const json = await res.json();
+  console.log(json);
+})();
 }
 request.send();
 document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
-mydata = JSON.parse(request.response);
-adt = mydata.adt;
 }
 </script>
