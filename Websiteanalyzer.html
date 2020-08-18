@@ -40,7 +40,6 @@ var mydata;
 var adt;
 function Skanuj()
 {
-var request = new XMLHttpRequest();
 var mydata;
 var adt;
 function Skanuj()
@@ -54,10 +53,6 @@ frame = document.getElementById("result").text;
 
 request.open('GET', text, true);  // `false` makes the request synchronous
 request.send();
-
-if (request.status === 200) {
-  console.log(request.responseText);
-}
 }
 }
 </script>
