@@ -66,12 +66,14 @@ function Skanuj()
 var arr;
 var frame;
 var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=" + document.getElementById("site").value;
-async () => {
-  const res = await fetch(`text`);
-  const json = await res.json();
-  console.log(json);
-}
 document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
+
+request.open('GET', text, false);  // `false` makes the request synchronous
+request.send(null);
+
+if (request.status === 200) {
+  console.log(request.responseText);
+}
 }
 </script>
