@@ -53,7 +53,7 @@ document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
 
 request.open('GET', text, false);  // `false` makes the request synchronous
-request.send(null);
+request.send();
 
 if (request.status === 200) {
   console.log(request.responseText);
