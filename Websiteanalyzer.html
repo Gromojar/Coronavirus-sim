@@ -51,7 +51,7 @@ var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_u
 document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
 
-request.open('GET', text, true);  // `false` makes the request synchronous
+request.open('GET', 'https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=', true);  // `false` makes the request synchronous
 request.onload = function () {}
 
 request.send();
