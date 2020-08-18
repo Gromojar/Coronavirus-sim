@@ -57,7 +57,11 @@ function Skanuj()
 var arr;
 var frame;
 var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=" + document.getElementById("site").value;
+request.open('GET', text, true)
+request.onload = function () {
 
+}
+request.send();
 document.getElementById("result").src = text;
 frame = document.getElementById("result").text;
 }
