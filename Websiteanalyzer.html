@@ -60,6 +60,16 @@ if(mydata.bsc.dlm == undefined)
 document.getElementById("result").innerHTML = "NO DATA";
 document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
 }
+document.getElementById("result").innerHTML = "Site info";
+document.getElementById("result").innerHTML += "<br><br>";
+if(mydata.bsc.adt <= 750)
+{
+document.getElementById("result").innerHTML += "Adult score =" + mydata.bsc.adt + " - PIRACY!"
+}
+if(mydata.bsc.adt > 750)
+{
+document.getElementById("result").innerHTML += "Adult score =" + mydata.bsc.adt + " - OK!"
+}
 }
 </script>
 <html>
