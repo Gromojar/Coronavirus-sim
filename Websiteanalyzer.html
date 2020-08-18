@@ -51,6 +51,10 @@ if(mydata.bsc.adt >= 750 && mydata.bsc.dlm >= 1000)
 {
 document.getElementById("result").className = "p-3 mb-2 bg-success text-white"; 	
 }
+if(mydata.bsc.adt == undefined && mydata.bsc.dlm == undefined)
+{
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 	
+}
 /* if(mydata.bsc.adt == undefined)
 {
 document.getElementById("result").innerHTML = "NO DATA";
@@ -74,6 +78,10 @@ document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 */
 document.getElementById("result").innerHTML = "Site info";
 document.getElementById("result").innerHTML += "<br><br>";
+if(mydata.bsc.dlm == undefined && mydata.bsc.adt == undefined)
+{
+document.getElementById("result").innerHTML += "NO DATA!"
+}
 if(mydata.bsc.adt <= 750)
 {
 document.getElementById("result").innerHTML += "Adult score =" + mydata.bsc.adt + " - PORN WEBSITE!"
@@ -91,6 +99,7 @@ if(mydata.bsc.dlm >= 1000)
 {
 document.getElementById("result").innerHTML += "Piracy score =" + mydata.bsc.dlm + " - OK!"
 }
+
 }
 </script>
 <html>
