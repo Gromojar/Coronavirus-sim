@@ -58,6 +58,8 @@ console.log(mydata.bsc.adt);
 if(mydata.bsc.adt <= 800)
 {
 document.getElementById("result").innerHTML = "PORN WEBSITE";
+document.getElementById("result").className = "p-3 mb-2 bg-danger text-white"; 
+	
 }
 if(mydata.bsc.adt == undefined)
 {
@@ -70,6 +72,7 @@ document.getElementById("result").innerHTML = "OK!";
 if(mydata.bsc.dlm < 1000)
 {
 document.getElementById("result").innerHTML = "PIRACY";
+document.getElementById("result").className = "p-3 mb-2 bg-danger text-white"; 
 }
 if(mydata.bsc.dlm == undefined)
 {
