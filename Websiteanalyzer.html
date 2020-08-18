@@ -34,13 +34,19 @@ request.send();
 var mydata = JSON.parse(request.response);
 
 console.log(mydata.bsc.adt);
-if(mydata.bsc.adt <= 800)
+if(mydata.bsc.adt <= 750 || mydata.bsc.dlm < 1000)
 {
-document.getElementById("result").innerHTML = "PORN WEBSITE";
-document.getElementById("result").className = "p-3 mb-2 bg-danger text-white"; 
-	
+document.getElementById("result").className = "p-3 mb-2 bg-danger text-white"; 	
 }
 if(mydata.bsc.adt == undefined)
+{
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
+}
+if(mydata.bsc.dlm == undefined)
+{
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
+}
+/* if(mydata.bsc.adt == undefined)
 {
 document.getElementById("result").innerHTML = "NO DATA";
 document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
@@ -60,15 +66,25 @@ if(mydata.bsc.dlm == undefined)
 document.getElementById("result").innerHTML = "NO DATA";
 document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
 }
+*/
 document.getElementById("result").innerHTML = "Site info";
 document.getElementById("result").innerHTML += "<br><br>";
 if(mydata.bsc.adt <= 750)
 {
-document.getElementById("result").innerHTML += "Adult score =" + mydata.bsc.adt + " - PIRACY!"
+document.getElementById("result").innerHTML += "Adult score =" + mydata.bsc.adt + " - PORN WEBSITE!"
 }
 if(mydata.bsc.adt > 750)
 {
 document.getElementById("result").innerHTML += "Adult score =" + mydata.bsc.adt + " - OK!"
+}
+document.getElementById("result").innerHTML += "<br><br>";
+if(mydata.bsc.dlm < 1000)
+{
+document.getElementById("result").innerHTML += "Piracy score =" + mydata.bsc.dlm + " - PIRACY!"
+}
+if(mydata.bsc.dlm >= 1000)
+{
+document.getElementById("result").innerHTML += "Piracy score =" + mydata.bsc.dlm + " - OK!"
 }
 }
 </script>
