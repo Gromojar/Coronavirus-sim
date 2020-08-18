@@ -45,8 +45,8 @@ var adt;
 var arr;
 var frame;
 var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=" + document.getElementById("site").value;
-document.getElementById("result").src = text;
-frame = document.getElementById("result").text;
+
+
 
 request.open('GET', text, false);  // `false` makes the request synchronous
 request.onload = function () {}
@@ -55,6 +55,10 @@ request.send();
 var mydata = JSON.parse(request.response);
 
 console.log(mydata.bsc.adt);
+if(mydata.bsc.adt <= 800)
+{
+document.getElementById("result").innerHTML = "PORN WEBSITE";
+}
 }
 </script>
 <html>
@@ -70,7 +74,8 @@ console.log(mydata.bsc.adt);
 			<p>TRAQ (General Quality): must be 500+ (if lower, will require deeper review)</p>
 <input type="text" id="site" placeholder="Input home page naked URL here (example: google.com)"/>
 <button class="button" onclick="Skanuj()">Go</button><br><br>
-<iframe class="result" id="result" src = ""></iframe>
+<div class="result" id="result"></div>
+
 
 </body>
 </html>
