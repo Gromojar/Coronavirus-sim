@@ -5,7 +5,7 @@
 .container
 {
 
-	
+
 }
 input
 {
@@ -15,7 +15,9 @@ input
 </style>
 <script>
 var request = new XMLHttpRequest();
+var request2 = new XMLHttpRequest();
 var mydata;
+var mydata2;
 var adt;
 function Skanuj()
 {
@@ -24,56 +26,59 @@ var adt;
 var arr;
 var frame;
 var text = "https://api.adsafeprotected.com/db2/client/28824/itgrl.json?adsafe_url=" + document.getElementById("site").value;
+var text2 = "https://staging.redvolcano.uk/api/verifyDomains.php?apikey=qxeGKnA4YgoOxwB9xEbaqWgJ54gRqQFgtGyqai1F&body=" + '["' + document.getElementById("site").value + '"]'
 
 
-
-request.open('GET', text, false);  // `false` makes the request synchronous
+request.open('GET', text, false);
+request2.open('GET', text2, false); // `false` makes the request synchronous
 request.onload = function () {}
-
+request2.onload = function () {}
 request.send();
+request2.send();
 var mydata = JSON.parse(request.response);
+var mydata2 = JSON.parse(request2.response);
 
 console.log(mydata.bsc.adt);
 if(mydata.bsc.adt <= 750 || mydata.bsc.dlm < 1000)
 {
-document.getElementById("result").className = "p-3 mb-2 bg-danger text-white"; 	
+document.getElementById("result").className = "p-3 mb-2 bg-danger text-white";
 }
 /*if(mydata.bsc.adt == undefined)
 {
-document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 }
 if(mydata.bsc.dlm == undefined)
 {
-document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 }
 */
 if(mydata.bsc.adt >= 750 && mydata.bsc.dlm >= 1000)
 {
-document.getElementById("result").className = "p-3 mb-2 bg-success text-white"; 	
+document.getElementById("result").className = "p-3 mb-2 bg-success text-white";
 }
 if(mydata.bsc.adt == undefined && mydata.bsc.dlm == undefined)
 {
-document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 	
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 }
 /* if(mydata.bsc.adt == undefined)
 {
 document.getElementById("result").innerHTML = "NO DATA";
-document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 }
 if(mydata.bsc.adt > 800)
 {
 document.getElementById("result").innerHTML = "OK!";
-document.getElementById("result").className = "p-3 mb-2 bg-success text-white"; 
+document.getElementById("result").className = "p-3 mb-2 bg-success text-white";
 }
 if(mydata.bsc.dlm < 1000)
 {
 document.getElementById("result").innerHTML = "PIRACY";
-document.getElementById("result").className = "p-3 mb-2 bg-danger text-white"; 
+document.getElementById("result").className = "p-3 mb-2 bg-danger text-white";
 }
 if(mydata.bsc.dlm == undefined)
 {
 document.getElementById("result").innerHTML = "NO DATA";
-document.getElementById("result").className = "p-3 mb-2 bg-info text-white"; 
+document.getElementById("result").className = "p-3 mb-2 bg-info text-white";
 }
 */
 document.getElementById("result").innerHTML = "Site info";
@@ -119,4 +124,3 @@ document.getElementById("result").innerHTML += "Piracy score =" + mydata.bsc.dlm
 	</center>
 </body>
 </html>
-
