@@ -121,11 +121,11 @@ globArr = arr.split(",");
 for (let i = 0; i < globArr.length; i++) {
    if(globArr[i].includes(mp4) === true)
    {
-   document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] +'" <br><br>';
+   document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] +'" <br><br><h1>---</h1><br><br>';
    }
   else
   {
-   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" <br><br>';
+   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" <br><br><h1>---</h1><br><br>' ;
   }
 }
 console.log(arr);
