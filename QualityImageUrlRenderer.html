@@ -112,7 +112,7 @@ function()
 {
 if(document.getElementById('imglink').value != "")
 {
-var count = 0;
+var count = 1;
 let globArr = [];
 var sarr = document.getElementById('imglink').value;
 var mp4 = "mp4";
@@ -122,12 +122,12 @@ globArr = arr.split(",");
 for (let i = 0; i < globArr.length; i++) {
    if(globArr[i].includes(mp4) === true)
    {
-   document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] +'" <br><br>' + count;
+   document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] +'" <br><br>' + count + ". <br><br>";
      count = count+1;
    }
   else
   {
-   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" <br><br> ' + count;
+   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" <br><br> ' + count + ". <br><br>";
     count = count+1;
   }
 }
