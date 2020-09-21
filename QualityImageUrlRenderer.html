@@ -124,7 +124,7 @@ for (let i = 0; i < globArr.length; i++) {
    if(globArr[i].includes(mp4) === true)
    {
    document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] + '"</video>"';
-   document.getElementById('photo').innerHTML += '"<br><br>"' + count + ". <br><br>";
+   document.getElementById('photo').innerHTML += "'<br><br>'" + count + "'. <br><br>'";
      count = count+1;
    }
   else
