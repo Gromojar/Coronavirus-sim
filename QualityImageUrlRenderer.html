@@ -2,8 +2,8 @@
 <style>
 .klasa
 {
-background-color:pink;
 border-radius:10px;
+  width: 80%;
 }
   .btn1
   {
@@ -32,30 +32,22 @@ transform:scale(1.1);
 {
 margin-left:auto;
 margin-right:auto;
-  animation: pulse 3s infinite;
-  width:50%;
+  width:100%;
 text-align:center;
-
-background-color:orange;
+color:white;
+background-color:gray;
 border-radius:10px;
 }
-  @keyframes pulse {
-  0% {
-    background-color: orange;
-color:white;
-  }
-  100% {
-    background-color: red;
-color:white;
-  }
+
 
 
 </style>
 <center>
 <div class="yellow" id="warning">
-TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE&nbsp;&nbsp;<input type="button" class="susu" value="x" onclick="Collapse()"/>
+TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="susu" value="x" onclick="Collapse()"/>
 </div>
 <title>Smart Creative Image Renderer</title>
+  <center><h1>Smart Creative Image Renderer</h1></center>
 <div class="supported" id="warning2">
   <input type="button" class="susu2" value="x" onclick="Collapse2()"/>
   <h5>Urls currently supported by the convert tool:</h5>
@@ -82,10 +74,11 @@ TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY 
 <p>http://smart.idealista.it</p>
 <p>http://smart.idealista.com</p>
 <p>http://ww1.smartadserver.com</p>
+<p>http://www17.smartadserver.com</p>
 </div>
 <div class=klasa><br><br>
   <label>URL CONVERTER</label><br>
-  <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like // http://www.smartadserver.com/ //"></textarea><br>
+  <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like http://www.smartadserver.com/ "></textarea><br>
 <input type="button" class="btn1" value="Convert!" onclick="Convertfunction()"/>&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="button" class="btn1" value="Copy down" onclick="Copydown()"/><br>
 <h5>Be sure to click CONVERT several times to be sure that all of the supported links were converted</h5>
@@ -120,23 +113,27 @@ function()
 {
 if(document.getElementById('imglink').value != "")
 {
+var count = 1;
 let globArr = [];
 var sarr = document.getElementById('imglink').value;
-var mp4 = "mp4";
+var mp4 = ".mp4";
 arr = sarr.replace(/http/g,',http');
 globArr = arr.split(",");
 
 for (let i = 0; i < globArr.length; i++) {
    if(globArr[i].includes(mp4) === true)
    {
-   document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] +'" alt="Image" <br><br>/>';
+   document.getElementById('photo').innerHTML += '<video width="320" height="240" controls><source src="'+ globArr[i] + '"</video>"';
+   document.getElementById('photo').innerHTML += "'<br><br>'" + count + "'. <br><br>'";
+     count = count+1;
    }
   else
   {
-   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" alt="Image" <br><br>/>';
+   document.getElementById('photo').innerHTML += '<img src="'+ globArr[i] +'" <br><br> ' + count + ". <br><br>";
+    count = count+1;
   }
 }
-console.log(arr);
+document.getElementById('photo').innerHTML += '<input type="button" class="btn1" value="Clear" id="btn2" onclick="Clearfunction()"/>';
 }
   
 
@@ -182,6 +179,7 @@ var t = "http://ww488.smartadserver.com/";
 var u = "http://smart.idealista.it/";
 var w = "http://smart.idealista.com/";
 var z = "http://ww1.smartadserver.com/"
+var x = "http://www17.smartadserver.com/"
 
 if(urltochange.includes(zero) === true)
 {
@@ -299,11 +297,15 @@ if(urltochange.includes(z) === true)
 urltochange2 = urltochange.replace(/ww1.smartadserver.com/g, "creatives.sascdn.com");
   zmiana = 1;
 }
+if(urltochange.includes(x) === true)
+{
+urltochange2 = urltochange.replace(/www17.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
 
 if(zmiana === 1)
 {
-document.getElementById('converter').value = urltochange2;
-console.log(urltochange2);    
+document.getElementById('converter').value = urltochange2; 
 }
 
 }
