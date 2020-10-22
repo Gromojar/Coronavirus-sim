@@ -15,13 +15,12 @@ border-width:0;
   }
   .supported
 {
-padding-left:10px;
-padding-right:10px;
-position:absolute;
+width:50vw;
 font-size:12px;
 background-color:gray;
 color:white;
 border-radius:10px;
+display:none;
 }
 .btn1:hover
 {
@@ -66,13 +65,28 @@ border-radius:10px;
     </ul>
   </div>
 </nav>
-<div class="yellow" id="warning">
+
+
+</div>
+
+<title>Smart Creative Image Renderer</title>
+<div class="text-black bg-light">
+  <div class="card-header">Smart Creative Image Renderer</div>
+<div class="alert alert-info" id="warning">
 TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="susu" value="x" onclick="Collapse()"/>
 </div>
-<title>Smart Creative Image Renderer</title>
-  <center><h1>Smart Creative Image Renderer</h1></center>
-<div class="supported" id="warning2">
-  <input type="button" class="susu2" value="x" onclick="Collapse2()"/>
+</div>
+<div class=klasa><br><br>
+  <label>URL CONVERTER</label><br>
+  <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like http://www.smartadserver.com/ "></textarea><br>
+<input type="button" class="btn btn-secondary" value="Convert!" onclick="Convertfunction()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" class="btn btn-secondary" value="Copy down" onclick="Copydown()"/><br>
+<h5>Be sure to click CONVERT several times to be sure that all of the supported links were converted</h5>
+<h5>Links hosted on the other than Smart server are also supported, and the creatives will be displayed</h5>
+<h6>Please note that not all urls are currently supported. If thats the case, you have to convert it manually.</h6>
+<input type="button" class="btn btn-secondary" value="Show supported urls" onclick="Collapse2()"/></button>
+<div class="supported" id="warning3">
+  <input type="button" class="alert alert-info" value="x" onclick="Collapse3()"/>
   <h5>Urls currently supported by the convert tool:</h5>
 <p>http://www.smartadserver.com</p>
 <p>http://www2.smartadserver.com</p>
@@ -99,20 +113,13 @@ TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY 
 <p>http://ww1.smartadserver.com</p>
 <p>http://www17.smartadserver.com</p>
 </div>
-<div class=klasa><br><br>
-  <label>URL CONVERTER</label><br>
-  <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like http://www.smartadserver.com/ "></textarea><br>
-<input type="button" class="btn1" value="Convert!" onclick="Convertfunction()"/>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" class="btn1" value="Copy down" onclick="Copydown()"/><br>
-<h5>Be sure to click CONVERT several times to be sure that all of the supported links were converted</h5>
-<h5>Links hosted on the other than Smart server are also supported, and the creatives will be displayed</h5>
-<h6>Please note that not all urls are currently supported. If thats the case, you have to convert it manually.</h6>
+<br>
   <label>CREATIVE IMAGE RENDERER</label><br><br>
 <form action="#" method="post">
   
-  <textarea class="klasa"  cols=200 rows=20 type="url" name="imglink" id="imglink"  placeholder="Insert CONVERTED old creative image URL here, WITH HTTP:// like // http://creatives.sascdn.com/ //" /></textarea><br>
-  <input type="button" class="btn1" value="Show Image" id="btn1" />&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="button" class="btn1" value="Clear" id="btn2" onclick="Clearfunction()"/>
+  <textarea class="klasa"  cols=200 rows=10 type="url" name="imglink" id="imglink"  placeholder="Insert CONVERTED old creative image URL here, WITH HTTP:// like // http://creatives.sascdn.com/ //" /></textarea><br>
+  <input type="button" class="btn btn-secondary" value="Show Image" id="btn1" />&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" class="btn btn-secondary" value="Clear" id="btn2" onclick="Clearfunction()"/>
 </form>
 <div id="photo"></div>
 <br>
@@ -127,7 +134,18 @@ document.getElementById("warning").outerHTML = "";
   }
   function Collapse2()
   {
-document.getElementById("warning2").outerHTML = "";
+  if(document.getElementById("warning3").style.display === "none")
+  {
+document.getElementById("warning3").style.display = "block";
+}
+else
+{
+document.getElementById("warning3").style.display = "none";
+}
+  }
+    function Collapse3()
+  {
+document.getElementById("warning3").style.display = "none";
   }
 </script>
 <script>
