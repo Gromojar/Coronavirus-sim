@@ -83,6 +83,8 @@ var Domains;
 var sr;
 var dr;
 var ar;
+var mr;
+var jr;
 var i = 0;
 function funkcja() {
 console.log("dupa");
@@ -90,12 +92,14 @@ Domains = document.getElementById("asd").value;
 sr = Domains.split(/\n|,/g);
 dr = sr.map(v => v.replace(' ',''));
 ar = dr.map(v => v.toLowerCase());
+mr = ar.map(v => v.replace('http://',''));
+jr = mr.map(v => v.replace('https://',''));
 
  
 
-for (i; i < ar.length; i++)
+for (i; i < jr.length; i++)
 {
-window.open("http://" + ar[i], '_blank');
+window.open("http://" + jr[i], '_blank');
 }
 i = 0;
 }
