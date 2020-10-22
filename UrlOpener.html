@@ -18,6 +18,14 @@ width:10%;
 
 
 }
+.inline-div {
+    display:inline-block;
+}
+.inline-txtarea {
+    resize: none;
+
+}
+
 </style>
 <body>
 <title>Url Opener</title>
@@ -48,9 +56,18 @@ width:10%;
 <div class="Kontener">
 <h3>Url Opener</h1>
 <br><br>
-<label for="asd">List to open</label>
+
+
+
 <br>
-<textarea rows="15" cols="100" id="asd" name="asd"></textarea><br><br>
+<div class="inline-div">
+    <p align="center">Your domains to check</p>
+    <textarea cols="30" rows="15" class="inline-txtarea"></textarea>
+</div>
+<div class="inline-div">
+<p align="center">List to open</p>
+    <textarea rows="15" cols="100" id="asd" class="inline-txtarea"></textarea>
+</div>
 
 <p>Remember to allow popup windows in chrome!</p>
 <button class="btn btn-light" onclick="funkcja()">Check</button>
