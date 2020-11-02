@@ -1,0 +1,19 @@
+*
+{
+    box-sizing: border-box;
+}
+.pss
+{
+    width:100%;
+}
+.container
+{
+    align-content:center;
+    justify-content: center;
+    align-items:center;
+}
+input
+{
+    text-align: center;
+    align-items:center;
+}
