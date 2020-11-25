@@ -114,7 +114,7 @@ fetch(url).then(r => r.json(). then(j=>
   console.log(r.status);
   console.log('REQUEST',j);
   setTimeout(1);
- document.getElementById("wynik").innerHTML += j.bsc.dlm + "<br><br>" ;
+ document.getElementById("wynik").innerHTML += j.bsc.dlm + " " + sr[ii] + "<br><br>" ;
  if(ii <= jr.length)ii++;
   if(j.bsc.dlm < 1000)
   {
