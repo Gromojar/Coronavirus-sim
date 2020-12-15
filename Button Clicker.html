@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+html
+{
+    height:100vh;
+}
+        body
+        {
+            box-sizing:border-box;
+
+
+            background: rgb(122,220,250);
+background: linear-gradient(128deg, rgba(122,220,250,1) 0%, rgba(188,119,252,1) 58%);
+        }
+        button
+        {
+            background-color:white;
+            outline:none !important;
+            border-width:1px;
+            width:100px;
+            height:50px;
+            z-index:2;
+            text-align:center;
+            font-size:1em;
+            user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        }
+        h1
+        {
+text-align:center;
+z-index:1;
+        }
+
+    </style>
+            <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button clicker</title>
+    <script>
+        var vari;
+        var counter = 0;
+   function rand()
+   {
+    var width = $(window).width() -100; 
+    var height = $(window).height() -100; 
+       var vari = "translateX(" + getRandomInt(0,width) + "px)";
+       var vari2 = "translateY(" + getRandomInt(0,height) + "px)";
+       
+       console.log(vari);
+      document.getElementById("btn").style.transform = vari + vari2;
+      document.getElementById("btn").style.width = getRandomInt(10,width/5) + "px";
+      document.getElementById("btn").style.height = getRandomInt(10,height/5) + "px";
+      document.getElementById("btn").style.borderRadius = getRandomInt(1,100) + "px";
+      counter++;
+      document.getElementById("counter").innerHTML = counter;
+   }
+   
+   function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); 
+}
+
+    
+    </script>
+</head>
+<body>
+    <h1 id="counter">0</h1>
+    <button id="btn" onclick="rand()">Click me!</button>
+    </div>
+</body>
+</html>
