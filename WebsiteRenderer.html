@@ -175,7 +175,8 @@ globArr = sarr.split(",");
 for (let i = 0; i < globArr.length; i++) {
    
 {
-   document.getElementById('photo').innerHTML += '<iframe width="500" height="500" is="x-frame-bypass" src="'+ globArr[i] +' " </iframe><br><br> ' + count + ". <br><br>";
+   document.getElementById('photo').innerHTML += '<iframe width="1000" height="1000" src="'+ globArr[i] +' " </iframe><br><br> ' + count + ". <br><br>";
+    
     count = count+1;
   }
 }
@@ -363,5 +364,3 @@ function Copydown()
       document.getElementById('imglink').value = document.getElementById('converter').value;
   }
 </script>
-
-
