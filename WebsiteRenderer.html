@@ -1,0 +1,364 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.klasa
+{
+border-radius:10px;
+  width: 80%;
+}
+  .btn1
+  {
+background-color:black;
+width:10vw;
+color:white;
+transition: 0.5s;
+border-width:0;
+  }
+  .supported
+{
+width:50vw;
+font-size:12px;
+border-radius:10px;
+display:none;
+}
+.btn1:hover
+{
+transform:scale(1.1);
+
+}
+.yellow
+{
+margin-left:auto;
+margin-right:auto;
+  width:100%;
+text-align:center;
+color:white;
+background-color:gray;
+border-radius:10px;
+}
+
+
+</style>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<center>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html">Quality Tools</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  	</button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Menu <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="QualityImageUrlRenderer.html">Image url renderer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Websiteanalyzer.html">Website analyser</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="UrlOpener.html">Url opener</a>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="PasswordGenerator.html">Password Generator</a>
+          </li>
+    </ul>
+
+  </div>
+</nav>
+
+
+</div>
+
+<title>Smart Creative Image Renderer</title>
+<div class="text-black bg-light">
+  <div class="card-header">Smart Creative Image Renderer</div>
+<div class="alert alert-info" id="warning">
+TO OBTAIN CREATIVE IMAGE URLS FOR GIVEN NETWORK, YOU HAVE TO USE SPECIFIC QUERY IN SQL DATABASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-secondary" value="x" onclick="Collapse()"/>
+</div>
+</div>
+<div class=klasa><br><br>
+  <div class="card-header">URL CONVERTER</div><br>
+  <br><textarea cols = 200 rows=5 class="klasa" id="converter" placeholder ="Insert NOT CONVERTED old creative image URL here like http://www.smartadserver.com/ "></textarea><br>
+<input type="button" class="btn btn-secondary" value="Convert!" onclick="Convertfunction()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" class="btn btn-secondary" value="Copy down" onclick="Copydown()"/><br>
+<div class="alert alert-info"
+<h5>Be sure to click CONVERT several times to be sure that all of the supported links were converted</h5>
+<h5>Links hosted on the other than Smart server are also supported, and the creatives will be displayed</h5>
+<h6>Please note that not all urls are currently supported. If thats the case, you have to convert it manually.</h6></div>
+<input type="button" class="btn btn-secondary" value="Show supported urls" onclick="Collapse2()"/></button>
+<div class="supported" id="warning3">
+<div class="alert alert-info">
+  <div class="card-header">Urls currently supported by the convert tool:</div>
+<p>http://www.smartadserver.com</p>
+<p>http://www2.smartadserver.com</p>
+<p>http://www3.smartadserver.com</p>
+<p>http://www4.smartadserver.com</p>
+<p>http://www5.smartadserver.com</p>
+<p>http://www6.smartadserver.com</p>
+<p>http://www7.smartadserver.com</p>
+<p>http://www8.smartadserver.com</p>
+<p>http://www9.smartadserver.com</p>
+<p>http://www10.smartadserver.com</p>
+<p>http://www14.smartadserver.com</p>
+<p>http://www15.smartadserver.com</p>
+<p>http://smart.styria-digital.com</p>
+<p>http://diff.smartadserver.com</p>
+<p>http://mobile.smartadserver.com</p>
+<p>http://ww86.smartadserver.com</p>
+<p>http://ww946.smartadserver.com</p>
+<p>http://ww691.smartadserver.com</p>
+<p>http://ww690.smartadserver.com</p>
+<p>http://ww488.smartadserver.com</p>
+<p>http://smart.idealista.it</p>
+<p>http://smart.idealista.com</p>
+<p>http://ww1.smartadserver.com</p>
+<p>http://www17.smartadserver.com</p>
+<input type="button" class="btn btn-secondary" value="x" onclick="Collapse3()"/>
+</div>
+</div>
+<br><br>
+  <div class="card-header">CREATIVE IMAGE RENDERER</div><br><br>
+<form action="#" method="post">
+  
+  <textarea class="klasa"  cols=200 rows=10 type="url" name="imglink" id="imglink"  placeholder="Insert CONVERTED old creative image URL here, WITH HTTP:// like // http://creatives.sascdn.com/ //" /></textarea><br>
+  <input type="button" class="btn btn-secondary" value="Show Image" id="btn1" />&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" class="btn btn-secondary" value="Clear" id="btn2" onclick="Clearfunction()"/>
+</form>
+<div id="photo"></div>
+<br>
+</div>
+
+</center>
+
+<script>
+function Collapse()
+  {
+document.getElementById("warning").outerHTML = "";
+  }
+  function Collapse2()
+  {
+  if(document.getElementById("warning3").style.display === "none")
+  {
+document.getElementById("warning3").style.display = "block";
+}
+else
+{
+document.getElementById("warning3").style.display = "none";
+}
+  }
+    function Collapse3()
+  {
+document.getElementById("warning3").style.display = "none";
+  }
+</script>
+<script>
+document.getElementById('btn1').addEventListener('click', 
+function()
+{
+if(document.getElementById('imglink').value != "")
+{
+var count = 1;
+let globArr = [];
+var sarr = document.getElementById('imglink').value;
+var mp4 = ".mp4";
+arr = sarr.replace(/http/g,',http');
+globArr = arr.split(",");
+
+for (let i = 0; i < globArr.length; i++) {
+   
+{
+   document.getElementById('photo').innerHTML += '<iframe width="500" src="'+ globArr[i] +'" <br><br> ' + count + ". <br><br>";
+    count = count+1;
+  }
+}
+document.getElementById('photo').innerHTML += '<input type="button" class="btn1" value="Clear" id="btn2" onclick="Clearfunction()"/>';
+}
+  
+
+});
+</script>
+<script>
+function Clearfunction()
+  {
+document.getElementById('photo').innerHTML = "";
+document.getElementById('imglink').value = "";
+document.getElementById('converter').value = "";
+    zmiana = 0;
+  }
+</script>
+<script>
+function Convertfunction()
+{
+var urltochange = document.getElementById('converter').value;
+var urltochange2;
+var zmiana = 0;
+var przecinek = ",";
+var http = "http";
+var zero = "http://www.smartadserver.com/";
+var a = "http://www2.smartadserver.com/";
+var b = "http://www3.smartadserver.com/";
+var c = "http://www4.smartadserver.com/";
+var d = "http://www5.smartadserver.com/";
+var e = "http://www6.smartadserver.com/";
+var f = "http://www7.smartadserver.com/";
+var g = "http://www8.smartadserver.com/";
+var h = "http://www9.smartadserver.com/";
+var i = "http://www10.smartadserver.com/";
+var j = "http://www14.smartadserver.com/";
+var k = "http://www15.smartadserver.com/";
+var l = "http://smart.styria-digital.com/";
+var m = "http://diff.smartadserver.com/";
+var n = "http://mobile.smartadserver.com/";
+var o = "http://ww86.smartadserver.com/";
+var p = "http://ww946.smartadserver.com/";
+var r = "http://ww691.smartadserver.com/";
+var s = "http://ww690.smartadserver.com/";
+var t = "http://ww488.smartadserver.com/";
+var u = "http://smart.idealista.it/";
+var w = "http://smart.idealista.com/";
+var z = "http://ww1.smartadserver.com/"
+var x = "http://www17.smartadserver.com/"
+
+if(urltochange.includes(zero) === true)
+{
+urltochange2 = urltochange.replace(/www.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(a) === true)
+{
+urltochange2 = urltochange.replace(/www2.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(b) === true)
+{
+urltochange2 = urltochange.replace(/www3.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(c) === true)
+{
+urltochange2 = urltochange.replace(/www4.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(d) === true)
+{
+urltochange2 = urltochange.replace(/www5.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(e) === true)
+{
+urltochange2 = urltochange.replace(/www6.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(f) === true)
+{
+urltochange2 = urltochange.replace(/www7.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(g) === true)
+{
+urltochange2 = urltochange.replace(/www8.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(h) === true)
+{
+urltochange2 = urltochange.replace(/www9.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(i) === true)
+{
+urltochange2 = urltochange.replace(/www10.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(j) === true)
+{
+urltochange2 = urltochange.replace(/www14.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(k) === true)
+{
+urltochange2 = urltochange.replace(/www15.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+
+}
+if(urltochange.includes(l) === true)
+{
+urltochange2 = urltochange.replace(/smart.styria-digital.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(m) === true)
+{
+urltochange2 = urltochange.replace(/diff.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(n) === true)
+{
+urltochange2 = urltochange.replace(/mobile.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(o) === true)
+{
+urltochange2 = urltochange.replace(/ww86.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(p) === true)
+{
+urltochange2 = urltochange.replace(/ww946.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(r) === true)
+{
+urltochange2 = urltochange.replace(/ww691.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(s) === true)
+{
+urltochange2 = urltochange.replace(/ww690.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(t) === true)
+{
+urltochange2 = urltochange.replace(/ww488.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(u) === true)
+{
+urltochange2 = urltochange.replace(/smart.idealista.it/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(w) === true)
+{
+urltochange2 = urltochange.replace(/smart.idealista.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(z) === true)
+{
+urltochange2 = urltochange.replace(/ww1.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+if(urltochange.includes(x) === true)
+{
+urltochange2 = urltochange.replace(/www17.smartadserver.com/g, "creatives.sascdn.com");
+  zmiana = 1;
+}
+
+if(zmiana === 1)
+{
+document.getElementById('converter').value = urltochange2; 
+}
+
+}
+ </script>
+<script>
+function Copydown()
+  {
+    
+      document.getElementById('imglink').value = document.getElementById('converter').value;
+  }
+</script>
