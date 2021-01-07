@@ -45,7 +45,9 @@ border-radius:10px;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<center>
+    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+    <center>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="index.html">Quality Tools</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -174,7 +176,7 @@ globArr = arr.split(",");
 for (let i = 0; i < globArr.length; i++) {
    
 {
-   document.getElementById('photo').innerHTML += '<iframe width="500" src="'+ globArr[i] +'" <br><br> ' + count + ". <br><br>";
+   document.getElementById('photo').innerHTML += '<iframe width="500" height="500" is="x-frame-bypass" src="'+ globArr[i] +' " </iframe><br><br> ' + count + ". <br><br>";
     count = count+1;
   }
 }
@@ -362,4 +364,5 @@ function Copydown()
       document.getElementById('imglink').value = document.getElementById('converter').value;
   }
 </script>
-<iframe width='1080' height='760' src="https://www.onet.pl/override-http-headers-default-settings-x-frame-options"frameborder="0" allowfullscreen></iframe>
+
+
