@@ -3,51 +3,175 @@
 
 <head>
     <script>
+        var SQTAScore;
+        var SQTAValidationStatus;
+        var MOZScore;
+        var Checked = 0;
+        var firstSQTAcheck = 0;
+        var secondSQTAcheck = 0;
+        var firstMozcheck = 0;
+        var secondMozcheck = 0;
+        var thirdMozcheck = 0;
+        var fourMozcheck = 0;
+        var fiveMozcheck = 0;
+
         function Sqta() {
 
-            var SQTAScore = document.getElementById("SqtaScore").value;
-            var SQTAValidationStatus;
-            var MOZScore = document.getElementById("MozScore").value;
-            var Checked = 0;
-            if (SQTAScore == 0 && Checked == 0) {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+
+            SqtaFirst();
+            if (firstSQTAcheck == 0) {
                 SQTAValidationStatus = "Failed";
                 console.log("Failed");
                 document.getElementById("result").innerText = "Failed";
-                Checked = 1;
-            } 
-            if (SQTAScore >= 1 && SQTAScore <= 60 && Checked == 0) {
-                SQTAValidationStatus = "Check";
-                document.getElementById("result").innerText = "Check";
-                Checked = 1;
-            } 
-            if (SQTAScore >= 61 && SQTAScore <= 80 && Checked == 0) {
-                if (MOZScore >= 1 && SQTAScore <= 40 && Checked == 0) {
-                    SQTAValidationStatus = "Check";
-                    document.getElementById("result").innerText = "Check";
-                    Checked = 1;
-                } else {
-                    SQTAValidationStatus = "Passed";
-                    console.log("Passed");
-                    document.getElementById("result").innerText = "Passed";
-                    Checked = 1;
-                }
-            } 
-                if (MOZScore >= 0 && SQTAScore <= 20 && Checked == 0) {
-                    SQTAValidationStatus = "Check"
-                    console.log("Check");
-                    document.getElementById("result").innerText = "Check";
-                    Checked = 1;
-                } 
-                else
-                if(MOZScore >= 80 && SQTAScore > 80 && Checked == 0) 
-                {
-                    SQTAValidationStatus = "Passed";
-                   console.log("Passed");
-                   document.getElementById("result").innerText = "Passed";
-                   Checked = 1;
-                }
             }
-        
+            if (firstSQTAcheck == 1) {
+                SQTASecond();
+            }
+
+
+        }
+
+        function SqtaFirst() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            console.log("First");
+            if (SQTAScore == 0) {
+                firstSQTAcheck = 0;
+            } else {
+                firstSQTAcheck = 1;
+            }
+        }
+
+        function SQTASecond() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            console.log("Second");
+            MozFirstcheck();
+            if (firstMozcheck == 1 && SQTAScore >= 80) {
+                SQTAValidationStatus = "Passed";
+                console.log("Passed");
+                document.getElementById("result").innerText = "Passed";
+            } 
+            if(firstMozcheck == 0 || SQTAScore < 80)
+            {
+                SQTAThird();
+            }
+        }
+
+        function SQTAThird() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            console.log("Third");
+            MozSecondcheck()
+            if (secondMozcheck == 1 && SQTAScore >= 61 && SQTAScore <= 80) {
+                SQTAValidationStatus = "Passed";
+                console.log("Passed");
+                document.getElementById("result").innerText = "Passed";
+            } else {
+                SQTAFour();
+            }
+        }
+
+        function SQTAFour() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            console.log("Four");
+            MozThirdcheck();
+            if (thirdMozcheck == 1 && SQTAScore >= 81 && SQTAScore <= 100) {
+                SQTAValidationStatus = "Check";
+                console.log("Check");
+                document.getElementById("result").innerText = "Check";
+            } else {
+                SQTAFive();
+            }
+        }
+
+        function SQTAFive() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            console.log("Five");
+            MozFourcheck();
+            if (fourMozcheck == 1 && SQTAScore >= 61 && SQTAScore <= 80) {
+                SQTAValidationStatus = "Check";
+                console.log("Check");
+                document.getElementById("result").innerText = "Check";
+            } else {
+                SQTASix();
+            }
+        }
+
+        function SQTASix() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            console.log("Six");
+            MozFivecheck();
+            if (fiveMozcheck == 1 && SQTAScore >= 1 && SQTAScore <= 60) {
+                SQTAValidationStatus = "Check";
+                console.log("Check");
+                document.getElementById("result").innerText = "Check";
+            } else {
+
+            }
+        }
+
+        function MozFirstcheck() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            if (MOZScore >= 20) {
+                firstMozcheck = 1;
+                
+
+            }
+            if (MOZScore < 20) {
+                firstMozcheck = 0;
+                
+            }
+        }
+
+        function MozSecondcheck() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            if (MOZScore > 40) {
+                secondMozcheck = 1;
+            }
+            if (MOZScore <= 40) {
+                secondMozcheck = 0;
+            }
+        }
+
+        function MozThirdcheck() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            if (MOZScore <= 20) {
+                thirdMozcheck = 1;
+            }
+            if (MOZScore > 20) {
+                thirdMozcheck = 0;
+            }
+        }
+
+        function MozFourcheck() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            if (MOZScore <= 40) {
+                fourMozcheck = 1;
+            }
+            if (MOZScore > 40) {
+                fourMozcheck = 0;
+            }
+        }
+
+        function MozFivecheck() {
+            SQTAScore = parseInt(document.getElementById("SqtaScore").value);
+            MOZScore = parseInt(document.getElementById("MOZScore").value);
+            if (MOZScore <= 100 && MOZScore >= 0) {
+                fiveMozcheck = 1;
+            } else {
+                fiveMozcheck = 0;
+            }
+        }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +179,7 @@
     <label>Sqta Score</label>
     <input type="text" id="SqtaScore">
     <label>Moz Score</label>
-    <input type="text" id="MozScore">
+    <input type="text" id="MOZScore">
     <button onclick="Sqta()">Check!</button>
     <label id="result"></label>
 
