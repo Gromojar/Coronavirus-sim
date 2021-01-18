@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function Sqta() {
+
+            var SQTAScore = document.getElementById("SqtaScore").value;
+            var SQTAValidationStatus;
+            var MOZScore = document.getElementById("MozScore").value;
+            var Checked = 0;
+            if (SQTAScore == 0 && Checked == 0) {
+                SQTAValidationStatus = "Failed";
+                console.log("Failed");
+                document.getElementById("result").innerText = "Failed";
+                Checked = 1;
+            } 
+            if (SQTAScore >= 1 && SQTAScore <= 60 && Checked == 0) {
+                SQTAValidationStatus = "Check";
+                document.getElementById("result").innerText = "Check";
+                Checked = 1;
+            } 
+            if (SQTAScore >= 61 && SQTAScore <= 80 && Checked == 0) {
+                if (MOZScore >= 1 && SQTAScore <= 40 && Checked == 0) {
+                    SQTAValidationStatus = "Check";
+                    document.getElementById("result").innerText = "Check";
+                    Checked = 1;
+                } else {
+                    SQTAValidationStatus = "Passed";
+                    console.log("Passed");
+                    document.getElementById("result").innerText = "Passed";
+                    Checked = 1;
+                }
+            } 
+                if (MOZScore >= 0 && SQTAScore <= 20 && Checked == 0) {
+                    SQTAValidationStatus = "Check"
+                    console.log("Check");
+                    document.getElementById("result").innerText = "Check";
+                    Checked = 1;
+                } 
+                else
+                if(MOZScore >= 80 && SQTAScore > 80 && Checked == 0) 
+                {
+                    SQTAValidationStatus = "Passed";
+                   console.log("Passed");
+                   document.getElementById("result").innerText = "Passed";
+                   Checked = 1;
+                }
+            }
+        
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <label>Sqta Score</label>
+    <input type="text" id="SqtaScore">
+    <label>Moz Score</label>
+    <input type="text" id="MozScore">
+    <button onclick="Sqta()">Check!</button>
+    <label id="result"></label>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
