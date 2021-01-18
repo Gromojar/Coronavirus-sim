@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function Sqta()
+        {
+            var SQTAScore = document.getElementById("SqtaScore").value;
+var SQTAValidationStatus;
+var MOZScore = document.getElementById("MozScore").value;
+
+if (SQTAScore == 0) {
+    SQTAValidationStatus = "Failed";
+    console.log("Failed");
+    document.getElementById("result").innerText = "Failed";
+} else if (SQTAScore >= 1 && SQTAScore <= 60) {
+    SQTAValidationStatus = "Check";
+    document.getElementById("result").innerText = "Check";
+} else if (SQTAScore >= 61 && SQTAScore <= 80)
+    if (MOZScore >= 0 && SQTAScore <= 40) {
+        SQTAValidationStatus = "Check";
+        document.getElementById("result").innerText = "Check";
+    } else {
+        SQTAValidationStatus = "Passed";
+        console.log("Passed");
+        document.getElementById("result").innerText = "Passed";
+    } else {
+        if (MOZScore >= 0 && SQTAScore <= 20) {
+            SQTAValidationStatus = "Check"
+            console.log("Check");
+            document.getElementById("result").innerText = "Check";
+        } else {
+            SQTAValidationStatus = "Passed";
+            console.log("Passed");
+            document.getElementById("result").innerText = "Passed";
+        }
+    }
+        }
+        
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <label>Sqta Score</label>
+    <input type="text" id="SqtaScore">
+    <label>Moz Score</label>
+    <input type="text" id="MozScore">
+    <button onclick="Sqta()">Check!</button>
+    <label id="result"></label>
+
+</head>
+<body>
+    
+</body>
+</html>
