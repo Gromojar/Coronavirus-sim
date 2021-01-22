@@ -14,6 +14,16 @@
         console.log(nazwaost);
 
         while (check > 0) {
+            if (nazwa == "Psikuta")
+            {
+                meskie = "Psikutę";
+                damskie = "Psikuta";
+                mnoga = "Psikutów";
+                document.getElementById("odmiany").innerHTML = "Szanownego Pana " + meskie + " " + "Szanowną Panią " +
+                    damskie + " " + "Szanownych Państwa " + mnoga + " " + "<br><br>" + "Panie, widzisz tam jakieś S na końcu?! No jest S. Psikutas bez S!";
+                break;
+
+            }
             if (nazwa.substr(nazwa.length - 4) == "ciec") {
                 meskie = nazwa.slice(0, -4) + "ć" + nazwa.substr(nazwa.length - 1) + "a";
                 damskie = nazwa;
