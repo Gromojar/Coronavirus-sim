@@ -20,8 +20,8 @@
     var Moz_a = 2.0;
     var Sqta_a = 3.0;
     var Scoring = true;
-    var Moz_Score = document.getElementById("sqta_input").value;
-    var Sqta_Score = document.getElementById("moz_input").value;
+    var Moz_Score = document.getElementById("moz_input").value;
+    var Sqta_Score = document.getElementById("sqta_input").value;
    
     var Moz = 1/Math.pow((1+Math.exp(-Moz_k*Moz_Score)),  Moz_a);
     var Sqta = 1/Math.pow((1+Math.exp(-Sqta_k*Sqta_Score)), Sqta_a);
@@ -30,14 +30,14 @@
     while(Scoring)
     {
 
-        if(Sqta_Score === 0)
+        if(parseInt(Sqta_Score) == 0)
     {
         console.log(Suma);
         console.log("Failed");
         document.getElementById("result").innerText = "Result: Failed";
-        break; 
+        break;
     }
-    else if(Suma <= 1.4)
+    if(Suma <= 1.4)
     {
         console.log(Suma);
         console.log("Check");
