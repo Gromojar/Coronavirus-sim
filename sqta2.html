@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQTA Score validation</title>
+</head>
+<body>
+    <p>SQTA SCORE <input id="sqta_input"></p>
+    <p>MOZ SCORE <input id="moz_input"></p>
+    <button onclick="Score()">Calculate!</button>
+    <h4 id="result">Result:</h4>
+</body>
+</html>
+<script>
+    function Score()
+    {
+        var Moz_k = 0.05;
+    var Sqta_k = 0.03;
+    var Moz_a = 2.0;
+    var Sqta_a = 3.0;
+    var Scoring = true;
+    var Moz_Score = document.getElementById("sqta_input").value;
+    var Sqta_Score = document.getElementById("moz_input").value;
+   
+    var Moz = 1/Math.pow((1+Math.exp(-Moz_k*Moz_Score)),  Moz_a);
+    var Sqta = 1/Math.pow((1+Math.exp(-Sqta_k*Sqta_Score)), Sqta_a);
+    var Suma = Moz+Sqta;
+    
+    while(Scoring)
+    {
+
+        if(Suma <= 0.375)
+    {
+        console.log(Suma);
+        console.log("Failed");
+        document.getElementById("result").innerText = "Result: Failed";
+        break;
+    }
+    else if(Suma <= 1.4 && Suma > 0)
+    {
+        console.log(Suma);
+        console.log("Check");
+        document.getElementById("result").innerText = "Result: Check";
+        break;
+    }
+    else if(Suma > 1.4){
+        console.log(Suma);
+        console.log("Passed");
+        document.getElementById("result").innerText = "Result: Passed";
+        break;
+    }
+    }
+    
+    }
+    </script>
