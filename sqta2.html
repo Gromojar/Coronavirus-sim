@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+.container
+{
+width:500px;
+
+}
+input
+{
+	text-align: center;
+}
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQTA Score validation</title>
 </head>
 <body>
-    <p>SQTA SCORE <input id="sqta_input"></p>
-    <p>MOZ SCORE <input id="moz_input"></p>
-    <button onclick="Score()">Calculate!</button>
-    <h4 id="result">Result:</h4>
+    <div class="container">
+        <div class="card text-black bg-light mb-3">
+          <div class="card-header">Sqta test</div>
+        <label>SQTA SCORE</label> <br>
+        <input id="sqta_input">
+        <label>MOZ SCORE</label> <br>
+         <input id="moz_input">
+        <button onclick="Score()">Calculate!</button>
+        <p id="result">Result:</p>
+    </div>
+
 </body>
 </html>
 <script>
@@ -34,20 +53,22 @@
     {
         console.log(Suma);
         console.log("Failed");
-        document.getElementById("result").innerText = "Result: Failed";
+        document.getElementById("result").innerText = "Result: Failed \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3);
+
+        
         break;
     }
     if(Suma <= 1.4)
     {
         console.log(Suma);
         console.log("Check");
-        document.getElementById("result").innerText = "Result: Check";
+        document.getElementById("result").innerText = "Result: Check \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3);
         break;
     }
     else if(Suma > 1.4){
         console.log(Suma);
         console.log("Passed");
-        document.getElementById("result").innerText = "Result: Passed";
+        document.getElementById("result").innerText = "Result: Passed \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3);
         break;
     }
     }
