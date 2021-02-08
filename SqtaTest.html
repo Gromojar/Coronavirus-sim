@@ -53,7 +53,7 @@ input
     {
         console.log(Suma);
         console.log("Failed");
-        document.getElementById("result").innerText = "Result: Failed \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3);
+        document.getElementById("result").innerText = "Result: Failed \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3) + "\nSum(Sqta calculated + Moz calculated)" + Suma.toFixed(3);
 
         
         break;
@@ -62,13 +62,13 @@ input
     {
         console.log(Suma);
         console.log("Check");
-        document.getElementById("result").innerText = "Result: Check \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3);
+        document.getElementById("result").innerText = "Result: Check \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3) + "\nSum(Sqta calculated + Moz calculated)" + Suma.toFixed(3);
         break;
     }
     else if(Suma > 1.4){
         console.log(Suma);
         console.log("Passed");
-        document.getElementById("result").innerText = "Result: Passed \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3);
+        document.getElementById("result").innerText = "Result: Passed \n" + "Sqta score Input: " + Sqta_Score + "\n" + "Moz score Input: " + Moz_Score + "\n" + "Sqta calculated score: " + Sqta.toFixed(3) + "\nMoz calculated score: " + Moz.toFixed(3) + "\nSum(Sqta calculated + Moz calculated)" + Suma.toFixed(3);
         break;
     }
     }
