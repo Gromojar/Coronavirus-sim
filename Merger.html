@@ -89,7 +89,7 @@ width:10%;
 <button class="btn btn-secondary" onclick="Funkcja()">Merge</button>
 
 <p id="wynik"></p>
-	<button class="btn btn-secondary" onclick="copyElementText()">Copy</button>
+	<button id="copybutton" style="display:none" class="btn btn-secondary" onclick="copyElementText()">Copy</button>
 
 
 </div></div>
@@ -122,7 +122,7 @@ for (var i=0; i < sr.length; i++)
 document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix + "\n";
 }
 }    
-
+document.getElementById("copybutton").style.display = initial;
 </script>
 
 </body>
