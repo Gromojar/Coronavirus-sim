@@ -86,7 +86,7 @@ width:10%;
     <textarea rows="10" cols="10" id="suffix" id="asd" class="inline-txtarea"></textarea>
 </div>
 <br>
-<button class="btn btn-secondary" onclick="Funkcja()">Merge</button>
+<button class="btn btn-secondary" onclick="Funkcja()">Merge</button><button class="btn btn-secondary" onclick="Clear()">Clear result</button>
 
 <p id="wynik"></p>
 	<button id="copybutton" style="display:none" class="btn btn-secondary" onclick="copyElementText()">Copy</button>
@@ -123,7 +123,11 @@ document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix + "\n";
 }
 	  document.getElementById("copybutton").style.display = "initial";
 }    
-
+function Clear()
+	{
+		document.getElementById("wynik").innerText = "";
+		document.getElementById("copybutton").style.display = "initial";
+	}
 </script>
 
 </body>
