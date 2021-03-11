@@ -89,7 +89,7 @@ width:10%;
 <button class="btn btn-secondary" onclick="Funkcja()">Merge</button>
 
 <p id="wynik"></p>
-	<button class="btn btn-secondary" onclick="copyElementText(wynik)">Copy</button>
+	<button class="btn btn-secondary" onclick="copyElementText()">Copy</button>
 
 
 </div></div>
@@ -100,8 +100,8 @@ width:10%;
 var Prefix = document.getElementById("prefix").value;
 var Suffix = document.getElementById("suffix").value;
 var sr;
-	function copyElementText(id) {
-    var text = document.getElementById(id).innerText;
+	function copyElementText() {
+    var text = document.getElementById("wynik").innerText;
     var elem = document.createElement("textarea");
     document.body.appendChild(elem);
     elem.value = text;
