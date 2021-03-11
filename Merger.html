@@ -83,7 +83,7 @@ width:10%;
 <button class="btn btn-secondary" onclick="Funkcja()">Merge</button>
 
 <p id="wynik"></p>
-<button class="btn btn-secondary" onclick="CopyToClipboard(wynik)">Copy to CopyToClipboard</button>
+
 
 
 </div></div>
@@ -107,19 +107,7 @@ for (var i=0; i < sr.length; i++)
 document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix + "\n";
 }
 }    
-function CopyToClipboard(containerid) {
-  if (document.selection) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(document.getElementById(containerid));
-    range.select().createTextRange();
-    document.execCommand("copy");
-  } else if (window.getSelection) {
-    var range = document.createRange();
-    range.selectNode(document.getElementById(containerid));
-    window.getSelection().addRange(range);
-    document.execCommand("copy");
-  }
-}
+
 </script>
 
 </body>
