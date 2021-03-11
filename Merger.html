@@ -93,11 +93,13 @@ width:10%;
 	var Domains;
 var Prefix = document.getElementById("prefix").value;
 var Suffix = document.getElementById("suffix").value;
-
+var sr;
   function Funkcja()
   {
     
 Domains = document.getElementById("asd").value;
+Suffix = document.getElementById("suffix").value;
+Prefix = document.getElementById("prefix").value;
 sr = Domains.split(/\n|,/g);
     
 for (var i; i < sr.length; i++)
