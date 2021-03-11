@@ -28,7 +28,14 @@ width:10%;
 	.whatever {
     resize: vertical;
 }
-
+	.animated
+	{
+  animation: showNav 250ms ease-in-out both;
+	}
+@keyframes showNav {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 </style>
 <body>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,7 +95,7 @@ width:10%;
 <br>
 <button class="btn btn-secondary" onclick="Funkcja()">Merge</button><button class="btn btn-secondary" onclick="Clear()">Clear result</button>
 
-<p id="wynik"></p>
+<p id="wynik" class="animated"></p>
 	<button id="copybutton" style="display:none" class="btn btn-secondary" onclick="copyElementText()">Copy to clipboard</button>
 
 
