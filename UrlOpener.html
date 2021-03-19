@@ -72,7 +72,7 @@ width:10%;
 <br>
 <div class="inline-div">
     <p align="center">Your domains to check</p>
-    <textarea cols="30" rows="15" class="inline-txtarea"></textarea>
+    <textarea id="tocheck" cols="30" rows="15" class="inline-txtarea"></textarea>
 </div>
 <div class="inline-div">
 <p align="center">List to open</p>
@@ -83,7 +83,7 @@ width:10%;
 <button class="btn btn-secondary" onclick="funkcja()">Open All</button>
 
 <p id="wynik"></p>
-
+<button class="btn btn-secondary" onclick="clear()">Clear All</button>
 
 
 </div></div>
@@ -114,6 +114,13 @@ window.open("http://" + jr[i], '_blank');
 }
 i = 0;
 }
+	function clear()
+	{
+		document.getElementById("tocheck").value = "";
+		document.getElementById("asd").value = "";
+		Domains = "";
+		jir = "";
+	}
 </script>
 
 </body>
