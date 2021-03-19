@@ -90,6 +90,13 @@ width:10%;
 </center>
 
 <script>
+	function clear()
+	{
+		document.getElementById("tocheck").value = null;
+		document.getElementById("asd").value = null;
+		Domains = "";
+		jr = "";
+	}
 var Domains;
 var sr;
 var dr;
@@ -98,7 +105,6 @@ var mr;
 var jr;
 var i = 0;
 function funkcja() {
-console.log("dupa");
 Domains = document.getElementById("asd").value;
 sr = Domains.split(/\n|,/g);
 dr = sr.map(v => v.replace(' ',''));
@@ -114,13 +120,7 @@ window.open("http://" + jr[i], '_blank');
 }
 i = 0;
 }
-	function clear()
-	{
-		document.getElementById("tocheck").value = null;
-		document.getElementById("asd").value = null;
-		Domains = "";
-		jr = "";
-	}
+
 </script>
 
 </body>
