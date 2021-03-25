@@ -86,7 +86,9 @@ width:10%;
     <textarea rows="10" cols="10" id="suffix" id="asd" class="inline-txtarea"></textarea>
 </div>
 <br>
-<button class="btn btn-secondary" onclick="Funkcja()">Merge</button><button class="btn btn-secondary" onclick="Clear()">Clear result</button>
+<button class="btn btn-secondary" onclick="Funkcja()">Merge</button>
+<input type="checkbox" id="chck">To one line?</button><br><br>
+<button class="btn btn-secondary" onclick="Clear()">Clear result</button>
 
 <p id="wynik" class="animated"></p>
 	<button id="copybutton" style="display:none" class="btn btn-secondary" onclick="copyElementText()">Copy to clipboard</button>
@@ -97,6 +99,7 @@ width:10%;
 
 <script>
 	var Domains;
+	var ToOneLine = 0;
 var Prefix = document.getElementById("prefix").value;
 var Suffix = document.getElementById("suffix").value;
 var sr;
@@ -109,6 +112,7 @@ var sr;
     document.execCommand("copy");
     document.body.removeChild(elem);
 }
+
   function Funkcja()
   {
     
@@ -116,13 +120,30 @@ Domains = document.getElementById("asd").value;
 Suffix = document.getElementById("suffix").value;
 Prefix = document.getElementById("prefix").value;
 sr = Domains.split(/\n|,/g);
-    
+if(document.getElementById("chck").checked === true)
+        {
+            ToOneLine = 1;
+            
+        }
+		if(document.getElementById("chck").checked === false)
+        {
+            ToOneLine = 0;
+        }
 for (var i=0; i < sr.length; i++)
 {
-document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix + "\n";
-}
-	  document.getElementById("copybutton").style.display = "initial";
+	if(ToOneLine === 1)
+	{
+		document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix;
+	}
+	if(ToOneLine === 0)
+	{
+        document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix + "\n";
+	}
+
+	  
 }    
+document.getElementById("copybutton").style.display = "initial";
+}
 function Clear()
 	{
 		document.getElementById("wynik").innerText = "";
