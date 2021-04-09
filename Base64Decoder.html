@@ -91,6 +91,7 @@ width:10%;
 <br>
 <button class="btn btn-secondary" onclick="Funkcja()">Merge</button>
 <input type="checkbox" id="chck">To one line?</button><br><br>
+<input type="checkbox" id="chck2">Decode?</button><br><br>
 <button class="btn btn-secondary" onclick="Clear()">Clear result</button>
 
 <p id="wynik" class="animated"></p>
@@ -103,6 +104,7 @@ width:10%;
 <script>
 	var Domains;
 	var ToOneLine = 0;
+	var decodechk = 0;
 var Prefix = document.getElementById("prefix").value;
 var Suffix = document.getElementById("suffix").value;
 var sr;
@@ -123,6 +125,15 @@ Domains = document.getElementById("asd").value;
 Suffix = document.getElementById("suffix").value;
 Prefix = document.getElementById("prefix").value;
 sr = Domains.split(/\n|,/g);
+if(document.getElementById("chck2").checked === true)
+        {
+            decodechk = 1;
+            
+        }
+		if(document.getElementById("chck2").checked === false)
+        {
+            decodechk = 0;
+        }	  
 if(document.getElementById("chck").checked === true)
         {
             ToOneLine = 1;
@@ -134,17 +145,27 @@ if(document.getElementById("chck").checked === true)
         }
 for (var i=0; i < sr.length; i++)
 {
-/*	if(ToOneLine === 1)
+	if(ToOneLine === 1 && decodechk === 0)
 	{
-		document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix;
+		let decodes = atob(sr[i]);
+		document.getElementById("wynik").innerText += Prefix + decodes + Suffix;
 	}
-	if(ToOneLine === 0)
+	if(ToOneLine === 0 && decodechk === 0)
 	{
-        document.getElementById("wynik").innerText += Prefix + sr[i] + Suffix + "\n";
+		let decodes = atob(sr[i]);
+        document.getElementById("wynik").innerText += Prefix + decodes + Suffix + "\n";
 	}
-*/
-	  let decodes = atob(sr[i]);
-      document.getElementById('wynik').innerText += Prefix + decodes + Suffix + "\n";
+		if(ToOneLine === 1 && decodechk === 1
+	{
+		let decodes = btoa(sr[i]);
+		document.getElementById("wynik").innerText += Prefix + decodes + Suffix;
+	}
+	if(ToOneLine === 0 && decodechk === 1)
+	{
+		let decodes = btoa(sr[i]);
+        document.getElementById("wynik").innerText += Prefix + decodes + Suffix + "\n";
+	}
+	
 }    
 document.getElementById("copybutton").style.display = "initial";
 }
