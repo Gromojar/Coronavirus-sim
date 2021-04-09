@@ -144,7 +144,7 @@ for (var i=0; i < sr.length; i++)
 	}
 */
 	  let decodes = atob(sr[i]);
-      document.getElementById('wynik').innerText += decodes + Suffix + "\n";
+      document.getElementById('wynik').innerText += Prefix + decodes + Suffix + "\n";
 }    
 document.getElementById("copybutton").style.display = "initial";
 }
