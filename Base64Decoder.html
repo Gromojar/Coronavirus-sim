@@ -103,6 +103,7 @@ width:10%;
 
 <script>
 	var Domains;
+    var decodes;
 	var ToOneLine = 0;
 	var decodechk = 0;
 var Prefix = document.getElementById("prefix").value;
@@ -120,7 +121,7 @@ var sr;
 
   function Funkcja()
   {
-    
+
 Domains = document.getElementById("asd").value;
 Suffix = document.getElementById("suffix").value;
 Prefix = document.getElementById("prefix").value;
@@ -147,22 +148,22 @@ for (var i=0; i < sr.length; i++)
 {
 	if(ToOneLine === 1 && decodechk === 0)
 	{
-		let decodes = atob(sr[i]);
+		decodes = atob(sr[i]);
 		document.getElementById("wynik").innerText += Prefix + decodes + Suffix;
 	}
 	if(ToOneLine === 0 && decodechk === 0)
 	{
-		let decodes = atob(sr[i]);
+		decodes = atob(sr[i]);
         document.getElementById("wynik").innerText += Prefix + decodes + Suffix + "\n";
 	}
-		if(ToOneLine === 1 && decodechk === 1
+		if(ToOneLine === 1 && decodechk === 1)
 	{
-		let decodes = btoa(sr[i]);
+		decodes = btoa(sr[i]);
 		document.getElementById("wynik").innerText += Prefix + decodes + Suffix;
 	}
 	if(ToOneLine === 0 && decodechk === 1)
 	{
-		let decodes = btoa(sr[i]);
+		decodes = btoa(sr[i]);
         document.getElementById("wynik").innerText += Prefix + decodes + Suffix + "\n";
 	}
 	
