@@ -152,7 +152,7 @@ input:checked + .slider:before {
 <button class="btn btn-secondary" onclick="Funkcja()">Decode/Encode</button>
 <input type="checkbox" id="chck">To one line?</button><br><br>
 	<label id="lbl" class="switch">Decode
-  <input type="checkbox" id="chck2">
+  <input type="checkbox" id="chck2" onclick="Chck()">
   <span class="slider round"></span>
 </label>
 <button class="btn btn-secondary" onclick="Clear()">Clear result</button>
@@ -181,7 +181,20 @@ var sr;
     document.execCommand("copy");
     document.body.removeChild(elem);
 }
-
+	function Chck()
+	{
+if(document.getElementById("chck2").checked === true)
+        {
+            decodechk = 1;
+		document.getElementByID("lbl").innerText = "Encode";
+            
+        }
+		if(document.getElementById("chck2").checked === false)
+        {
+            decodechk = 0;
+		document.getElementByID("lbl").innerText = "Decode";
+        }	  
+	}
   function Funkcja()
   {
 
