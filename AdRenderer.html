@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    <title>Ad Renderer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    
+</head>
+<style>
+/* The device with borders */
+.smartphone {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
+
+/* The horizontal line on the top of the device */
+.smartphone:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+/* The circle on the bottom of the device */
+.smartphone:after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.smartphone .content {
+  width: 100%;
+  height:100%;
+  background: white;
+}
+</style>
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Quality Tools</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Menu <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="QualityImageUrlRenderer.html">Image url renderer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Websiteanalyzer.html">Website analyser</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="UrlOpener.html">Url opener</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="PasswordGenerator.html">Password Generator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="WebsiteRenderer.html">Website Renderer</a>
+          </li>
+  	                  <li class="nav-item">
+            <a class="nav-link" href="Merger.html">Text Merger</a>
+          </li>
+                	    	                  <li class="nav-item">
+            <a class="nav-link" href="Base64Decoder.html">Base64Decoder</a>
+          </li>
+                	    	                  <li class="nav-item">
+            <a class="nav-link" href="UrlDecoder.html">UrlDecoder</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="AdRenderer.html">Ad Renderer</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container" style="width:100%">
+    <div class="card text-black bg-light mb-3"  style="width:100%">
+        <div class="card-header"style="text-align:center;width:100%;" >Ad Renderer</div>
+        <textarea id="admarkup"></textarea><center><button class="btn btn-secondary" style="width:30%;" onclick="Render()">Render</button></center>
+        
+        </div>
+        <div class="smartphone">
+          <div class="content">
+            <iframe style="width:100%;border:none;height:100%" id="ad" ></iframe>
+          </div>
+        
+
+</body>
+<script>
+  function Render()
+  {
+    var render = document.getElementById("admarkup").value;
+    document.getElementById("ad").srcdoc = render;
+    console.log(render);
+  }
+</script>
+
+</html>
