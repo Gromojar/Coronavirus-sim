@@ -15,18 +15,10 @@ var mydata2;
 var adt;
 function Skanuj()
 {
-var mydata;
-var adt;
-var arr;
-var frame;
+
 var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
 //var text2 = "https://staging.redvolcano.uk/api/verifyDomains.php?apikey=qxeGKnA4YgoOxwB9xEbaqWgJ54gRqQFgtGyqai1F&body=[%22google.com%22]";
 
-$.getJSON(text, function (data) {
-	
-	document.getElementById("result").innerHTML += "<b>" + data.results[0].artistName + "</b><br>" + "Category: " + data.results[0].genres[0] + "," + data.results[0].genres[1] + "<br><br>" + "Rating: " +  data.results[0].averageUserRating;
-
-});
 $.getJSON("http://itunes.apple.com/lookup?id=600172326&callback=?", function (data) {
 
     var icon = document.getElementById("WallpaperIcon");
@@ -45,7 +37,7 @@ $.getJSON("http://itunes.apple.com/lookup?id=600172326&callback=?", function (da
 //console.log(mydata.results[0].averageUserRating);
 
 
-"Rating: " + mydata.results[0].averageUserRating;
+"Rating: " + data.results[0].averageUserRating;
 }
 </script>
 <html>
