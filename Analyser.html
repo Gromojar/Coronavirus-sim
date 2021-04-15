@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+
+
+input
+{
+	text-align: center;
+}
+
+</style>
+<script>
+var request = new XMLHttpRequest();
+var request2 = new XMLHttpRequest();
+var mydata;
+var mydata2;
+var adt;
+function Skanuj()
+{
+var mydata;
+var adt;
+var arr;
+var frame;
+var text = "http://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
+//var text2 = "https://staging.redvolcano.uk/api/verifyDomains.php?apikey=qxeGKnA4YgoOxwB9xEbaqWgJ54gRqQFgtGyqai1F&body=[%22google.com%22]";
+
+
+request.open('GET', text, false);
+//
+request.onload = function () {}
+//
+request.send();
+//
+var mydata = JSON.parse(request.response);
+//var mydata2 = JSON.parse(request2.response);
+//request2.open('GET', text2, false); // `false` makes the request synchronous
+//request2.onload = function () {}
+//request2.send();
+//mydata2 = JSON.parse(request2.response);
+console.log(mydata.bsc.adt);
+
+}
+</script>
+<html>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<center>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index.html">Quality Tools</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Menu <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="QualityImageUrlRenderer.html">Image url renderer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Websiteanalyzer.html">Website analyser</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="UrlOpener.html">Url opener</a>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="PasswordGenerator.html">Password Generator</a>
+          </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<div class="card text-black bg-light mb-3">
+  <div class="card-header">Website analyser</div>
+<br><br>
+<input type="text" id="site" style="text-align:center;" placeholder="Input home page naked URL here (example: google.com)"/>
+<br><br>
+<button class="btn btn-secondary" onclick="Skanuj()">Scan</button><br><br>
+
+<div class="result" id="result"></div>
+</div>
+	</div>
+	</center>
+</body>
+</html>
