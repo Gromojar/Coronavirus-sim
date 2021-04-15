@@ -70,7 +70,7 @@ $.getJSON(text, function (data) {
 
     document.getElementById("image").src = data.results[0].artworkUrl100;
 
-    	document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>;
+    	document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 	document.getElementById("result").innerHTML += "Rating: " + data.results[0].averageUserRating + "<br>";
 	document.getElementById("result").innerHTML += "Number of user ratings" + data.results[0].userRatingCount + "<br>";
 	document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br>";
