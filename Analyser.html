@@ -24,23 +24,19 @@ var frame;
 var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
 //var text2 = "https://staging.redvolcano.uk/api/verifyDomains.php?apikey=qxeGKnA4YgoOxwB9xEbaqWgJ54gRqQFgtGyqai1F&body=[%22google.com%22]";
 
-
-request.open('GET', text, false);
-request.setRequestHeader("Access-Control-Allow-Origin","*");
-request.setRequestHeader("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept");	
+$.getJSON("http://itunes.apple.com/lookup?id=600172326&callback=?", function (data) {
 	
-request.onload = function () {}
+	document.getElementById("result").innerHTML += "<b>" + data.results[0].artistName + "</b><br>" + "Category: " + data.results[0].genres[0] + "," + data.results[0].genres[1] + "<br><br>" + "Rating: " +  data.results[0].averageUserRating;
+
+});
 //
-request.send();
-//
-var mydata = JSON.parse(request.response);
+//var mydata = JSON.parse(request.response);
 //var mydata2 = JSON.parse(request2.response);
 //request2.open('GET', text2, false); // `false` makes the request synchronous
 //request2.onload = function () {}
 //request2.send();
 //mydata2 = JSON.parse(request2.response);
-console.log(mydata.results[0].averageUserRating);
-document.getElementById("result").innerHTML += "<b>" + mydata.results[0].artistName + "</b><br>" + "Category: " + mydata.results[0].genres[0] + "," + mydata.results[0].genres[1] + "<br><br>" + "Rating: " +  mydata.results[0].averageUserRating;
+//console.log(mydata.results[0].averageUserRating);
 
 
 "Rating: " + mydata.results[0].averageUserRating;
