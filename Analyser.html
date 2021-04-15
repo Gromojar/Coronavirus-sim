@@ -27,6 +27,14 @@ $.getJSON(text, function (data) {
 	document.getElementById("result").innerHTML += "<b>" + data.results[0].artistName + "</b><br>" + "Category: " + data.results[0].genres[0] + "," + data.results[0].genres[1] + "<br><br>" + "Rating: " +  data.results[0].averageUserRating;
 
 });
+$.getJSON("http://itunes.apple.com/lookup?id=600172326&callback=?", function (data) {
+
+    var icon = document.getElementById("WallpaperIcon");
+    var description = document.getElementById("WallpaperDescription");
+
+    icon.src = data.results[0].artworkUrl100;
+    description.innerHTML = data.results[0].description;
+});
 //
 //var mydata = JSON.parse(request.response);
 //var mydata2 = JSON.parse(request2.response);
