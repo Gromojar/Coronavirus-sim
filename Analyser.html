@@ -26,8 +26,9 @@ var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site
 
 
 request.open('GET', text, false);
-request.setRequestHeader( 'Access-Control-Allow-Origin', '*');
-request.setRequestHeader( 'Content-Type', 'application/json' );
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+request.setRequestHeader("Content-length", params.length);
+request.setRequestHeader("Connection", "close");
 request.onload = function () {}
 //
 request.send();
