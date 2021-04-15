@@ -24,7 +24,7 @@ var frame;
 var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
 //var text2 = "https://staging.redvolcano.uk/api/verifyDomains.php?apikey=qxeGKnA4YgoOxwB9xEbaqWgJ54gRqQFgtGyqai1F&body=[%22google.com%22]";
 
-$.getJSON("http://itunes.apple.com/lookup?id=600172326&callback=?", function (data) {
+$.getJSON(text, function (data) {
 	
 	document.getElementById("result").innerHTML += "<b>" + data.results[0].artistName + "</b><br>" + "Category: " + data.results[0].genres[0] + "," + data.results[0].genres[1] + "<br><br>" + "Rating: " +  data.results[0].averageUserRating;
 
