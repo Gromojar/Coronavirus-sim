@@ -38,7 +38,7 @@ var mydata = JSON.parse(request.response);
 //request2.send();
 //mydata2 = JSON.parse(request2.response);
 console.log(mydata);
-
+document.getElementById("result").value = mydata.averageUserRating;
 }
 </script>
 <html>
@@ -74,9 +74,9 @@ console.log(mydata);
 </nav>
 <div class="container">
 <div class="card text-black bg-light mb-3">
-  <div class="card-header">Website analyser</div>
+  <div class="card-header">App analyser</div>
 <br><br>
-<input type="text" id="site" style="text-align:center;" placeholder="Input home page naked URL here (example: google.com)"/>
+<input type="text" id="site" style="text-align:center;" placeholder="Input naked App_id"/>
 <br><br>
 <button class="btn btn-secondary" onclick="Skanuj()">Scan</button><br><br>
 
