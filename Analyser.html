@@ -38,7 +38,10 @@ var mydata = JSON.parse(request.response);
 //request2.send();
 //mydata2 = JSON.parse(request2.response);
 console.log(mydata.results[0].averageUserRating);
-document.getElementById("result").innerText = "Rating: " + mydata.results[0].averageUserRating;
+document.getElementById("result").innerHTML += "<b>" + mydata.results[0].artistName + "</b><br>" + "Category: " + mydata.results[0].genres[0] + "," + mydata.results[0].genres[1];
+
+
+"Rating: " + mydata.results[0].averageUserRating;
 }
 </script>
 <html>
