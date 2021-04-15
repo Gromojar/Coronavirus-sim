@@ -62,9 +62,9 @@ var adt;
 function Skanuj()
 {
 //
-var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
+var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value = "&callback=?";
 
-$.getJSON("https://itunes.apple.com/lookup?id=544007664", function (data) {
+$.getJSON(text, function (data) {
 
 
     document.getElementById("result").innerHTML = data.results[0].artworkUrl100;
