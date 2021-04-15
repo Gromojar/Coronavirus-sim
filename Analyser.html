@@ -38,7 +38,7 @@ var mydata = JSON.parse(request.response);
 //request2.send();
 //mydata2 = JSON.parse(request2.response);
 console.log(mydata.results[0].averageUserRating);
-document.getElementById("result").value = mydata.results[0].averageUserRating;
+document.getElementById("result").innerText = "Rating: " + mydata.results[0].averageUserRating;
 }
 </script>
 <html>
