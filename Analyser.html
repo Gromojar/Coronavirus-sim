@@ -13,16 +13,14 @@ input
 var mydata;
 var mydata2;
 var adt;
-function Skanuj()
-{
-
-var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
+//function Skanuj()
+//{
+//
+//var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value;
 //var text2 = "https://staging.redvolcano.uk/api/verifyDomains.php?apikey=qxeGKnA4YgoOxwB9xEbaqWgJ54gRqQFgtGyqai1F&body=[%22google.com%22]";
 
 $.getJSON("https://itunes.apple.com/lookup?id=600172326&callback=?", function (data) {
 
-    var icon = document.getElementById("WallpaperIcon");
-    var description = document.getElementById("WallpaperDescription");
 
     document.getElementById("result").innerHTML = data.results[0].artworkUrl100;
     document.getElementById("result").innerHTML = data.results[0].description;
@@ -37,8 +35,8 @@ $.getJSON("https://itunes.apple.com/lookup?id=600172326&callback=?", function (d
 //console.log(mydata.results[0].averageUserRating);
 
 
-"Rating: " + data.results[0].averageUserRating;
-}
+//"Rating: " + data.results[0].averageUserRating;
+//}
 </script>
 <html>
 <body>
