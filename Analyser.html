@@ -47,7 +47,10 @@ input
 <div class="card text-black bg-light mb-3">
   <div class="card-header">App analyser</div>
 <br><br>
-<input type="text" id="site" style="text-align:center;" placeholder="Input naked App_id"/>
+<div class="inline-div">
+    <p align="center">Your domains to check</p>
+    <textarea id="tocheck" cols="30" rows="15" class="inline-txtarea"></textarea>
+</div>
 <br><br>
 <button class="btn btn-secondary" onclick="Skanuj()">Scan</button><br><br>
 	<center><img id="image" width="100"/></center>
@@ -59,24 +62,77 @@ input
 var mydata;
 var mydata2;
 var adt;
+var Apps;
+var Apps_split;
+var i=0;
+var a=0;
+var data;
 function Skanuj()
 {
-//
-var text = "https://itunes.apple.com/lookup?id=" + document.getElementById("site").value + "&callback=?";
+Apps = document.getElementById("tocheck").value;
+Apps_split = Apps.split(/\n|,/g);
 
-$.getJSON(text, function (data) {
+for (i=0; i < Apps_split.length; i++)
+{
 
-	document.getElementById("result").innerHTML = "";
+    
+        var text = "https://itunes.apple.com/lookup?id=" + Apps_split[i] + "&callback=?";
+        
+    $.getJSON(text, function (data) {
 
-    document.getElementById("image").src = data.results[0].artworkUrl100;
+ if(data.resultCount == 0)
+ {
+     console.log(Apps_split[i]);
+     document.getElementById("result").innerHTML += "<hr><br><br><br>No app found!</br><br><br><hr><br>";
+ }
+else
+  {
+    console.log(data);
+    console.log(data.results[0].trackId);
+      document.getElementById("result").innerHTML += "<center><img src='" + data.results[0].artworkUrl100 + "' width='100'></center>";
+      document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
+document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
+if(data.results[0].averageUserRating < 2)
+{
+    document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + data.results[0].averageUserRating + "<br></b>";
+}
+if(data.results[0].averageUserRating > 2)
+{
+    document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + data.results[0].averageUserRating + "<br></b>";
+}
+if(data.results[0].userRatingCount < 50)
+{
+    document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " + data.results[0].userRatingCount + "<br></b>";
+}
+if(data.results[0].userRatingCount > 50)
+{
+    document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " + data.results[0].userRatingCount + "<br></b>";
+}
 
-    	document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
-	document.getElementById("result").innerHTML += "Rating: " + data.results[0].averageUserRating + "<br>";
-	document.getElementById("result").innerHTML += "Number of user ratings: " + data.results[0].userRatingCount + "<br>";
-	document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br>";
+document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
 
-	
-});
+    }
+
+        
+
+
+    
+
+
+        
+
+})
+.fail(function() { alert('getJSON request failed! '); })
+;
+
+       
+    
+    
+}
+
+
+
+
 
 
 //console.log(mydata.results[0].averageUserRating);
