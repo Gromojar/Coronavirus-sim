@@ -32,8 +32,8 @@ $.getJSON("http://itunes.apple.com/lookup?id=600172326&callback=?", function (da
     var icon = document.getElementById("WallpaperIcon");
     var description = document.getElementById("WallpaperDescription");
 
-    icon.src = data.results[0].artworkUrl100;
-    description.innerHTML = data.results[0].description;
+    document.getElementById("result").innerHTML = data.results[0].artworkUrl100;
+    document.getElementById("result").innerHTML = data.results[0].description;
 });
 //
 //var mydata = JSON.parse(request.response);
