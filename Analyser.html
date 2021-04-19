@@ -140,8 +140,15 @@ if(data.results[0].userRatingCount >= minreviews)
 	numberofratings=1;
 }
 
-document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
 
+if(data.results[0].primaryGenreName == "Utilities")
+{
+document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
+}
+else
+{
+document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
+}
 if(rating == 1 && numberofratings == 1)
 {
 document.getElementById("approved").innerHTML += data.results[0].trackId + "<br>";
