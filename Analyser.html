@@ -134,8 +134,14 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 }
 	 
 }
-	     if ($Apps_split[i], $Apps_checked) {
-    echo ($Apps_split[i] + " is not available!");
+if(isInArray(Apps_split[i], Apps_checked) == true)
+{
+
+}
+	    else
+	    {
+		    console.log("App " + Apps_split[i] + " not found!");
+	    }
     }
 
         
@@ -165,6 +171,9 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 
 //"Rating: " + data.results[0].averageUserRating;
 }
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}		
 </script>
 </body>
 </html>
