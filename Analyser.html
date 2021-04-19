@@ -151,7 +151,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
         
 
 })
-.complete(function() { checked = 1; })
+.complete(function() { setchecked(); })
 ;
        
     
@@ -170,7 +170,10 @@ if(checked == 1)
 
 
 //"Rating: " + data.results[0].averageUserRating;
-
+function setchecked()
+{
+  checked = 1;
+}
 function isInArray(value, array) {
   return array.indexOf(value) > -1;
 }			
