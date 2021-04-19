@@ -13,7 +13,6 @@ input
 <body>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	
     
@@ -59,12 +58,16 @@ input
 <label for=utility">Reject utility category </label>
 	<center><input id="utility" type="checkbox"></center>
 <button class="btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
-	<div class="result" id="buttonsection"></div><hr><hr>
+	<div class="result" id="buttonsection">
+    
+
+  </div><hr><hr>
 	<center><img id="image" width="100"/></center>
 <div class="result" id="result"></div>
 	<p><b>Approved: </b></p><div class="result" id="approved"></div><br><hr>
 	<p><b>Not approved: </b></p><div class="result" id="notapproved"></div><br><hr>
 	<p><b>Not found: </b></p><div class="result" id="notfound"></div><br><hr>
+  
 </div>
 	</div>
 	</center>
@@ -85,7 +88,7 @@ var checked = 1;
 var minrating;
 var minreviews;
 var utilities;
-								
+var file;
 function Skanuj()
 {
 	document.getElementById("notapproved").innerHTML = "";
@@ -93,6 +96,7 @@ function Skanuj()
 	document.getElementById("notfound").innerHTML = "";
 	document.getElementById("result").innerHTML = "";
   document.getElementById("indicator").innerHTML = "<p>Processing...</p>";
+
 	document.getElementById("indicator").disabled = true;
 minrating = document.getElementById("AvgRating").value;
 minreviews = document.getElementById("MinReviews").value;
@@ -220,7 +224,7 @@ else
 
 $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a><a class='btn btn-secondary' href='#notapproved'>Not approved</a><a class='btn btn-secondary' href='#notfound'>Not found</a>";
+  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a><a class='btn btn-secondary' href='#notapproved'>Not approved</a><a class='btn btn-secondary' href='#notfound'>Not found</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
         check();
 	document.getElementById("indicator").disabled = false;
         });
@@ -257,6 +261,44 @@ function isInArray(value, array) {
 }
 			
 		}
+
+    function download_csv() {
+      let temp = document.getElementById("approved").innerText;
+      let temp2 = document.getElementById("notapproved").innerText;
+      let temp3 = document.getElementById("notfound").innerText;
+      temp = temp.split((/\n|,/g));
+      temp2 = temp2.split((/\n|,/g));
+      temp3 = temp3.split((/\n|,/g));
+      temp.splice(-1,1);
+      temp2.splice(-1,1);
+      temp3.splice(-1,1);
+      file = temp;
+      file2 = temp2;
+      file3 = temp3;
+    var csv = 'Domain, Result';
+    for(let element in file)
+    {
+      csv += "\n";
+           csv += file[element] + ",Approved";
+    }
+    for(let element in file2)
+    {
+      csv += "\n";
+           csv += file2[element] + ",Not Approved";
+    }
+    for(let element in file3)
+    {
+      csv += "\n";
+           csv += file3[element] + ",Not Found";
+    }
+ 
+    console.log(csv);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'Export.csv';
+    hiddenElement.click();
+}
 </script>
 </body>
 </html>
