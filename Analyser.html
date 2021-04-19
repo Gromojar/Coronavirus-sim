@@ -56,6 +56,8 @@ input
 <input id="AvgRating" type="number" name="AvgRating" value="3" step="0.1" max="5" min="0">
 <label for="MinReviews">Min. review count: </label>
 <input id="MinReviews" type="number" name="MinReviews" value="50" step="0.1" min="0">
+<label for=utility">Reject utility category </label>
+	<center><input id="utility" type="checkbox"></center>
 <button class="btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
 	<div class="result" id="buttonsection"></div><hr><hr>
 	<center><img id="image" width="100"/></center>
@@ -82,6 +84,8 @@ var numberofratings=0;
 var checked = 1;
 var minrating;
 var minreviews;
+var utilities;
+								
 function Skanuj()
 {
 	document.getElementById("notapproved").innerHTML = "";
@@ -92,6 +96,14 @@ function Skanuj()
 	document.getElementById("indicator").disabled = true;
 minrating = document.getElementById("AvgRating").value;
 minreviews = document.getElementById("MinReviews").value;
+if(document.getElementById("utility").checked == true)
+	{
+utilities = 1;
+	}
+	else
+	{
+utilities = 0;
+	}
 rating = 0;
 numberofratings = 0;
 Apps = document.getElementById("tocheck").value;
@@ -150,15 +162,41 @@ else
 {
 document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
 }
-if(rating == 1 && numberofratings == 1)
-{
-document.getElementById("approved").innerHTML += data.results[0].trackId + "<br>";
-}
+  if(utilities == 1)
+{	
+    if(rating == 1 && numberofratings == 1)
+    {
+        if(data.results[0].primaryGenreName == "Utilities")
+          {
+            document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<br>";
+          }
+          else
+          {
+            document.getElementById("approved").innerHTML += data.results[0].trackId + "<br>";
+          }
+      
+    }
 else
 {
-document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<br>";
-
+	document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<br>";
 }
+
+	 
+}
+if(utilities == 0)
+{	
+    if(rating == 1 && numberofratings == 1)
+    {
+       
+            document.getElementById("approved").innerHTML += data.results[0].trackId + "<br>";
+          
+      
+    }
+else
+{
+	document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<br>";
+}
+
 	 
 }
 
@@ -169,7 +207,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 
     
 
-
+  }
         
 
 })
