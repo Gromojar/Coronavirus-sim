@@ -166,7 +166,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 
 $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a>";
+  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a><a class='btn btn-secondary' href='#notapproved'>Not approved</a><a class='btn btn-secondary' href='#notfound'>Not found</a>";
         check();
         });
 }
