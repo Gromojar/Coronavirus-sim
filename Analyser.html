@@ -123,6 +123,14 @@ if(data.results[0].userRatingCount > 50)
 }
 
 document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
+	  if(isInArray(Apps_split[i], Apps_checked) == true)
+{
+
+}
+	    else
+	    {
+		    console.log("App " + Apps_split[i] + " not found!");
+	    }
 if(rating == 1 && numberofratings == 1)
 {
 document.getElementById("approved").innerHTML += data.results[0].trackId + "<br><br>";
@@ -134,14 +142,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 }
 	 
 }
-if(isInArray(Apps_split[i], Apps_checked) == true)
-{
 
-}
-	    else
-	    {
-		    console.log("App " + Apps_split[i] + " not found!");
-	    }
     
 
         
