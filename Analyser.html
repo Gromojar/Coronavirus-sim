@@ -98,6 +98,7 @@ else
     console.log(data.results[0].trackId);
 	  let app_name = data.results[0].trackId;
 	Apps_checked.push("" + app_name + "");
+	  
       document.getElementById("result").innerHTML += "<center><img src='" + data.results[0].artworkUrl100 + "' width='100'></center>";
       document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
@@ -123,14 +124,7 @@ if(data.results[0].userRatingCount > 50)
 }
 
 document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
-	  if(isInArray(Apps_split[i], Apps_checked) == true)
-{
 
-}
-	    else
-	    {
-		    console.log("App " + Apps_split[i] + " not found!");
-	    }
 if(rating == 1 && numberofratings == 1)
 {
 document.getElementById("approved").innerHTML += data.results[0].trackId + "<br><br>";
@@ -162,7 +156,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
     
 }
 
-
+check();
 }
 
 
@@ -174,7 +168,21 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 
 function isInArray(value, array) {
   return array.indexOf(value) > -1;
-}		
+}
+		function check()
+		{
+			for (i=0; i < Apps_split.length; i++)
+{
+	  if(isInArray(Apps_split[i], Apps_checked) == true)
+{
+
+}
+	    else
+	    {
+		    console.log("App " + Apps_split[i] + " not found!");
+	    }
+}
+		}
 </script>
 </body>
 </html>
