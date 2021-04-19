@@ -171,7 +171,7 @@ function isInArray(value, array) {
 }
 		function check()
 		{
-			for (i=0; i < Apps_split.length; i++)
+			for (var j=0; j < Apps_split.length; i++)
 {
 	  if(isInArray(Apps_split[i], Apps_checked) == true)
 {
@@ -182,6 +182,7 @@ function isInArray(value, array) {
 		    console.log("App " + Apps_split[i] + " not found!");
 	    }
 }
+			j=0;
 		}
 </script>
 </body>
