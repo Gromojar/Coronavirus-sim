@@ -137,12 +137,11 @@ for (i=0; i < Apps_split.length; i++)
 
  if(data.resultCount == 0)
  {
-     console.log(Apps_split[i]);
+     
  }
 else
   {
-    console.log(data);
-    console.log(data.results[0].trackId);
+
 	  let app_name = data.results[0].trackId;
 	Apps_checked.push("" + app_name + "");
 
@@ -276,7 +275,7 @@ function isInArray(value, array) {
 }
 	    else
 	    {
-		    console.log("App " + Apps_split[element] + " not found!");
+
 		document.getElementById("notfound").innerHTML += Apps_split[element] + "<br>";
 	    }
 }
@@ -313,7 +312,7 @@ function isInArray(value, array) {
            csv += file3[element] + ",Not Found";
     }
  
-    console.log(csv);
+
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';
