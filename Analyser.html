@@ -135,7 +135,7 @@ else
       document.getElementById("result").innerHTML += "<center><img src='" + data.results[0].artworkUrl100 + "' width='100'></center>";
       document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
-				if(data.results[0].sellerUrl != "undefined")
+				if(data.results[0].sellerUrl != null)
 				{
 document.getElementById("result").innerHTML += "Developer page: <a href='" + data.results[0].sellerUrl + "'>" + data.results[0].sellerUrl + "</a><br>";
 				}
