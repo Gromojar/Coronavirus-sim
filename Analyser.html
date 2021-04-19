@@ -53,6 +53,7 @@ input
 </div>
 <br><br>
 <button class="btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br><br>
+	<div class="result" id="buttonsection"></div>
 	<center><img id="image" width="100"/></center>
 <div class="result" id="result"></div>
 	<p><b>Approved: </b></p><div class="result" id="approved"></div><br><hr>
@@ -165,6 +166,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 
 $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
+  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a>";
         check();
         });
 }
