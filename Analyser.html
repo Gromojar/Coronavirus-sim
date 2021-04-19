@@ -164,7 +164,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 }
 
 $(document).ajaxStop(function () {
-  document.getElementById("indicator").innerHTML = "<p>Done!</p>";
+  document.getElementById("indicator").innerHTML = "<p>Done!</p><br>Scan again?";
         check();
         });
 }
