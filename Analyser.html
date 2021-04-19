@@ -150,9 +150,8 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
         
 
 })
-.fail(function() { alert('getJSON request failed! '); })
+.complete(function() { check(); })
 ;
-.complete(function() {check();});
        
     
     
