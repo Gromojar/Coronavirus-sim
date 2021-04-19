@@ -83,6 +83,7 @@ function Skanuj()
 	document.getElementById("result").innerHTML = "";
 rating = 0;
 numberofratings = 0;
+	checked = 0;
 Apps = document.getElementById("tocheck").value;
 Apps_split = Apps.split(/\n|,/g);
 
@@ -194,7 +195,7 @@ function isInArray(value, array) {
 	    else
 	    {
 		    console.log("App " + Apps_split[element] + " not found!");
-		document.getElementById("notfound").innerHTML += Apps_split[element] + "<br><br>";
+		document.getElementById("notfound").innerHTML += Apps_split[element] + "<br>";
 	    }
 }
 			
