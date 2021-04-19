@@ -57,6 +57,7 @@ input
 <div class="result" id="result"></div>
 	<p>Approved: </p><div class="result" id="approved"></div>
 	<p>Not approved: </p><div class="result" id="notapproved"></div>
+	<p>Not found: </p><div class="result" id="notfound"></div>
 </div>
 	</div>
 	</center>
@@ -183,7 +184,7 @@ function isInArray(value, array) {
 	    else
 	    {
 		    console.log("App " + Apps_split[element] + " not found!");
-
+		document.getElementById("notfound").innerHTML += Apps_split[element] + "<br><br>";
 	    }
 }
 			
