@@ -53,6 +53,7 @@ input
 </div>
 <br><br>
 <button class="btn btn-secondary" onclick="Skanuj()">Scan</button><br><br>
+<div id="indicator"></div>
 	<center><img id="image" width="100"/></center>
 <div class="result" id="result"></div>
 	<p><b>Approved: </b></p><div class="result" id="approved"></div><br><hr>
@@ -81,6 +82,7 @@ function Skanuj()
 	document.getElementById("approved").innerHTML = "";
 	document.getElementById("notfound").innerHTML = "";
 	document.getElementById("result").innerHTML = "";
+  document.getElementById("indicator").innerHTML = "<p>Processing...</p>";
 rating = 0;
 numberofratings = 0;
 Apps = document.getElementById("tocheck").value;
@@ -163,6 +165,7 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
 }
 
 $(document).ajaxStop(function () {
+  document.getElementById("indicator").innerHTML = "<p>Done!</p>";
         check();
         });
 }
