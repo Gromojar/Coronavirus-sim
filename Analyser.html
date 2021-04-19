@@ -55,6 +55,8 @@ input
 <button class="btn btn-secondary" onclick="Skanuj()">Scan</button><br><br>
 	<center><img id="image" width="100"/></center>
 <div class="result" id="result"></div>
+	<p>Approved: </p><div class="result" id="approved"></div>
+	<p>Not approved: </p><div class="result" id="approved"></div>
 </div>
 	</div>
 	</center>
@@ -67,8 +69,12 @@ var Apps_split;
 var i=0;
 var a=0;
 var data;
+var rating =0;
+var numberofratings=0;
 function Skanuj()
 {
+rating = 0;
+numberofratings = 0;
 Apps = document.getElementById("tocheck").value;
 Apps_split = Apps.split(/\n|,/g);
 
@@ -95,22 +101,33 @@ document.getElementById("result").innerHTML += "BundleId:" + data.results[0].tra
 if(data.results[0].averageUserRating < 2)
 {
     document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + data.results[0].averageUserRating + "<br></b>";
+	rating=0;
 }
 if(data.results[0].averageUserRating > 2)
 {
     document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + data.results[0].averageUserRating + "<br></b>";
+	rating=1;
 }
 if(data.results[0].userRatingCount < 50)
 {
     document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " + data.results[0].userRatingCount + "<br></b>";
+	numberofratings=0;
 }
 if(data.results[0].userRatingCount > 50)
 {
     document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " + data.results[0].userRatingCount + "<br></b>";
+	numberofratings=1;
 }
 
 document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
-
+if(rating == 1 && numberofratings == 1)
+{
+document.getElementById("Approved").innerHTML += data.results[0].trackId + "<br><br>";
+}
+else
+{
+document.getElementById("Not approved").innerHTML += data.results[0].trackId + "<br><br>";
+}
     }
 
         
