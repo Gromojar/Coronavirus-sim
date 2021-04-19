@@ -110,7 +110,7 @@ else
       document.getElementById("result").innerHTML += "<center><img src='" + data.results[0].artworkUrl100 + "' width='100'></center>";
       document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
-document.getElementById("result").innerHTML += "Developer page:" + data.results[0].sellerUrl + "<br>";
+document.getElementById("result").innerHTML += "Developer page: <a href='" + data.results[0].sellerUrl + "'><br>";
 if(data.results[0].averageUserRating < 2)
 {
     document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + data.results[0].averageUserRating + "<br></b>";
