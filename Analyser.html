@@ -89,6 +89,7 @@ function Skanuj()
 	document.getElementById("notfound").innerHTML = "";
 	document.getElementById("result").innerHTML = "";
   document.getElementById("indicator").innerHTML = "<p>Processing...</p>";
+	document.getElementById("indicator").disabled = true;
 minrating = document.getElementById("AvgRating").value;
 minreviews = document.getElementById("MinReviews").value;
 rating = 0;
@@ -183,6 +184,7 @@ $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
   document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a><a class='btn btn-secondary' href='#notapproved'>Not approved</a><a class='btn btn-secondary' href='#notfound'>Not found</a>";
         check();
+	document.getElementById("indicator").disabled = false;
         });
 }
 
