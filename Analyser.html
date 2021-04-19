@@ -74,6 +74,7 @@ var a=0;
 var data;
 var rating =0;
 var numberofratings=0;
+var checked = 0;
 function Skanuj()
 {
 rating = 0;
@@ -150,14 +151,17 @@ document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<
         
 
 })
-.done(function() { check(); })
+.complete(function() { checked = 1; })
 ;
        
     
     
 }
 
-
+if(checked == 1)
+{
+  check();
+}
 }
 
 
