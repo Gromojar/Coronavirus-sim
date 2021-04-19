@@ -74,7 +74,7 @@ var a=0;
 var data;
 var rating =0;
 var numberofratings=0;
-var checked = 0;
+var checked = 1;
 function Skanuj()
 {
 	document.getElementById("notapproved").innerHTML = "";
@@ -83,7 +83,6 @@ function Skanuj()
 	document.getElementById("result").innerHTML = "";
 rating = 0;
 numberofratings = 0;
-	checked = 0;
 Apps = document.getElementById("tocheck").value;
 Apps_split = Apps.split(/\n|,/g);
 
