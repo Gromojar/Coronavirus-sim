@@ -56,7 +56,7 @@ input
 	<center><img id="image" width="100"/></center>
 <div class="result" id="result"></div>
 	<p>Approved: </p><div class="result" id="approved"></div>
-	<p>Not approved: </p><div class="result" id="approved"></div>
+	<p>Not approved: </p><div class="result" id="notapproved"></div>
 </div>
 	</div>
 	</center>
@@ -122,11 +122,11 @@ if(data.results[0].userRatingCount > 50)
 document.getElementById("result").innerHTML += "Primary Category: " + data.results[0].primaryGenreName + "<br><hr>";
 if(rating == 1 && numberofratings == 1)
 {
-document.getElementById("Approved").innerHTML += data.results[0].trackId + "<br><br>";
+document.getElementById("approved").innerHTML += data.results[0].trackId + "<br><br>";
 }
 else
 {
-document.getElementById("Not approved").innerHTML += data.results[0].trackId + "<br><br>";
+document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<br><br>";
 }
     }
 
