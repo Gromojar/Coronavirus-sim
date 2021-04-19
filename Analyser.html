@@ -141,7 +141,7 @@ else
 document.getElementById("notapproved").innerHTML += data.results[0].trackId + "<br><br>";
 
 }
-setTimeout(function(){ check(); }, 5000);	 
+	 
 }
 
     
@@ -162,7 +162,9 @@ setTimeout(function(){ check(); }, 5000);
     
 }
 
-
+$(document).ajaxStop(function () {
+        check();
+        });
 }
 
 
