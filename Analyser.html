@@ -97,7 +97,7 @@ else
     console.log(data);
     console.log(data.results[0].trackId);
 	  let app_name = data.results[0].trackId;
-	Apps_checked.push(app_name);
+	Apps_checked.push("'" + app_name + "'");
       document.getElementById("result").innerHTML += "<center><img src='" + data.results[0].artworkUrl100 + "' width='100'></center>";
       document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
