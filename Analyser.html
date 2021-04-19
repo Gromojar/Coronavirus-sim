@@ -66,6 +66,7 @@ var mydata2;
 var adt;
 var Apps;
 var Apps_split;
+var Apps_checked;
 var i=0;
 var a=0;
 var data;
@@ -95,6 +96,7 @@ else
   {
     console.log(data);
     console.log(data.results[0].trackId);
+	Apps_checked.push(data.results[0].trackId);
       document.getElementById("result").innerHTML += "<center><img src='" + data.results[0].artworkUrl100 + "' width='100'></center>";
       document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
