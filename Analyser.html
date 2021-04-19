@@ -77,9 +77,9 @@ input
 
   </div><hr><hr>
 	<center><img id="image" width="100"/></center>
-<div class="result" id="result"></div>
-	<p><b>Approved: </b></p><div class="result" id="approved"></div><br><hr>
-	<p><b>Not approved: </b></p><div class="result" id="notapproved"></div><br><hr>
+<div class="result" id="result"></div><hr id=approvedscroll>
+	<p><b>Approved: </b></p><div class="result" id="approved"></div><br><hr id="id=notapprovedscroll">
+	<p><b>Not approved: </b></p><div class="result" id="notapproved"></div><br><hr id="id=notfoundscroll">
 	<p><b>Not found: </b></p><div class="result" id="notfound"></div><br><hr>
   
 </div>
@@ -245,7 +245,7 @@ else
 
 $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approved'>Approved</a><a class='btn btn-secondary' href='#notapproved'>Not approved</a><a class='btn btn-secondary' href='#notfound'>Not found</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
+  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approvedscroll'>Approved</a><a class='btn btn-secondary' href='#notapprovedscroll'>Not approved</a><a class='btn btn-secondary' href='#notfoundscroll'>Not found</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
         check();
 	document.getElementById("indicator").disabled = false;
         });
