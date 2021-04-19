@@ -172,15 +172,15 @@ function isInArray(value, array) {
 }
 		function check()
 		{
-			for (j=-1; j < Apps_split.length; j++)
+			for (var element in Apps_split)
 {
-	  if(Apps_checked.includes(Apps_split[j]) == true)
+	  if(Apps_checked.includes(Apps_split[element]) == true)
 {
-	console.log(Apps_split[j] + "is present");
+	console.log(Apps_split[element] + "is present");
 }
 	    else
 	    {
-		    console.log("App " + Apps_split[j] + " not found!");
+		    console.log("App " + Apps_split[element] + " not found!");
 
 	    }
 }
