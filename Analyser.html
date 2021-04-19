@@ -52,6 +52,10 @@ input
     <textarea id="tocheck" cols="30" rows="15" class="inline-txtarea"></textarea>
 </div>
 <br><br>
+<label for="AvgRating">Min. average rating: </label>
+<input id="AvgRating" type="number" name="AvgRating" value="3">
+<label for="MinReviews">Min. review count: </label>
+<input id="MinReviews" type="number" name="MinReviews" value="50">
 <button class="btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
 	<div class="result" id="buttonsection"></div><hr><hr>
 	<center><img id="image" width="100"/></center>
@@ -76,6 +80,8 @@ var data;
 var rating =0;
 var numberofratings=0;
 var checked = 1;
+var minrating;
+var minreviews;
 function Skanuj()
 {
 	document.getElementById("notapproved").innerHTML = "";
@@ -83,6 +89,8 @@ function Skanuj()
 	document.getElementById("notfound").innerHTML = "";
 	document.getElementById("result").innerHTML = "";
   document.getElementById("indicator").innerHTML = "<p>Processing...</p>";
+minrating = document.getElementById("AvgRating").value;
+minreviews = document.getElementById("MinReviews").value;
 rating = 0;
 numberofratings = 0;
 Apps = document.getElementById("tocheck").value;
@@ -111,22 +119,22 @@ else
       document.getElementById("result").innerHTML += data.results[0].trackCensoredName + "<br>";
 document.getElementById("result").innerHTML += "BundleId:" + data.results[0].trackId + "<br>";
 document.getElementById("result").innerHTML += "Developer page: <a href='" + data.results[0].sellerUrl + "'>" + data.results[0].sellerUrl + "</a><br>";
-if(data.results[0].averageUserRating < 2)
+if(data.results[0].averageUserRating < minrating)
 {
     document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + data.results[0].averageUserRating + "<br></b>";
 	rating=0;
 }
-if(data.results[0].averageUserRating > 2)
+if(data.results[0].averageUserRating >= minrating)
 {
     document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + data.results[0].averageUserRating + "<br></b>";
 	rating=1;
 }
-if(data.results[0].userRatingCount < 50)
+if(data.results[0].userRatingCount < minreviews)
 {
     document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " + data.results[0].userRatingCount + "<br></b>";
 	numberofratings=0;
 }
-if(data.results[0].userRatingCount > 50)
+if(data.results[0].userRatingCount >= minreviews)
 {
     document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " + data.results[0].userRatingCount + "<br></b>";
 	numberofratings=1;
