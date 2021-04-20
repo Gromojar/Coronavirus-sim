@@ -139,7 +139,7 @@ $(document).ajaxStop(function () {
     {
 
       document.getElementById("result").innerHTML += "<b>" + domains[element].domain + "</b>";
-      if(domains[element].adt <= 750)
+      if(domains[element].adt < 750)
       {
         document.getElementById("result").innerHTML += "<p style='color:red'>Porn score: " + domains[element].adt + " <b>Porn</b></p>";
         domains[element].adult = 1;
@@ -179,7 +179,7 @@ $(document).ajaxStop(function () {
           domains[element].piracy = 0;
         }
       }
-      if(domains[element].adt > 750)
+      if(domains[element].adt >= 750)
       {
         document.getElementById("result").innerHTML += "<p style='color:green'>Porn score: " + domains[element].adt + " Ok</p>";
         domains[element].adult = 0;
