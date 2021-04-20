@@ -137,8 +137,7 @@ $(document).ajaxStop(function () {
     document.getElementById("indicator").innerHTML = "<p>Done! Scan again?</p>";
     for(let element in domains)
     {
-      porn = 0;
-      piracy = 0;
+
       document.getElementById("result").innerHTML += "<b>" + domains[element].domain + "</b>";
       if(domains[element].adt <= 750)
       {
@@ -195,10 +194,14 @@ $(document).ajaxStop(function () {
       if(piracy == 1 || adult == 1)
       {
         document.getElementById("notapproved").innerHTML += domains[element].domain + "<br>";
+	            porn = 0;
+      piracy = 0;
       }
       else
       {
         document.getElementById("approved").innerHTML += domains[element].domain + "<br>";
+	            porn = 0;
+      piracy = 0;
       }
     }
 
