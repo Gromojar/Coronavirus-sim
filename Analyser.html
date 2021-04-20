@@ -289,6 +289,10 @@ if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3 && App[j].IsUttilit
 {
   document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
 }
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3 && App[j].IsUttility == 0)
+{
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
+}
 
 /*
   if(utilities == 1)
