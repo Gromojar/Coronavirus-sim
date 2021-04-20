@@ -351,7 +351,7 @@ else
 
 $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approvedscroll'>Approved</a><a class='btn btn-secondary' href='#notapprovedscroll'>Not approved</a><a class='btn btn-secondary' href='#notfoundscroll'>Not found</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
+  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approvedscroll'>Approved</a><a class='btn btn-secondary' href='#notapprovedscroll'>Not approved</a><a class='btn btn-secondary' href='#notfoundscroll'>Not found</a><a class='btn btn-secondary' href='#manualscroll'>Manual</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
         check();
 	document.getElementById("indicator").disabled = false;
         });
