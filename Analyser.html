@@ -65,6 +65,10 @@ input
     <textarea id="tocheck" cols="30" rows="15" class="inline-txtarea"></textarea>
 </div>
 <br><br>
+<label for="Blockkeywords">Block apps with sensitive keywords</label>
+<center><input id="Blockkeywords" type="checkbox"></center><br>
+<label for="Blockuttility">Block apps with utility category</label>
+<center><input id="Blockuttility" type="checkbox"></center>
 <label for="AvgRating">Min. average rating: </label>
 <input id="AvgRating" type="range" name="AvgRating" value="3" step="0.1" max="5" min="0" oninput="this.nextElementSibling.value = this.value">
 <output>3</output>
@@ -111,6 +115,64 @@ var Apps;
 var Apps_split;
 var Apps_checked = [];
 var a=0;
+var blockkeywords;
+var Keywords = [
+  "anime", 
+  "bang", 
+  "bdsm", 
+  "erotic", 
+  "erotik", 
+  "foursome", 
+  "fuck", 
+  "hentai", 
+  "hub", 
+  "jav", 
+  "lesbian", 
+  "naughty", 
+  "nude", 
+  "porn", 
+  "prostitution", 
+  "pussy", 
+  "rape", 
+  "snuff", 
+  "xham", 
+  "xid", 
+  "xnx", 
+  "xtube", 
+  "xx", 
+  "locker", 
+  "launcher", 
+  "wallpaper", 
+  "flashlight", 
+  "calc",
+  "Anime", 
+  "Bang", 
+  "Bdsm", 
+  "Erotic", 
+  "Erotik", 
+  "Foursome", 
+  "Fuck", 
+  "Hentai", 
+  "Hub", 
+  "Jav", 
+  "Lesbian", 
+  "Naughty", 
+  "Nude", 
+  "Porn", 
+  "Prostitution", 
+  "Pussy", 
+  "Rape", 
+  "Snuff", 
+  "Xham", 
+  "Xid", 
+  "Xnx", 
+  "Xtube", 
+  "Xx", 
+  "Locker", 
+  "Launcher", 
+  "Wallpaper", 
+  "Flashlight", 
+  "Calc"];
 var data;
 var rating =0;
 var numberofratings=0;
@@ -119,6 +181,7 @@ var minrating;
 var minreviews;
 var utilities;
 var file;
+var utilitycheck;
 var notapproved = document.getElementById("notapproved").innerHTML;
 var approved = document.getElementById("approved").innerHTML;
 var notfound = document.getElementById("notfound").innerHTML;
@@ -127,6 +190,22 @@ var indicator = document.getElementById("indicator").innerHTML;
 var result = document.getElementById("result").innerHTML;
 function Skanuj()
 {
+  if(document.getElementById("Blockkeywords").checked == true)
+  {
+    blockkeywords = 1;
+  }
+  else
+  {
+    blockkeywords = 0;
+  }
+  if(document.getElementById("Blockuttility").checked == true)
+  {
+    utilitycheck = 1;
+  }
+  else
+  {
+    utilitycheck = 0;
+  }
 	Apps_checked = [];
 	Apps_split = [];
 	notapproved = "";
@@ -172,8 +251,17 @@ else
     "DeveloperPage":data.results[0].sellerUrl,
     "AverageRating":data.results[0].averageUserRating,
     "ReviewCount":data.results[0].userRatingCount,
-    "PrimaryGenre":data.results[0].primaryGenreName
+    "PrimaryGenre":data.results[0].primaryGenreName,
+    "HasDeveloperPage":"",
+    "ContainKeyword":""
   };
+  length = Keywords.length;
+while(length--) {
+   if (App[j].Name.indexOf(Keywords[length])!=-1) {
+       App[j].ContainKeyword = 1;
+   }
+
+}
     //App[j].ImageUrl = data.results[0].artworkUrl100;
    // App[j].Name = data.results[0].trackCensoredName;
    // App[j].ShopURL = data.results[0].trackViewUrl;
@@ -220,7 +308,15 @@ if(App[j].PrimaryGenre == "Utilities")
 }
 else
 {
-  document.getElementById("result").innerHTML += "Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
+  document.getElementById("result").innerHTML += "Primary Category: " + App[j].PrimaryGenre + "<br>";
+}
+if(App[j].ContainKeyword == 1)
+{
+  document.getElementById("result").innerHTML += "<b style='color:red'>Contains sensitive keyword!<br><hr>";
+}
+else
+{
+  document.getElementById("result").innerHTML += "<hr>";
 }
 if(App[j].ReviewCount >= 100)
 {
@@ -270,29 +366,58 @@ else
 {
   App[j].IsUttility = 0;
 }
+if(App[j].DeveloperPage != undefined)
+{
+  App[j].HasDeveloperPage = 1;
+}
+else
+{
+  App[j].HasDeveloperPage = 0;
+}
 
 //Manual validation check
+if(blockkeywords == 1 && App[j].ContainKeyword == 1)
+{
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
+}
+else
+{
+  if(utilitycheck == 1 && App[j].IsUttility == 1)
+  {
+    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
+  }
+  else
+  {
 
-if(App[j].isHaving100Reviews == 0 || App[j].Score0 == 1 || App[j].ScoreBetween3to4)
+  
+  if(App[j].isHaving100Reviews == 0 || App[j].Score0 == 1 || App[j].ScoreBetween3to4 == 1)
 {
   document.getElementById("manual").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
 }
 
 //Automatic approval validation check
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1 && App[j].IsUttility == 0)
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1)
 {
   document.getElementById("approved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
 
 }
 //Automatic rejection validation check
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3 && App[j].IsUttility == 1)
+
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
+{
+
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
+}
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
 {
   document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
 }
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3 && App[j].IsUttility == 0)
-{
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + "<br>";
+  }
+ 
 }
+
+
+
 
 /*
   if(utilities == 1)
