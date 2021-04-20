@@ -65,7 +65,6 @@ input
     <textarea id="tocheck" cols="50" rows="15" class="inline-txtarea"></textarea>
 </div>
 <br><br>
-	<center><input id="utility" type="checkbox"></center>
 <button class="btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
 	<div class="result" id="buttonsection">
     
@@ -202,7 +201,16 @@ $(document).ajaxStop(function () {
       }
       if(domains[element].adult == 1 || domains[element].piracy == 1)
       {
-        document.getElementById("notapproved").innerHTML += domains[element].domain + "<br>";
+        document.getElementById("notapproved").innerHTML += domains[element].domain;
+        if(domains[element].adult == 1)
+        {
+          document.getElementById("notapproved").innerHTML += ";" + "Porn";
+        }
+        if(domains[element].piracy == 1)
+        {
+          document.getElementById("notapproved").innerHTML += ";" + "Piracy";
+        }
+        document.getElementById("notapproved").innerHTML += "<br>";
       }
       if(domains[element].adult == 0 || domains[element].piracy == 0)
       {
@@ -212,7 +220,7 @@ $(document).ajaxStop(function () {
 
     once = 1;
   }
-
+  document.getElementById("buttonsection").innerHTML = "<br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
         });
   
 
@@ -226,7 +234,24 @@ $(document).ajaxStop(function () {
     
 }
 }
-
+function download_csv() {
+      let temp = document.getElementById("notapproved").innerText;
+      temp = temp.split((/\n|,/g));
+      temp.splice(-1,1);
+      file = temp;
+    var csv = 'Domain;PornCheck;PiracyCheck';
+    for(let element in file)
+    {
+      csv += "\n";
+           csv += file[element] + "";
+    }
+  
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'Export.csv';
+    hiddenElement.click();
+}
 
 </script>
 </body>
