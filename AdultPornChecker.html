@@ -212,7 +212,7 @@ $(document).ajaxStop(function () {
         }
         document.getElementById("notapproved").innerHTML += "<br>";
       }
-      if(domains[element].adult == 0 || domains[element].piracy == 0)
+      if(domains[element].adult == 0 && domains[element].piracy == 0)
       {
         document.getElementById("approved").innerHTML += domains[element].domain + "<br>";
       }
