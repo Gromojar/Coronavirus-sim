@@ -313,7 +313,7 @@ if(App[j].ReviewCount >= minreviews)
 }
 
 
-if(App[j].PrimaryGenre == "Utilities")
+if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Weather")
 {
   document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
 }
@@ -369,7 +369,7 @@ else
 {
   App[j].ScoreBetween1to3 = 0;
 }
-if(App[j].PrimaryGenre == "Utilities")
+if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Weather")
 {
   App[j].IsUttility = 1;
 }
