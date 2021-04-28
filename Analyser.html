@@ -389,19 +389,19 @@ else
 //Manual validation check
 if(blockdevpage == 1 && App[j].HasDeveloperPage == 0)
 {
-    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 }
 else
 {
     if(blockkeywords == 1 && App[j].ContainKeyword == 1)
 {
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 }
 else
 {
   if(utilitycheck == 1 && App[j].IsUttility == 1)
   {
-    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
   }
   else
   {
@@ -409,13 +409,13 @@ else
   
   if(App[j].isHaving100Reviews == 0 || App[j].Score0 == 1 || App[j].ScoreBetween3to4 == 1)
 {
-  document.getElementById("manual").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+  document.getElementById("manual").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 }
 
 //Automatic approval validation check
 if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1)
 {
-  document.getElementById("approved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+  document.getElementById("approved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 
 }
 //Automatic rejection validation check
@@ -423,11 +423,11 @@ if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1)
 if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
 {
 
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 }
 if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
 {
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 }
 }
 
