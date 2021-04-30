@@ -283,7 +283,7 @@ while(length--) {
    // App[j].AverageRating = data.results[0].averageUserRating;
     //App[j].ReviewCount = data.results[0].userRatingCount;
     //App[j].PrimaryGenre = data.results[0].primaryGenreName;
-  document.getElementById("result").innerHTML += "<center><img src='" + App[j].ImageUrl + "' width='100'></center>";
+  document.getElementById("result").innerHTML += "<center><img id="image" src='" + App[j].ImageUrl + "' width='100'></center>";
   document.getElementById("result").innerHTML += App[j].Name + "<br>";
   document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[j].ShopURL + "'>" + App[j].BundleId + "</a><br>";
 				if(App[j].DeveloperPage != null)
