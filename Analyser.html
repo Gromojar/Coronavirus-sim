@@ -96,6 +96,7 @@ border-radius:10px;
 	</div>
 	</center>
 	<script>
+    
 var mydata;
 var mydata2;
 var adt;
@@ -523,10 +524,9 @@ $(document).ajaxStop(function () {
             const elements = doc.querySelectorAll('.hrTbp');
             let app_name = Apps_split[j];
             let subratingcount = doc.getElementsByClassName("AYi5wd TBRnV")[0].innerText;
-            console.log(subratingcount);
 
-            let test = subratingcount.replace(",","");
-          console.log(subratingcount);
+            let test = subratingcount.replace(/,|,/g, '');
+          test2 = parseInt(test);
             Apps_checked.push("" + app_name + "");
             App[j] = {
     "BundleId":Apps_split[j], 
@@ -535,7 +535,7 @@ $(document).ajaxStop(function () {
     "ShopURL":"https://play.google.com/store/apps/details?id="+Apps_split[j],
     "DeveloperPage":elements[3].getAttribute('href'),
     "AverageRating":doc.getElementsByClassName("BHMmbe")[0].innerText,
-    "ReviewCount":parseInt(test),
+    "ReviewCount":test2,
     "PrimaryGenre":elements[1].innerText,
     "HasDeveloperPage":"",
     "ContainKeyword":""
@@ -696,6 +696,12 @@ if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
 {
   document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 }
+$(document).ajaxStop(function () {
+  document.getElementById("indicator").innerText = "Done! Scan again?";
+  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approvedscroll'>Approved</a><a class='btn btn-secondary' href='#notapprovedscroll'>Not approved</a><a class='btn btn-secondary' href='#notfoundscroll'>Not found</a><a class='btn btn-secondary' href='#manualscroll'>Manual</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
+        check();
+	document.getElementById("indicator").disabled = false;
+        });
 }
 
   }
