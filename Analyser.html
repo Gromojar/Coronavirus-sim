@@ -180,6 +180,7 @@ var Keywords = [
   "Calc"];
 var data;
 var rating =0;
+var isGoogle = 0;
 var numberofratings=0;
 var checked = 1;
 var minrating;
@@ -240,8 +241,17 @@ Apps_split = Apps.split(/\n|,/g);
 for (let i=0; i < Apps_split.length; i++)
 {
   let j=i;
-    
-        let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
+    if(Apps_split[j].startsWith("com."))
+    {
+      isGoogle = 1;
+    }
+    else
+    {
+      isGoogle = 0;
+    }
+    if(isGoogle == 0)
+    {
+      let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
         
     $.getJSON(text, function (data) {
 
@@ -494,7 +504,6 @@ else
 
 
     
-}
 
 $(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
@@ -502,6 +511,199 @@ $(document).ajaxStop(function () {
         check();
 	document.getElementById("indicator").disabled = false;
         });
+      }
+    else
+    {
+      console.log("To Google!");
+      let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
+
+      $.get(text, function (data) {
+            
+            let doc = new DOMParser().parseFromString(data, "text/html")
+            const elements = doc.querySelectorAll('.hrTbp');
+            let app_name = Apps_split[j];
+            let subratingcount = doc.getElementsByClassName("AYi5wd TBRnV")[0].innerText;
+            console.log(subratingcount);
+
+            let test = subratingcount.replace(",","");
+          console.log(subratingcount);
+            Apps_checked.push("" + app_name + "");
+            App[j] = {
+    "BundleId":Apps_split[j], 
+    "ImageUrl":doc.getElementsByClassName("T75of sHb2Xb")[0].getAttribute('src'),
+    "Name":doc.getElementsByClassName("AHFaub")[0].innerText,
+    "ShopURL":"https://play.google.com/store/apps/details?id="+Apps_split[j],
+    "DeveloperPage":elements[3].getAttribute('href'),
+    "AverageRating":doc.getElementsByClassName("BHMmbe")[0].innerText,
+    "ReviewCount":parseInt(test),
+    "PrimaryGenre":elements[1].innerText,
+    "HasDeveloperPage":"",
+    "ContainKeyword":""
+  };
+  length = Keywords.length;
+while(length--) {
+   if (App[j].Name.indexOf(Keywords[length])!=-1) {
+       App[j].ContainKeyword = 1;
+   }
+
+}
+document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[j].ImageUrl + "' width='100'></center>";
+  document.getElementById("result").innerHTML += App[j].Name + "<br>";
+  document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[j].ShopURL + "'>" + App[j].BundleId + "</a><br>";
+				if(App[j].DeveloperPage != null)
+				{
+          document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[j].DeveloperPage + "'>" + App[j].DeveloperPage + "</a><br>";
+				}
+				else
+				{
+          document.getElementById("result").innerHTML += "Developer page: not found<br>";				
+				}
+if(App[j].AverageRating < minrating)
+{
+  document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[j].AverageRating + "<br></b>";
+
+}
+if(App[j].AverageRating >= minrating)
+{
+  document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[j].AverageRating + "<br></b>";
+
+}
+if(App[j].ReviewCount < minreviews)
+{
+  document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " + App[j].ReviewCount + "<br></b>";
+
+}
+if(App[j].ReviewCount >= minreviews)
+{
+  document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " + App[j].ReviewCount + "<br></b>";
+
+}
+
+
+if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Weather")
+{
+  document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
+}
+else
+{
+  document.getElementById("result").innerHTML += "Primary Category: " + App[j].PrimaryGenre + "<br>";
+}
+if(App[j].ContainKeyword == 1)
+{
+  document.getElementById("result").innerHTML += "<b style='color:red'>Contains sensitive keyword!<br><hr>";
+}
+else 
+{
+  document.getElementById("result").innerHTML += "<hr>";
+}
+if(App[j].ReviewCount >= 100)
+{
+  App[j].isHaving100Reviews = 1;
+}
+else
+{
+  App[j].isHaving100Reviews = 0;
+}
+if(App[j].AverageRating == 0)
+{
+  App[j].Score0 = 1;
+}
+else
+{
+  App[j].Score0 = 0;
+}
+if(App[j].AverageRating >= 3 && App[j].AverageRating <= 4)
+{
+  App[j].ScoreBetween3to4 = 1;
+}
+else
+{
+  App[j].ScoreBetween3to4 = 0;
+}
+if(App[j].AverageRating > 4)
+{
+  App[j].ScoreAbove4 = 1;
+}
+else
+{
+  App[j].ScoreAbove4 = 0;
+}
+if(App[j].AverageRating > 0 && App[j].AverageRating < 3)
+{
+  App[j].ScoreBetween1to3 = 1;
+}
+else
+{
+  App[j].ScoreBetween1to3 = 0;
+}
+if(App[j].PrimaryGenre == "Utilities")
+{
+  App[j].IsUttility = 1;
+}
+else
+{
+  App[j].IsUttility = 0;
+}
+if(App[j].DeveloperPage != undefined)
+{
+  App[j].HasDeveloperPage = 1;
+}
+else
+{
+  App[j].HasDeveloperPage = 0;
+}
+
+//Manual validation check
+if(blockdevpage == 1 && App[j].HasDeveloperPage == 0)
+{
+    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+}
+else
+{
+    if(blockkeywords == 1 && App[j].ContainKeyword == 1)
+{
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" +  " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+}
+else
+{
+  if(utilitycheck == 1 && App[j].IsUttility == 1)
+  {
+    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+  }
+  else
+  {
+
+  
+  if(App[j].isHaving100Reviews == 0 || App[j].Score0 == 1 || App[j].ScoreBetween3to4 == 1)
+{
+  document.getElementById("manual").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+}
+
+//Automatic approval validation check
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1)
+{
+  document.getElementById("approved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+
+}
+//Automatic rejection validation check
+
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
+{
+
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+}
+if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
+{
+  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
+}
+}
+
+  }
+ 
+}
+      })
+    }
+  }
 }
 
 
@@ -582,6 +784,7 @@ function isInArray(value, array) {
     hiddenElement.download = 'Export.csv';
     hiddenElement.click();
 }
+
 </script>
 </body>
 </html>
