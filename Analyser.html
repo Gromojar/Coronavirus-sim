@@ -242,7 +242,7 @@ Apps_split = Apps.split(/\n|,/g);
 for (let i=0; i < Apps_split.length; i++)
 {
   let j=i;
-    if(Apps_split[j].startsWith("com.") || Apps_split[j].startsWith("net"))
+    if(isNaN(Apps_split[j]))
     {
       isGoogle = 1;
     }
