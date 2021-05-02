@@ -327,7 +327,7 @@ if(App[j].ReviewCount >= minreviews)
 }
 
 
-if(App[j].PrimaryGenre == "Utilities")
+if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
 {
   document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
 }
