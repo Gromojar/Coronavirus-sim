@@ -327,7 +327,7 @@ if(App[j].ReviewCount >= minreviews)
 }
 
 
-if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Weather")
+if(App[j].PrimaryGenre == "Utilities")
 {
   document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
 }
@@ -383,7 +383,7 @@ else
 {
   App[j].ScoreBetween1to3 = 0;
 }
-if(App[j].PrimaryGenre == "Utilities")
+if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
 {
   App[j].IsUttility = 1;
 }
@@ -457,7 +457,7 @@ if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
 {	
     if(rating == 1 && numberofratings == 1)
     {
-        if(App[j].PrimaryGenre == "Utilities")
+        if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
           {
             document.getElementById("notapproved").innerHTML += App[j].BundleId + "<br>";
           }
