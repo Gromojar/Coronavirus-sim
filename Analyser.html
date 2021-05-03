@@ -618,9 +618,9 @@ App[j].AppAds = 0
   /*document.getElementById("buttonsection").innerHTML =
     "<br>
   */
-    document.getElementById("indicator").disabled = false;
+    document.getElementById("indicator").disabled = true;
             document.getElementById("checkresults").disabled = false;
-      document.getElementById("downloadcsv").disabled = false;
+      
   
 });
     }
@@ -636,6 +636,8 @@ App[j].AppAds = 0
             {
                 
                 document.getElementById("result").innerHTML = "";
+      document.getElementById("downloadcsv").disabled = false;
+      document.getElementById("checkresults").disabled = true;
                 check();
                 for(element in App)
     {
@@ -756,7 +758,9 @@ App[j].AppAds = 0
             }
 
             function download_csv() {
-
+                  document.getElementById("checkresults").disabled = false;
+                  document.getElementById("downloadcsv").disabled = false;
+                  document.getElementById("indicator").disabled = false;
                   let temp = document.getElementById("approved").innerText;
                   let temp2 = document.getElementById("notapproved").innerText;
                   let temp3 = document.getElementById("notfound").innerText;
