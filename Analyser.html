@@ -1,796 +1,727 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
- 
-input
-{
-	text-align: center;
-}
-#image
-{
-border-radius:10px;
-}
+  input {
+    text-align: center;
+  }
+
+  #image {
+    border-radius: 10px;
+  }
 </style>
 
 <html>
+
 <body>
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>App Analyser</title>
-<center>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">Quality Tools</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Menu <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="QualityImageUrlRenderer.html">Image url renderer</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Websiteanalyzer.html">Website analyser</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="UrlOpener.html">Url opener</a>
-      </li>
-	          <li class="nav-item">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Analyser</title>
+  <center>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Quality Tools</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Menu <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="QualityImageUrlRenderer.html">Image url renderer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Websiteanalyzer.html">Website analyser</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="UrlOpener.html">Url opener</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="PasswordGenerator.html">Password Generator</a>
-          </li> 
-              <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="WebsiteRenderer.html">Website Renderer</a>
           </li>
-	                  <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="Merger.html">Text Merger</a>
           </li>
-	    	                  <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="Base64Decoder.html">Base64 Decoder</a>
           </li>
-      	    	                  <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="UrlDecoder.html">UrlDecoder</a>
           </li>
-	          	    	                  <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="Analyser.html">App Analyser</a>
           </li>
-    </ul>
-  </div>
-</nav>
-<div class="container">
-<div class="card text-black bg-light mb-3">
-  <div class="card-header">App analyser</div>
-<br><br>
-<div class="inline-div">
-    <p align="center">Naked bundle ID like '417926051 or com.whatsapp'</p>
-    <textarea id="tocheck" cols="30" rows="15" class="inline-txtarea"></textarea>
-</div>
-<br><br>
-<label for="Blockkeywords">Block apps with sensitive keywords</label>
-<center><input id="Blockkeywords" type="checkbox"></center>
-<label for="Blockuttility">Block apps with utility category</label>
-<center><input id="Blockuttility" type="checkbox"></center>
-<label for="BlockDeveloper">Block apps without developer page</label>
-<center><input id="BlockDeveloper" type="checkbox"></center>
-<label for="AvgRating">Min. average rating: </label>
-<input id="AvgRating" type="range" name="AvgRating" value="3" step="0.1" max="5" min="0" oninput="this.nextElementSibling.value = this.value">
-<output>3</output>
-<label for="MinReviews">Min. review count: </label>
-<input id="MinReviews" type="number" name="MinReviews" value="50" step="1" min="0"">
-<button class="btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
-	<div class="result" id="buttonsection">
-    
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="card text-black bg-light mb-3">
+        <div class="card-header">App analyser</div>
+        <br><br>
+        <div class="inline-div">
+          <p align="center">Naked bundle ID like '417926051 or com.whatsapp'</p>
+          <textarea id="tocheck" cols="30" rows="15" class="inline-txtarea"></textarea>
+        </div>
+        <br><br>
+        <label for="Blockkeywords">Block apps with sensitive keywords</label>
+        <center><input id="Blockkeywords" type="checkbox"></center>
+        <label for="Blockuttility">Block apps with utility category</label>
+        <center><input id="Blockuttility" type="checkbox"></center>
+        <label for="BlockDeveloper">Block apps without developer page</label>
+        <center><input id="BlockDeveloper" type="checkbox"></center>
+        <label for="AvgRating">Min. average rating: </label>
+        <input id="AvgRating" type="range" name="AvgRating" value="3" step="0.1" max="5" min="0"
+          oninput="this.nextElementSibling.value = this.value">
+        <output>3</output>
+        <label for="MinReviews">Min. review count: </label>
+        <input id="MinReviews" type="number" name="MinReviews" value="50" step="1" min="0"">
+<button class=" btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
+        <div class="result" id="buttonsection">
 
-  </div><hr><hr>
-	<center><img id="image" width="100"/></center>
-<div class="result" id="result"></div><hr id="approvedscroll">
-	<p><b>Approved: </b></p><div class="result" id="approved"></div><br><hr id="notapprovedscroll">
-	<p><b>Not approved: </b></p><div class="result" id="notapproved"></div><br><hr id="manualscroll">
-  <p><b>Manual check: </b></p><div class="result" id="manual"></div><br>
-  <hr id="notfoundscroll">
-	<p><b>Not found: </b></p><div class="result" id="notfound"></div><br><hr>
-  
-</div>
-	</div>
-	</center>
-	<script>
-    
-var mydata;
-var mydata2;
-var adt;
-var App = [
-  {"BundleId":"",
-  "ImageUrl":"",
-  "Name":"",
-  "ShopURL":"",
-  "DeveloperPage":"",
-  "AverageRating":"",
-  "ReviewCount":"",
-  "PrimaryGenre":"",
-  "isHaving100Reviews":"",
-  "Score0":"",
-  "ScoreBetween1to3":"",
-  "ScoreBetween3to4":"",
-  "ScoreAbove4":"",
-  "IsUttility":""
 
-}];
-var Apps;
-var Apps_split;
-var Apps_checked = [];
-var a=0;
-var blockkeywords;
-var Keywords = [
-  "anime", 
-  "bang", 
-  "bdsm", 
-  "erotic", 
-  "erotik", 
-  "foursome", 
-  "fuck", 
-  "hentai", 
-  "hub", 
-  "jav", 
-  "lesbian", 
-  "naughty", 
-  "nude", 
-  "porn", 
-  "prostitution", 
-  "pussy", 
-  "rape", 
-  "snuff", 
-  "xham", 
-  "xid", 
-  "xnx", 
-  "xtube", 
-  "xx", 
-  "locker", 
-  "launcher", 
-  "wallpaper", 
-  "flashlight", 
-  "calc",
-  "Anime", 
-  "Bang", 
-  "Bdsm", 
-  "Erotic", 
-  "Erotik", 
-  "Foursome", 
-  "Fuck", 
-  "Hentai", 
-  "Hub", 
-  "Jav", 
-  "Lesbian", 
-  "Naughty", 
-  "Nude", 
-  "Porn", 
-  "Prostitution", 
-  "Pussy", 
-  "Rape", 
-  "Snuff", 
-  "Xham", 
-  "Xid", 
-  "Xnx", 
-  "Xtube", 
-  "Xx", 
-  "Locker", 
-  "Launcher", 
-  "Wallpaper", 
-  "Flashlight", 
-  "Calc"];
-var data;
-var rating =0;
-var isGoogle = 0;
-var numberofratings=0;
-var checked = 1;
-var minrating;
-var minreviews;
-var utilities;
-var file;
-var utilitycheck;
-var blockdevpage;
-var notapproved = document.getElementById("notapproved").innerHTML;
-var approved = document.getElementById("approved").innerHTML;
-var notfound = document.getElementById("notfound").innerHTML;
-var manual = document.getElementById("manual").innerHTML;
-var indicator = document.getElementById("indicator").innerHTML;
-var result = document.getElementById("result").innerHTML;
-function Skanuj()
-{
-  if(document.getElementById("Blockkeywords").checked == true)
-  {
-    blockkeywords = 1;
-  }
-  else
-  {
-    blockkeywords = 0;
-  }
-  if(document.getElementById("BlockDeveloper").checked == true)
-  {
-    blockdevpage = 1;
-  }
-  else
-  {
-    blockdevpage = 0;
-  }
-  if(document.getElementById("Blockuttility").checked == true)
-  {
-    utilitycheck = 1;
-  }
-  else
-  {
-    utilitycheck = 0;
-  }
-	Apps_checked = [];
-	Apps_split = [];
-	notapproved = "";
-	approved = "";
-	notfound = "";
-	result = "";
-  document.getElementById("indicator").innerHTML = "<p>Processing...</p>";
-  document.getElementById("indicator").disabled = true;
+        </div>
+        <hr>
+        <hr>
+        <center><img id="image" width="100" /></center>
+        <div class="result" id="result"></div>
+        <hr id="approvedscroll">
+        <p><b>Approved: </b></p>
+        <div class="result" id="approved"></div><br>
+        <hr id="notapprovedscroll">
+        <p><b>Not approved: </b></p>
+        <div class="result" id="notapproved"></div><br>
+        <hr id="manualscroll">
+        <p><b>Manual check: </b></p>
+        <div class="result" id="manual"></div><br>
+        <hr id="notfoundscroll">
+        <p><b>Not found: </b></p>
+        <div class="result" id="notfound"></div><br>
+        <hr>
 
-	indicator.disabled = true;
-minrating = document.getElementById("AvgRating").value;
-minreviews = document.getElementById("MinReviews").value;
-rating = 0;
-numberofratings = 0;
-Apps = document.getElementById("tocheck").value;
-Apps_split = Apps.split(/\n|,/g);
+      </div>
+    </div>
+  </center>
+  <script>
+    var mydata;
+    var mydata2;
+    var adt;
+    var App = [{
+      "BundleId": "",
+      "ImageUrl": "",
+      "Name": "",
+      "ShopURL": "",
+      "DeveloperPage": "",
+      "AverageRating": "",
+      "ReviewCount": "",
+      "PrimaryGenre": "",
+      "isHaving100Reviews": "",
+      "Score0": "",
+      "ScoreBetween1to3": "",
+      "ScoreBetween3to4": "",
+      "ScoreAbove4": "",
+      "IsUttility": "",
+      "AppAds": "",
+      "Result": ""
 
-for (let i=0; i < Apps_split.length; i++)
-{
-  let j=i;
-    if(isNaN(Apps_split[j]))
-    {
-      isGoogle = 1;
-    }
-    else
-    {
-      isGoogle = 0;
-    }
-    if(isGoogle == 0)
-    {
-      let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
-        
-    $.getJSON(text, function (data) {
+    }];
+    var Apps;
+    var Apps_split;
+    var Apps_checked = [];
+    var a = 0;
+    var blockkeywords;
+    var Keywords = [
+      "anime",
+      "bang",
+      "bdsm",
+      "erotic",
+      "erotik",
+      "foursome",
+      "fuck",
+      "hentai",
+      "hub",
+      "jav",
+      "lesbian",
+      "naughty",
+      "nude",
+      "porn",
+      "prostitution",
+      "pussy",
+      "rape",
+      "snuff",
+      "xham",
+      "xid",
+      "xnx",
+      "xtube",
+      "xx",
+      "locker",
+      "launcher",
+      "wallpaper",
+      "flashlight",
+      "calc",
+      "Anime",
+      "Bang",
+      "Bdsm",
+      "Erotic",
+      "Erotik",
+      "Foursome",
+      "Fuck",
+      "Hentai",
+      "Hub",
+      "Jav",
+      "Lesbian",
+      "Naughty",
+      "Nude",
+      "Porn",
+      "Prostitution",
+      "Pussy",
+      "Rape",
+      "Snuff",
+      "Xham",
+      "Xid",
+      "Xnx",
+      "Xtube",
+      "Xx",
+      "Locker",
+      "Launcher",
+      "Wallpaper",
+      "Flashlight",
+      "Calc"
+    ];
+    var data;
+    var rating = 0;
+    var isGoogle = 0;
+    var numberofratings = 0;
+    var checked = 1;
+    var finished = 0;
+    var minrating;
+    var minreviews;
+    var utilities;
+    var file;
+    var utilitycheck;
+    var blockdevpage;
+    var notapproved = document.getElementById("notapproved").innerHTML;
+    var approved = document.getElementById("approved").innerHTML;
+    var notfound = document.getElementById("notfound").innerHTML;
+    var manual = document.getElementById("manual").innerHTML;
+    var indicator = document.getElementById("indicator").innerHTML;
+    var result = document.getElementById("result").innerHTML;
 
- if(data.resultCount == 0)
- {
-     
- }
-else
-  {
-    
+    function Skanuj() {
+      if (document.getElementById("Blockkeywords").checked == true) {
+        blockkeywords = 1;
+      } else {
+        blockkeywords = 0;
+      }
+      if (document.getElementById("BlockDeveloper").checked == true) {
+        blockdevpage = 1;
+      } else {
+        blockdevpage = 0;
+      }
+      if (document.getElementById("Blockuttility").checked == true) {
+        utilitycheck = 1;
+      } else {
+        utilitycheck = 0;
+      }
+      Apps_checked = [];
+      Apps_split = [];
+      notapproved = "";
+      approved = "";
+      notfound = "";
+      result = "";
+      document.getElementById("indicator").innerHTML = "<p>Processing...</p>";
+      document.getElementById("indicator").disabled = true;
 
-	  let app_name = data.results[0].trackId;
+      indicator.disabled = true;
+      minrating = document.getElementById("AvgRating").value;
+      minreviews = document.getElementById("MinReviews").value;
+      rating = 0;
+      numberofratings = 0;
+      Apps = document.getElementById("tocheck").value;
+      Apps_split = Apps.split(/\n|,/g);
+
+      for (let i = 0; i < Apps_split.length; i++) {
+        let j = i;
+        if (isNaN(Apps_split[j])) {
+          isGoogle = 1;
+        } else {
+          isGoogle = 0;
+        }
+        if (isGoogle == 0) {
+            let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
+
+$.getJSON(text, function (data) {
+
+  if (data.resultCount == 0) {
+
+  } else {
+
+
+    let app_name = data.results[0].trackId;
     console.log(app_name);
     //App[j].BundleId = app_name;
-	Apps_checked.push("" + app_name + "");
-  App[j] = {
-    "BundleId":data.results[0].trackId, 
-    "ImageUrl":data.results[0].artworkUrl100,
-    "Name":data.results[0].trackCensoredName,
-    "ShopURL":data.results[0].trackViewUrl,
-    "DeveloperPage":data.results[0].sellerUrl,
-    "AverageRating":data.results[0].averageUserRating,
-    "ReviewCount":data.results[0].userRatingCount,
-    "PrimaryGenre":data.results[0].primaryGenreName,
-    "HasDeveloperPage":"",
-    "ContainKeyword":""
-  };
-  length = Keywords.length;
-while(length--) {
-   if (App[j].Name.indexOf(Keywords[length])!=-1) {
-       App[j].ContainKeyword = 1;
-   }
+    Apps_checked.push("" + app_name + "");
+    App[j] = {
+      "BundleId": data.results[0].trackId,
+      "ImageUrl": data.results[0].artworkUrl100,
+      "Name": data.results[0].trackCensoredName,
+      "ShopURL": data.results[0].trackViewUrl,
+      "DeveloperPage": data.results[0].sellerUrl,
+      "AverageRating": data.results[0].averageUserRating,
+      "ReviewCount": data.results[0].userRatingCount,
+      "PrimaryGenre": data.results[0].primaryGenreName,
+      "HasDeveloperPage": "",
+      "ContainKeyword": "",
+      "AppAds": "",
+      "Result":""
+    };
+    length = Keywords.length;
+    while (length--) {
+      if (App[j].Name.indexOf(Keywords[length]) != -1) {
+        App[j].ContainKeyword = 1;
+      }
 
-}
-    //App[j].ImageUrl = data.results[0].artworkUrl100;
-   // App[j].Name = data.results[0].trackCensoredName;
-   // App[j].ShopURL = data.results[0].trackViewUrl;
-   // App[j].DeveloperPage = data.results[0].sellerUrl;
-   // App[j].AverageRating = data.results[0].averageUserRating;
-    //App[j].ReviewCount = data.results[0].userRatingCount;
-    //App[j].PrimaryGenre = data.results[0].primaryGenreName;
-  document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[j].ImageUrl + "' width='100'></center>";
-  document.getElementById("result").innerHTML += App[j].Name + "<br>";
-  document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[j].ShopURL + "'>" + App[j].BundleId + "</a><br>";
-				if(App[j].DeveloperPage != null)
-				{
-          document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[j].DeveloperPage + "'>" + App[j].DeveloperPage + "</a><br>";
-				}
-				else
-				{
-          document.getElementById("result").innerHTML += "Developer page: not found<br>";				
-				}
-if(App[j].AverageRating < minrating)
-{
-  document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[j].AverageRating + "<br></b>";
+    }
 
-}
-if(App[j].AverageRating >= minrating)
-{
-  document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[j].AverageRating + "<br></b>";
+    if (App[j].ReviewCount >= 100) {
+      App[j].isHaving100Reviews = 1;
+    } else {
+      App[j].isHaving100Reviews = 0;
+    }
+    if (App[j].AverageRating == 0) {
+      App[j].Score0 = 1;
+    } else {
+      App[j].Score0 = 0;
+    }
+    if (App[j].AverageRating >= 3 && App[j].AverageRating <= 4) {
+      App[j].ScoreBetween3to4 = 1;
+    } else {
+      App[j].ScoreBetween3to4 = 0;
+    }
+    if (App[j].AverageRating > 4) {
+      App[j].ScoreAbove4 = 1;
+    } else {
+      App[j].ScoreAbove4 = 0;
+    }
+    if (App[j].AverageRating > 0 && App[j].AverageRating < 3) {
+      App[j].ScoreBetween1to3 = 1;
+    } else {
+      App[j].ScoreBetween1to3 = 0;
+    }
+    if (App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization") {
+      App[j].IsUttility = 1;
+    } else {
+      App[j].IsUttility = 0;
+    }
+    if (App[j].DeveloperPage != undefined) {
+      App[j].HasDeveloperPage = 1;
+      let removed = App[j].DeveloperPage;
+      removed = extractRootDomain(removed);
+      console.log(removed);
+      let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed + "/app-ads.txt";
+      console.log(ads);
+      $.get(ads, function (data2) {
 
-}
-if(App[j].ReviewCount < minreviews)
-{
-  document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " + App[j].ReviewCount + "<br></b>";
 
-}
-if(App[j].ReviewCount >= minreviews)
-{
-  document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " + App[j].ReviewCount + "<br></b>";
+          }
 
-}
+        )
+        .done(function () {
+          App[j].AppAds = 1;
+        })
+        .fail(function () {
+          App[j].AppAds = 0
+        })
+    } else {
+      App[j].HasDeveloperPage = 0;
+    }
 
-
-if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
-{
-  document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
-}
-else
-{
-  document.getElementById("result").innerHTML += "Primary Category: " + App[j].PrimaryGenre + "<br>";
-}
-if(App[j].ContainKeyword == 1)
-{
-  document.getElementById("result").innerHTML += "<b style='color:red'>Contains sensitive keyword!<br><hr>";
-}
-else 
-{
-  document.getElementById("result").innerHTML += "<hr>";
-}
-if(App[j].ReviewCount >= 100)
-{
-  App[j].isHaving100Reviews = 1;
-}
-else
-{
-  App[j].isHaving100Reviews = 0;
-}
-if(App[j].AverageRating == 0)
-{
-  App[j].Score0 = 1;
-}
-else
-{
-  App[j].Score0 = 0;
-}
-if(App[j].AverageRating >= 3 && App[j].AverageRating <= 4)
-{
-  App[j].ScoreBetween3to4 = 1;
-}
-else
-{
-  App[j].ScoreBetween3to4 = 0;
-}
-if(App[j].AverageRating > 4)
-{
-  App[j].ScoreAbove4 = 1;
-}
-else
-{
-  App[j].ScoreAbove4 = 0;
-}
-if(App[j].AverageRating > 0 && App[j].AverageRating < 3)
-{
-  App[j].ScoreBetween1to3 = 1;
-}
-else
-{
-  App[j].ScoreBetween1to3 = 0;
-}
-if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
-{
-  App[j].IsUttility = 1;
-}
-else
-{
-  App[j].IsUttility = 0;
-}
-if(App[j].DeveloperPage != undefined)
-{
-  App[j].HasDeveloperPage = 1;
-}
-else
-{
-  App[j].HasDeveloperPage = 0;
-}
-
-//Manual validation check
-if(blockdevpage == 1 && App[j].HasDeveloperPage == 0)
-{
-    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-else
-{
-    if(blockkeywords == 1 && App[j].ContainKeyword == 1)
-{
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" +  " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-else
-{
-  if(utilitycheck == 1 && App[j].IsUttility == 1)
-  {
-    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-  }
-  else
-  {
-
+    //Manual validation check
   
-  if(App[j].isHaving100Reviews == 0 || App[j].Score0 == 1 || App[j].ScoreBetween3to4 == 1)
-{
-  document.getElementById("manual").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
 
-//Automatic approval validation check
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1)
-{
-  document.getElementById("approved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-
-}
-//Automatic rejection validation check
-
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
-{
-
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
-{
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-}
 
   }
- 
-}
 
-
-
-
-/*
-  if(utilities == 1)
-{	
-    if(rating == 1 && numberofratings == 1)
-    {
-        if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
-          {
-            document.getElementById("notapproved").innerHTML += App[j].BundleId + "<br>";
-          }
-          else
-          {
-            document.getElementById("approved").innerHTML += App[j].BundleId + "<br>";
-          }
-      
-    }
-else
-{
-	document.getElementById("notapproved").innerHTML += App[j].BundleId + "<br>";
-}
-
-	 
-}
-if(utilities == 0)
-{	
-    if(rating == 1 && numberofratings == 1)
-    {
-       
-            document.getElementById("approved").innerHTML += App[j].BundleId + "<br>";
-          
-      
-    }
-else
-{
-	document.getElementById("notapproved").innerHTML += App[j].BundleId + "<br>";
-}
-
-	 
-}
-
-*/
-
-        
-
-
-    
-
-}
-        
 
 })
 
 
+
+
+
+$(document).ajaxStop(function () {
+    for(element in App)
+    {
+        document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[element].ImageUrl +
+                "' width='100'></center>"
+        document.getElementById('result').innerHTML += App[element].Name + "<br>";
+        document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[element]
+                .ShopURL + "'>" + App[element].BundleId + "</a><br>";
+                if (App[element].DeveloperPage != null) {
+                document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[element]
+                  .DeveloperPage + "'>" + App[element].DeveloperPage + "</a><br>";
+                  if(App[element].AppAds == 1)
+                  {
+                    document.getElementById("result").innerHTML += "App-ads.txt detected!<br>"
+                  }
+              } else {
+                document.getElementById("result").innerHTML += "Developer page: not found<br>";
+              }
+              if (App[element].AverageRating < minrating) {
+                document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[element]
+                  .AverageRating + "<br></b>";
+
+              }
+              if (App[element].AverageRating >= minrating) {
+                document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[element]
+                  .AverageRating + "<br></b>";
+
+              }
+              if (App[element].ReviewCount < minreviews) {
+                document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " +
+                  App[element].ReviewCount + "<br></b>";
+
+              }
+              if (App[element].ReviewCount >= minreviews) {
+                document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " +
+                  App[element].ReviewCount + "<br></b>";
+
+              }
+
+
+              if (App[element].PrimaryGenre == "Utilities" || App[element].PrimaryGenre == "Personalization") {
+                document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[element]
+                  .PrimaryGenre + "<br><hr>";
+              } else {
+                document.getElementById("result").innerHTML += "Primary Category: " + App[element].PrimaryGenre + "<br>";
+              }
+              if (App[element].ContainKeyword == 1) {
+                document.getElementById("result").innerHTML +=
+                  "<b style='color:red'>Contains sensitive keyword!<br><hr>";
+              } else {
+                document.getElementById("result").innerHTML += "<hr>";
+              }        
+        finished = 1;
+    }
     
-
-$(document).ajaxStop(function () {
   document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approvedscroll'>Approved</a><a class='btn btn-secondary' href='#notapprovedscroll'>Not approved</a><a class='btn btn-secondary' href='#notfoundscroll'>Not found</a><a class='btn btn-secondary' href='#manualscroll'>Manual</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
-        check();
-	document.getElementById("indicator").disabled = false;
-        });
-      }
-    else
+  document.getElementById("buttonsection").innerHTML =
+    "<br><button class='btn btn-secondary' id='result' onclick='approval()'>Check results</button><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
+  document.getElementById("indicator").disabled = false;
+});
+} 
+        else {
+          console.log("To Google!");
+          let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
+        
+          $.get(text, function (data) {
+
+let doc = new DOMParser().parseFromString(data, "text/html")
+const elements = doc.querySelectorAll('.hrTbp');
+let app_name = Apps_split[j];
+let subratingcount = doc.getElementsByClassName("AYi5wd TBRnV")[0].innerText;
+
+let test = subratingcount.replace(/,|,/g, '');
+test2 = parseInt(test);
+Apps_checked.push("" + app_name + "");
+App[j] = {
+  "BundleId": Apps_split[j],
+  "ImageUrl": doc.getElementsByClassName("T75of sHb2Xb")[0].getAttribute('src'),
+  "Name": doc.getElementsByClassName("AHFaub")[0].innerText,
+  "ShopURL": "https://play.google.com/store/apps/details?id=" + Apps_split[j],
+  "DeveloperPage": elements[3].getAttribute('href'),
+  "AverageRating": doc.getElementsByClassName("BHMmbe")[0].innerText,
+  "ReviewCount": test2,
+  "PrimaryGenre": elements[1].innerText,
+  "HasDeveloperPage": "",
+  "ContainKeyword": "",
+  "AppAds": "",
+  "Result":""
+};
+                length = Keywords.length;
+                while (length--) {
+                  if (App[j].Name.indexOf(Keywords[length]) != -1) {
+                    App[j].ContainKeyword = 1;
+                  }
+
+                }
+
+                if (App[j].ReviewCount >= 100) {
+                  App[j].isHaving100Reviews = 1;
+                } else {
+                  App[j].isHaving100Reviews = 0;
+                }
+                if (App[j].AverageRating == 0) {
+                  App[j].Score0 = 1;
+                } else {
+                  App[j].Score0 = 0;
+                }
+                if (App[j].AverageRating >= 3 && App[j].AverageRating <= 4) {
+                  App[j].ScoreBetween3to4 = 1;
+                } else {
+                  App[j].ScoreBetween3to4 = 0;
+                }
+                if (App[j].AverageRating > 4) {
+                  App[j].ScoreAbove4 = 1;
+                } else {
+                  App[j].ScoreAbove4 = 0;
+                }
+                if (App[j].AverageRating > 0 && App[j].AverageRating < 3) {
+                  App[j].ScoreBetween1to3 = 1;
+                } else {
+                  App[j].ScoreBetween1to3 = 0;
+                }
+                if (App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization") {
+                  App[j].IsUttility = 1;
+                } else {
+                  App[j].IsUttility = 0;
+                }
+                if (App[j].DeveloperPage != undefined) {
+                  App[j].HasDeveloperPage = 1;
+                  let removed = App[j].DeveloperPage;
+                  removed = extractRootDomain(removed);
+                  console.log(removed);
+                  let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed + "/app-ads.txt";
+                  console.log(ads);
+                  $.get(ads, function (data2) {
+
+
+                      })
+                    .done(function () {
+                      App[j].AppAds = 1;
+                    })
+                    .fail(function () {
+                      App[j].AppAds = 0
+                    })
+                } else {
+                  App[j].HasDeveloperPage = 0;
+                }
+                $(document).ajaxStop(function () {
+                    
+    for(element in App)
     {
-      console.log("To Google!");
-      let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
+        document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[element].ImageUrl +
+                "' width='100'></center>"
+        document.getElementById('result').innerHTML += App[element].Name + "<br>";
+        document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[element]
+                .ShopURL + "'>" + App[element].BundleId + "</a><br>";
+                if (App[element].DeveloperPage != null) {
+                document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[element]
+                  .DeveloperPage + "'>" + App[element].DeveloperPage + "</a><br>";
+                  if(App[element].AppAds == 1)
+                  {
+                    document.getElementById("result").innerHTML += "App-ads.txt detected!<br>"
+                  }
+              } else {
+                document.getElementById("result").innerHTML += "Developer page: not found<br>";
+              }
+              if (App[element].AverageRating < minrating) {
+                document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[element]
+                  .AverageRating + "<br></b>";
 
-      $.get(text, function (data) {
-            
-            let doc = new DOMParser().parseFromString(data, "text/html")
-            const elements = doc.querySelectorAll('.hrTbp');
-            let app_name = Apps_split[j];
-            let subratingcount = doc.getElementsByClassName("AYi5wd TBRnV")[0].innerText;
+              }
+              if (App[element].AverageRating >= minrating) {
+                document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[element]
+                  .AverageRating + "<br></b>";
 
-            let test = subratingcount.replace(/,|,/g, '');
-          test2 = parseInt(test);
-            Apps_checked.push("" + app_name + "");
-            App[j] = {
-    "BundleId":Apps_split[j], 
-    "ImageUrl":doc.getElementsByClassName("T75of sHb2Xb")[0].getAttribute('src'),
-    "Name":doc.getElementsByClassName("AHFaub")[0].innerText,
-    "ShopURL":"https://play.google.com/store/apps/details?id="+Apps_split[j],
-    "DeveloperPage":elements[3].getAttribute('href'),
-    "AverageRating":doc.getElementsByClassName("BHMmbe")[0].innerText,
-    "ReviewCount":test2,
-    "PrimaryGenre":elements[1].innerText,
-    "HasDeveloperPage":"",
-    "ContainKeyword":""
-  };
-  length = Keywords.length;
-while(length--) {
-   if (App[j].Name.indexOf(Keywords[length])!=-1) {
-       App[j].ContainKeyword = 1;
-   }
+              }
+              if (App[element].ReviewCount < minreviews) {
+                document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " +
+                  App[element].ReviewCount + "<br></b>";
 
-}
-document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[j].ImageUrl + "' width='100'></center>";
-  document.getElementById("result").innerHTML += App[j].Name + "<br>";
-  document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[j].ShopURL + "'>" + App[j].BundleId + "</a><br>";
-				if(App[j].DeveloperPage != null)
-				{
-          document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[j].DeveloperPage + "'>" + App[j].DeveloperPage + "</a><br>";
-				}
-				else
-				{
-          document.getElementById("result").innerHTML += "Developer page: not found<br>";				
-				}
-if(App[j].AverageRating < minrating)
-{
-  document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[j].AverageRating + "<br></b>";
+              }
+              if (App[element].ReviewCount >= minreviews) {
+                document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " +
+                  App[element].ReviewCount + "<br></b>";
 
-}
-if(App[j].AverageRating >= minrating)
-{
-  document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[j].AverageRating + "<br></b>";
-
-}
-if(App[j].ReviewCount < minreviews)
-{
-  document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " + App[j].ReviewCount + "<br></b>";
-
-}
-if(App[j].ReviewCount >= minreviews)
-{
-  document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " + App[j].ReviewCount + "<br></b>";
-
-}
+              }
 
 
-if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Weather")
-{
-  document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[j].PrimaryGenre + "<br><hr>";
-}
-else
-{
-  document.getElementById("result").innerHTML += "Primary Category: " + App[j].PrimaryGenre + "<br>";
-}
-if(App[j].ContainKeyword == 1)
-{
-  document.getElementById("result").innerHTML += "<b style='color:red'>Contains sensitive keyword!<br><hr>";
-}
-else 
-{
-  document.getElementById("result").innerHTML += "<hr>";
-}
-if(App[j].ReviewCount >= 100)
-{
-  App[j].isHaving100Reviews = 1;
-}
-else
-{
-  App[j].isHaving100Reviews = 0;
-}
-if(App[j].AverageRating == 0)
-{
-  App[j].Score0 = 1;
-}
-else
-{
-  App[j].Score0 = 0;
-}
-if(App[j].AverageRating >= 3 && App[j].AverageRating <= 4)
-{
-  App[j].ScoreBetween3to4 = 1;
-}
-else
-{
-  App[j].ScoreBetween3to4 = 0;
-}
-if(App[j].AverageRating > 4)
-{
-  App[j].ScoreAbove4 = 1;
-}
-else
-{
-  App[j].ScoreAbove4 = 0;
-}
-if(App[j].AverageRating > 0 && App[j].AverageRating < 3)
-{
-  App[j].ScoreBetween1to3 = 1;
-}
-else
-{
-  App[j].ScoreBetween1to3 = 0;
-}
-if(App[j].PrimaryGenre == "Utilities" || App[j].PrimaryGenre == "Personalization")
-{
-  App[j].IsUttility = 1;
-}
-else
-{
-  App[j].IsUttility = 0;
-}
-if(App[j].DeveloperPage != undefined)
-{
-  App[j].HasDeveloperPage = 1;
-}
-else
-{
-  App[j].HasDeveloperPage = 0;
-}
-
-//Manual validation check
-if(blockdevpage == 1 && App[j].HasDeveloperPage == 0)
-{
-    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-else
-{
-    if(blockkeywords == 1 && App[j].ContainKeyword == 1)
-{
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" +  " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-else
-{
-  if(utilitycheck == 1 && App[j].IsUttility == 1)
-  {
-    document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-  }
-  else
-  {
-
+              if (App[element].PrimaryGenre == "Utilities" || App[element].PrimaryGenre == "Personalization") {
+                document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[element]
+                  .PrimaryGenre + "<br><hr>";
+              } else {
+                document.getElementById("result").innerHTML += "Primary Category: " + App[element].PrimaryGenre + "<br>";
+              }
+              if (App[element].ContainKeyword == 1) {
+                document.getElementById("result").innerHTML +=
+                  "<b style='color:red'>Contains sensitive keyword!<br><hr>";
+              } else {
+                document.getElementById("result").innerHTML += "<hr>";
+              }        
+        finished = 1;
+    }
+  document.getElementById("indicator").innerText = "Done! Scan again?";
+  document.getElementById("buttonsection").innerHTML =
+    "<br><button class='btn btn-secondary' id='result' onclick='approval()'>Check results</button><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
+  document.getElementById("indicator").disabled = false;
   
-  if(App[j].isHaving100Reviews == 0 || App[j].Score0 == 1 || App[j].ScoreBetween3to4 == 1)
-{
-  document.getElementById("manual").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
+});
+                //Manual validation check
 
-//Automatic approval validation check
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreAbove4 == 1)
-{
-  document.getElementById("approved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
 
-}
-//Automatic rejection validation check
 
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
-{
 
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-if(App[j].isHaving100Reviews == 1 && App[j].ScoreBetween1to3)
-{
-  document.getElementById("notapproved").innerHTML += App[j].BundleId + ";" + App[j].DeveloperPage + ";" + App[j].HasDeveloperPage + ";" + App[j].isHaving100Reviews +';' + App[j].Score0 + ';' + App[j].ScoreBetween1to3 + ";" + App[j].ScoreBetween3to4 + ";" + App[j].ScoreAbove4 + ";" + App[j].IsUttility + ";" + " "+ App[j].AverageRating + ";" + App[j].ReviewCount + "<br>";
-}
-$(document).ajaxStop(function () {
-  document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML = "<a class='btn btn-secondary' href='#approvedscroll'>Approved</a><a class='btn btn-secondary' href='#notapprovedscroll'>Not approved</a><a class='btn btn-secondary' href='#notfoundscroll'>Not found</a><a class='btn btn-secondary' href='#manualscroll'>Manual</a><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
-        check();
-	document.getElementById("indicator").disabled = false;
-        });
-}
 
-  }
- 
-}
-      })
+                //console.log(myApp[j].AverageRating);
+
+              
+                //"Rating: " + App[j].AverageRating;
+                function setchecked() {
+                  checked = 1;
+                }
+
+                function isInArray(value, array) {
+                  return array.indexOf(value) > -1;
+                }
+              
+
+            })
+        }
+
     }
-  }
-}
+
+   
+               if(finished == 1)
+               {
+                   approval();
+               }
+            }
+
+            function approval()
+            {
+                for(elements in App)
+                {
+                    if (blockdevpage == 1 && App[elements].HasDeveloperPage == 0) {
+                document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
+                  ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 + ';' + App[
+                    elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 + ";" + App[elements]
+                  .IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + "<br>";
+              } else {
+                if (blockkeywords == 1 && App[elements].ContainKeyword == 1) {
+                  document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
+                    ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 + ';' +
+                    App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 + ";" + App[
+                      j].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + "<br>";
+                } else {
+                  if (utilitycheck == 1 && App[elements].IsUttility == 1) {
+                    document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
+                      .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[
+                        j].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
+                      .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
+                      .ReviewCount + ";" + App[elements].AppAds + "<br>";
+                  } else {
 
 
+                    if (App[elements].isHaving100Reviews == 0 || App[elements].Score0 == 1 || App[elements].ScoreBetween3to4 == 1) {
+                      document.getElementById("manual").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
+                        ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 +
+                        ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 +
+                        ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + "<br>";
+                    }
 
-//console.log(myApp[j].AverageRating);
+                    //Automatic approval validation check
+                    if (App[elements].isHaving100Reviews == 1 && App[elements].ScoreAbove4 == 1) {
+                      document.getElementById("approved").innerHTML += App[elements].BundleId + ";" + App[elements]
+                        .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' +
+                        App[elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
+                        .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
+                        .ReviewCount + ";" + App[elements].AppAds + "<br>";
+
+                    }
+                    //Automatic rejection validation check
+
+                    if (App[elements].isHaving100Reviews == 1 && App[elements].ScoreBetween1to3) {
+
+                      document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
+                        .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' +
+                        App[elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
+                        .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
+                        .ReviewCount + ";" + App[elements].AppAds + "<br>";
+                    }
+                    if (App[elements].isHaving100Reviews == 1 && App[elements].ScoreBetween1to3) {
+                      document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
+                        .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' +
+                        App[elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
+                        .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
+                        .ReviewCount + ";" + App[elements].AppAds + "<br>";
+                    }
+                  }
+
+                }
+
+              }
+                }
+            }
+            function download_csv() {
+                check();
+                approval();
+                  let temp = document.getElementById("approved").innerText;
+                  let temp2 = document.getElementById("notapproved").innerText;
+                  let temp3 = document.getElementById("notfound").innerText;
+                  let temp4 = document.getElementById("manual").innerText;
+                  temp = temp.split((/\n|,/g));
+                  temp2 = temp2.split((/\n|,/g));
+                  temp3 = temp3.split((/\n|,/g));
+                  temp4 = temp4.split((/\n|,/g));
+                  temp.splice(-1, 1);
+                  temp2.splice(-1, 1);
+                  temp3.splice(-1, 1);
+                  temp4.splice(-1, 1);
+                  file = temp;
+                  file2 = temp2;
+                  file3 = temp3;
+                  file4 = temp4;
+                  var csv =
+                    'BundleId;DeveloperPage;HasDeveloperPage;isHaving100Reviews;Score0;ScoreBetween1to3;ScoreBetween3to4;ScoreAbove4;IsUttility;AverageRating;ReviewCount;App-Ads.txt;Result';
+                  for (let element in file) {
+                    csv += "\n";
+                    csv += file[element] + ";Approved";
+                  }
+                  for (let element in file2) {
+                    csv += "\n";
+                    csv += file2[element] + ";Not Approved";
+                  }
+                  for (let element in file3) {
+                    csv += "\n";
+                    csv += file3[element] + ";Not Found";
+                  }
+                  for (let element in file4) {
+                    csv += "\n";
+                    csv += file4[element] + ";Manual Check";
+                  }
 
 
-//"Rating: " + App[j].AverageRating;
-function setchecked()
-{
-  checked = 1;
-}
-function isInArray(value, array) {
-  return array.indexOf(value) > -1;
-}			
-		
-		function check()
-		{
-			let element;
-			for (element in Apps_split)
-{
-	  if(Apps_checked.includes(Apps_split[element]) == true)
-{
-	
-}
-	    else
-	    {
+                  var hiddenElement = document.createElement('a');
+                  hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+                  hiddenElement.target = '_blank';
+                  hiddenElement.download = 'Export.csv';
+                  hiddenElement.click();
+                }
+                var extractRootDomain = function (url) {
+                  return url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1].split('.').slice(-2).join('.');
+                };
+                function check() {
+                    
+                  let element;
+                  for (element in Apps_split) {
+                    if (Apps_checked.includes(Apps_split[element]) == true) {
 
-		document.getElementById("notfound").innerHTML += Apps_split[element] + ";;;;;;;;" + "<br>";
-	    }
-}
-			
-		}
+                    } else {
 
-    function download_csv() {
-      let temp = document.getElementById("approved").innerText;
-      let temp2 = document.getElementById("notapproved").innerText;
-      let temp3 = document.getElementById("notfound").innerText;
-      let temp4 = document.getElementById("manual").innerText;
-      temp = temp.split((/\n|,/g));
-      temp2 = temp2.split((/\n|,/g));
-      temp3 = temp3.split((/\n|,/g));
-      temp4 = temp4.split((/\n|,/g));
-      temp.splice(-1,1);
-      temp2.splice(-1,1);
-      temp3.splice(-1,1);
-      temp4.splice(-1,1);
-      file = temp;
-      file2 = temp2;
-      file3 = temp3;
-      file4 = temp4;
-    var csv = 'BundleId;DeveloperPage;HasDeveloperPage;isHaving100Reviews;Score0;ScoreBetween1to3;ScoreBetween3to4;ScoreAbove4;IsUttility;AverageRating;ReviewCount;Result';
-    for(let element in file)
-    {
-      csv += "\n";
-           csv += file[element] + ";Approved";
-    }
-    for(let element in file2)
-    {
-      csv += "\n";
-           csv += file2[element] + ";Not Approved";
-    }
-    for(let element in file3)
-    {
-      csv += "\n";
-           csv += file3[element] + ";Not Found";
-    }
-    for(let element in file4)
-    {
-      csv += "\n";
-           csv += file4[element] + ";Manual Check";
-    }
- 
-
-    var hiddenElement = document.createElement('a');
-    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-    hiddenElement.target = '_blank';
-    hiddenElement.download = 'Export.csv';
-    hiddenElement.click();
-}
-
-</script>
+                      document.getElementById("notfound").innerHTML += Apps_split[element] + ";;;;;;;;;;;" + "<br>";
+                    }
+                  }
+                
+                }
+  </script>
 </body>
+
 </html>
