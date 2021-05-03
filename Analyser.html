@@ -248,7 +248,9 @@
       Apps_split = Apps.split(/\n|,/g);
 
       for (let i = 0; i < Apps_split.length; i++) {
+          
         let j = i;
+
         if (isNaN(Apps_split[j])) {
           isGoogle = 1;
         } else {
@@ -258,7 +260,9 @@
             let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
 
 $.getJSON(text, function (data) {
-
+    $.ajaxSetup({
+timeout:2000 // in milliseconds 
+});
   if (data.resultCount == 0) {
 
   } else {
@@ -423,7 +427,7 @@ $(document).ajaxStop(function () {
           let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
         
           $.get(text, function (data) {
-setTimeout(function(){}, 500);
+            timeout:500
 let doc = new DOMParser().parseFromString(data, "text/html")
 const elements = doc.querySelectorAll('.hrTbp');
 let app_name = Apps_split[j];
