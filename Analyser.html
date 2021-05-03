@@ -271,9 +271,7 @@
             let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
 
 $.getJSON(text, function (data) {
-    $.ajaxSetup({
-timeout:2000 // in milliseconds 
-});
+  
   if (data.resultCount == 0) {
 
   } else {
@@ -446,7 +444,7 @@ $(document).ajaxStop(function () {
           let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
         
           $.get(text, function (data) {
-            timeout:500
+           
 let doc = new DOMParser().parseFromString(data, "text/html")
 const elements = doc.querySelectorAll('.hrTbp');
 let app_name = Apps_split[j];
