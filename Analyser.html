@@ -432,7 +432,6 @@ Apps_checked.push("" + app_name + "");
 App[j] = {
   "BundleId": Apps_split[j],
   "ShopURL": "https://play.google.com/store/apps/details?id=" + Apps_split[j],
-  "ReviewCount": test2,
   "HasDeveloperPage": "",
   "ContainKeyword": "",
   "AppAds": "",
@@ -443,6 +442,7 @@ var subratingcount;
 if(doc.getElementsByClassName("AYi5wd TBRnV")[0])
 {
     subratingcount = doc.getElementsByClassName("AYi5wd TBRnV")[0].innerText;
+    
 }
 else
 {
@@ -451,6 +451,7 @@ else
 
 let test = subratingcount.toString().replace(/,|,/g, '');
 var test2 = parseInt(test);
+App[j].ReviewCount = test2;
 
 if(doc.getElementsByClassName("T75of sHb2Xb")[0])
 {
