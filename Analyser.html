@@ -86,10 +86,12 @@
         <label for="MinReviews">Min. review count: </label>
         <input id="MinReviews" type="number" name="MinReviews" value="50" step="1" min="0"">
 <button class=" btn btn-secondary" id="indicator" onclick="Skanuj()">Scan</button><br>
+<button class='btn btn-secondary'  onclick='approval()'>Check results</button></button><br><button class='btn btn-secondary' onclick='download_csv()'>Download CSV</button>;
         <div class="result" id="buttonsection">
 
 
         </div>
+        <div id="result"></div>
         <hr>
         <hr>
         <center><img id="image" width="100" /></center>
@@ -379,59 +381,9 @@ else
 
 
 $(document).ajaxStop(function () {
-    for(element in App)
-    {
-        document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[element].ImageUrl +
-                "' width='100'></center>"
-        document.getElementById('result').innerHTML += App[element].Name + "<br>";
-        document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[element]
-                .ShopURL + "'>" + App[element].BundleId + "</a><br>";
-                if (App[element].DeveloperPage != null) {
-                document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[element]
-                  .DeveloperPage + "'>" + App[element].DeveloperPage + "</a><br>";
-                  if(App[element].AppAds == 1)
-                  {
-                    document.getElementById("result").innerHTML += "App-ads.txt detected!<br>"
-                  }
-              } else {
-                document.getElementById("result").innerHTML += "Developer page: not found<br>";
-              }
-              if (App[element].AverageRating < minrating) {
-                document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[element]
-                  .AverageRating + "<br></b>";
-
-              }
-              if (App[element].AverageRating >= minrating) {
-                document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[element]
-                  .AverageRating + "<br></b>";
-
-              }
-              if (App[element].ReviewCount < minreviews) {
-                document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " +
-                  App[element].ReviewCount + "<br></b>";
-
-              }
-              if (App[element].ReviewCount >= minreviews) {
-                document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " +
-                  App[element].ReviewCount + "<br></b>";
-
-              }
-
-
-              if (App[element].PrimaryGenre == "Utilities" || App[element].PrimaryGenre == "Personalization") {
-                document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[element]
-                  .PrimaryGenre + "<br><hr>";
-              } else {
-                document.getElementById("result").innerHTML += "Primary Category: " + App[element].PrimaryGenre + "<br>";
-              }
-              if (App[element].ContainKeyword == 1) {
-                document.getElementById("result").innerHTML +=
-                  "<b style='color:red'>Contains sensitive keyword!<br><hr>";
-              } else {
-                document.getElementById("result").innerHTML += "<hr>";
-              }        
-        finished = 1;
-    }
+    
+    
+    
     
   document.getElementById("indicator").innerText = "Done! Scan again?";
   document.getElementById("buttonsection").innerHTML =
@@ -584,9 +536,106 @@ App[j].AppAds = 0
                   App[j].HasDeveloperPage = 0;
                 }
                 $(document).ajaxStop(function () {
-          
+      /*    
     for(element in App)
     {
+        document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[element].ImageUrl +
+                "' width='100'></center>"
+        document.getElementById('result').innerHTML += App[element].Name + "<br>";
+        document.getElementById("result").innerHTML += "BundleId: <a target='_blank' href='" + App[element]
+                .ShopURL + "'>" + App[element].BundleId + "</a><br>";
+                if (App[element].DeveloperPage != null) {
+                document.getElementById("result").innerHTML += "Developer page: <a target='_blank' href='" + App[element]
+                  .DeveloperPage + "'>" + App[element].DeveloperPage + "</a><br>";
+                  if(App[element].AppAds == 1)
+                  {
+                    document.getElementById("result").innerHTML += "App-ads.txt detected!<br>"
+                  }
+              } else {
+                document.getElementById("result").innerHTML += "Developer page: not found<br>";
+              }
+              if (App[element].AverageRating < minrating) {
+                document.getElementById("result").innerHTML += "<b style='color:red'>Rating: " + App[element]
+                  .AverageRating + "<br></b>";
+
+              }
+              if (App[element].AverageRating >= minrating) {
+                document.getElementById("result").innerHTML += "<b style='color:green'>Rating: " + App[element]
+                  .AverageRating + "<br></b>";
+
+              }
+              if (App[element].ReviewCount < minreviews) {
+                document.getElementById("result").innerHTML += "<b style='color:red'>Number of user ratings: " +
+                  App[element].ReviewCount + "<br></b>";
+
+              }
+              if (App[element].ReviewCount >= minreviews) {
+                document.getElementById("result").innerHTML += "<b style='color:green'>Number of user ratings: " +
+                  App[element].ReviewCount + "<br></b>";
+
+              }
+
+
+              if (App[element].PrimaryGenre == "Utilities" || App[element].PrimaryGenre == "Personalization") {
+                document.getElementById("result").innerHTML += "<b style='color:orange'>Primary Category: " + App[element]
+                  .PrimaryGenre + "<br><hr>";
+              } else {
+                document.getElementById("result").innerHTML += "Primary Category: " + App[element].PrimaryGenre + "<br>";
+              }
+              if (App[element].ContainKeyword == 1) {
+                document.getElementById("result").innerHTML +=
+                  "<button style='color:red'>Contains sensitive keyword!<br><hr>";
+              } else {
+                document.getElementById("result").innerHTML += "<hr>";
+              }        
+        finished = 1;
+        
+    }
+    */
+  document.getElementById("indicator").innerText = "Done! Scan again?";
+  /*document.getElementById("buttonsection").innerHTML =
+    "<br>
+  */
+    document.getElementById("indicator").disabled = false;
+  
+});
+                //Manual validation check
+
+
+
+
+
+                //console.log(myApp[j].AverageRating);
+
+              
+                //"Rating: " + App[j].AverageRating;
+                function setchecked() {
+                  checked = 1;
+                }
+
+                function isInArray(value, array) {
+                  return array.indexOf(value) > -1;
+                }
+              
+
+            })
+        }
+
+    }
+
+   
+               if(finished == 1)
+               {
+                   
+               }
+            }
+
+            function approval()
+            {
+                document.getElementById("result").innerHTML = "";
+                for(element in App)
+    {
+        
         document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[element].ImageUrl +
                 "' width='100'></center>"
         document.getElementById('result').innerHTML += App[element].Name + "<br>";
@@ -637,48 +686,7 @@ App[j].AppAds = 0
                 document.getElementById("result").innerHTML += "<hr>";
               }        
         finished = 1;
-        
     }
-    
-  document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML =
-    "<br><button class='btn btn-secondary' id='result' onclick='approval()'>Check results</button><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
-  document.getElementById("indicator").disabled = false;
-  
-});
-                //Manual validation check
-
-
-
-
-
-                //console.log(myApp[j].AverageRating);
-
-              
-                //"Rating: " + App[j].AverageRating;
-                function setchecked() {
-                  checked = 1;
-                }
-
-                function isInArray(value, array) {
-                  return array.indexOf(value) > -1;
-                }
-              
-
-            })
-        }
-
-    }
-
-   
-               if(finished == 1)
-               {
-                   
-               }
-            }
-
-            function approval()
-            {
                 for(elements in App)
                 {
                     if (blockdevpage == 1 && App[elements].HasDeveloperPage == 0) {
