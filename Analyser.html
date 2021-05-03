@@ -271,7 +271,7 @@
             let text = "https://itunes.apple.com/lookup?id=" + Apps_split[j] + "&callback=?";
 
 $.getJSON(text, function (data) {
-  
+
   if (data.resultCount == 0) {
 
   } else {
@@ -444,7 +444,7 @@ $(document).ajaxStop(function () {
           let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
         
           $.get(text, function (data) {
-           
+            
 let doc = new DOMParser().parseFromString(data, "text/html")
 const elements = doc.querySelectorAll('.hrTbp');
 let app_name = Apps_split[j];
@@ -584,7 +584,7 @@ App[j].AppAds = 0
                   App[j].HasDeveloperPage = 0;
                 }
                 $(document).ajaxStop(function () {
-                    
+          
     for(element in App)
     {
         document.getElementById("result").innerHTML += "<center><img id='image' src='" + App[element].ImageUrl +
@@ -637,7 +637,9 @@ App[j].AppAds = 0
                 document.getElementById("result").innerHTML += "<hr>";
               }        
         finished = 1;
+        
     }
+    
   document.getElementById("indicator").innerText = "Done! Scan again?";
   document.getElementById("buttonsection").innerHTML =
     "<br><button class='btn btn-secondary' id='result' onclick='approval()'>Check results</button><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
