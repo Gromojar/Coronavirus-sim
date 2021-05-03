@@ -380,16 +380,7 @@ else
 
 
 
-$(document).ajaxStop(function () {
-    
-    
-    
-    
-  document.getElementById("indicator").innerText = "Done! Scan again?";
-  document.getElementById("buttonsection").innerHTML =
-    "<br><button class='btn btn-secondary' id='result' onclick='approval()'>Check results</button><br><button class='btn btn-secondary' id='result' onclick='download_csv()'>Download CSV</button>";
-  document.getElementById("indicator").disabled = false;
-});
+
 } 
         else {
           console.log("To Google!");
@@ -535,7 +526,29 @@ App[j].AppAds = 0
                 } else {
                   App[j].HasDeveloperPage = 0;
                 }
-                $(document).ajaxStop(function () {
+                
+                //Manual validation check
+
+
+
+
+
+                //console.log(myApp[j].AverageRating);
+
+              
+                //"Rating: " + App[j].AverageRating;
+                function setchecked() {
+                  checked = 1;
+                }
+
+                function isInArray(value, array) {
+                  return array.indexOf(value) > -1;
+                }
+              
+
+            })
+        }
+        $(document).ajaxStop(function () {
       /*    
     for(element in App)
     {
@@ -599,28 +612,6 @@ App[j].AppAds = 0
     document.getElementById("indicator").disabled = false;
   
 });
-                //Manual validation check
-
-
-
-
-
-                //console.log(myApp[j].AverageRating);
-
-              
-                //"Rating: " + App[j].AverageRating;
-                function setchecked() {
-                  checked = 1;
-                }
-
-                function isInArray(value, array) {
-                  return array.indexOf(value) > -1;
-                }
-              
-
-            })
-        }
-
     }
 
    
@@ -632,7 +623,9 @@ App[j].AppAds = 0
 
             function approval()
             {
+                
                 document.getElementById("result").innerHTML = "";
+                check();
                 for(element in App)
     {
         
@@ -699,12 +692,12 @@ App[j].AppAds = 0
                   document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
                     ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 + ';' +
                     App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 + ";" + App[
-                      j].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + "<br>";
+                      elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + "<br>";
                 } else {
                   if (utilitycheck == 1 && App[elements].IsUttility == 1) {
                     document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
                       .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[
-                        j].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
+                        elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
                       .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
                       .ReviewCount + ";" + App[elements].AppAds + "<br>";
                   } else {
@@ -752,8 +745,7 @@ App[j].AppAds = 0
             }
 
             function download_csv() {
-                check();
-                approval();
+
                   let temp = document.getElementById("approved").innerText;
                   let temp2 = document.getElementById("notapproved").innerText;
                   let temp3 = document.getElementById("notfound").innerText;
