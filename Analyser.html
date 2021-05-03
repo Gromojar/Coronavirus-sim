@@ -597,6 +597,7 @@ App[j] = {
 
             function approval()
             {
+      check();
                 for(elements in App)
                 {
                     if (blockdevpage == 1 && App[elements].HasDeveloperPage == 0) {
@@ -661,7 +662,7 @@ App[j] = {
                 }
             }
             function download_csv() {
-                check();
+                
                 approval();
                   let temp = document.getElementById("approved").innerText;
                   let temp2 = document.getElementById("notapproved").innerText;
