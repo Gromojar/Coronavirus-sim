@@ -423,7 +423,7 @@ $(document).ajaxStop(function () {
           let text = "https://warm-forest-77128.herokuapp.com/html/" + Apps_split[j];
         
           $.get(text, function (data) {
-
+setTimeout(function(){}, 500);
 let doc = new DOMParser().parseFromString(data, "text/html")
 const elements = doc.querySelectorAll('.hrTbp');
 let app_name = Apps_split[j];
