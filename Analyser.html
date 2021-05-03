@@ -339,11 +339,15 @@ $.getJSON(text, function (data) {
     if (App[j].DeveloperPage != undefined) {
       App[j].HasDeveloperPage = 1;
       let removed = App[j].DeveloperPage;
-      let removed2 = removed.replace("mailto:","");
-      removed2 = extractRootDomain(removed);
-      console.log(removed2);
-      let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed2 + "/app-ads.txt";
-      console.log(ads);
+                  let removed2 = removed.replace("mailto:","");
+                  removed2.replace("mailto:","");
+                  removed3 = getUrlParts(removed2);
+                
+                  console.log(removed3.origin);
+                  removed3 = removed3.origin.replace("https://", "");
+                  removed3 = removed3.replace("http://", "");
+                  let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed3 + "/app-ads.txt";
+                  console.log(ads);
       if(appadstxtcheck == 1)
       {
         $.get(ads, function (data2) {
@@ -503,8 +507,10 @@ else
                   removed2.replace("mailto:","");
                   removed3 = getUrlParts(removed2);
                 
-                  console.log(removed3.domainroot);
-                  let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed3.domainroot + "/app-ads.txt";
+                  console.log(removed3.origin);
+                  removed3 = removed3.origin.replace("https://", "");
+                  removed3 = removed3.replace("http://", "");
+                  let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed3 + "/app-ads.txt";
                   console.log(ads);
                   if(appadstxtcheck == 1)
       {
