@@ -77,6 +77,8 @@
         <center><input id="Blockuttility" type="checkbox"></center>
         <label for="BlockDeveloper">Block apps without developer page</label>
         <center><input id="BlockDeveloper" type="checkbox"></center>
+        <label for="Appadstxt">App-ads.txt check (Max 50 inputs!)</label>
+        <center><input id="Appadstxt" type="checkbox"></center>
         <label for="AvgRating">Min. average rating: </label>
         <input id="AvgRating" type="range" name="AvgRating" value="3" step="0.1" max="5" min="0"
           oninput="this.nextElementSibling.value = this.value">
@@ -205,6 +207,7 @@
     var minreviews;
     var utilities;
     var file;
+    var appadstxtcheck;
     var utilitycheck;
     var blockdevpage;
     var notapproved = document.getElementById("notapproved").innerHTML;
@@ -219,6 +222,14 @@
         blockkeywords = 1;
       } else {
         blockkeywords = 0;
+      }
+      if(document.getElementById("Appadstxt").checked == true)
+      {
+        appadstxtcheck = 1;
+      }
+      else
+      {
+        appadstxtcheck = 0; 
       }
       if (document.getElementById("BlockDeveloper").checked == true) {
         blockdevpage = 1;
@@ -332,19 +343,27 @@ timeout:2000 // in milliseconds
       console.log(removed2);
       let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed2 + "/app-ads.txt";
       console.log(ads);
-      $.get(ads, function (data2) {
+      if(appadstxtcheck == 1)
+      {
+        $.get(ads, function (data2) {
 
 
-          }
+}
 
-        )
-        .done(function () {
-          App[j].AppAds = 1;
-        })
-        .fail(function () {
-          App[j].AppAds = 0
-        })
-    } else {
+)
+.done(function () {
+App[j].AppAds = 1;
+})
+.fail(function () {
+App[j].AppAds = 0
+})
+}
+else
+{
+    App[j].AppAds = "No check performed"
+}
+      }
+       else {
       App[j].HasDeveloperPage = 0;
     }
 
@@ -545,16 +564,24 @@ else
                   console.log(removed3.domainroot);
                   let ads = "https://warm-forest-77128.herokuapp.com/text/" + "http://" + removed3.domainroot + "/app-ads.txt";
                   console.log(ads);
-                  $.get(ads, function (data2) {
+                  if(appadstxtcheck == 1)
+      {
+        $.get(ads, function (data2) {
 
 
-                      })
-                    .done(function () {
-                      App[j].AppAds = 1;
-                    })
-                    .fail(function () {
-                      App[j].AppAds = 0
-                    })
+})
+.done(function () {
+App[j].AppAds = 1;
+})
+.fail(function () {
+App[j].AppAds = 0
+})
+      }
+      else
+      {
+          App[j].AppAds = "No check performed";
+      }
+
                 } else {
                   App[j].HasDeveloperPage = 0;
                 }
