@@ -359,7 +359,7 @@ $.getJSON(text, function (data) {
 
     }
     */
-   for(element in Keywords)
+   /*for(element in Keywords)
    if(App[j].Name.includes(Keywords[element]))
    {
     App[j].ContainKeyword = 1;
@@ -370,7 +370,7 @@ $.getJSON(text, function (data) {
     App[j].ContainKeyword = 1;
    
    }
-
+*/
     if (App[j].ReviewCount >= 100) {
       App[j].isHaving100Reviews = 1;
     } else {
@@ -500,6 +500,7 @@ if(doc.getElementsByClassName("AHFaub")[0])
 {
     App[j].Name = doc.getElementsByClassName("AHFaub")[0].innerText;
   var length2 = Keywords.length;
+  /*
   for(element in Keywords)
    if(App[j].Name.includes(Keywords[element]))
    {
@@ -517,6 +518,7 @@ else
 {
     App[j].Name = "No name"
     var length2 = Keywords.length;
+  /*
     for(element in Keywords)
    if(App[j].Name.includes(Keywords[element]))
    {
@@ -529,6 +531,7 @@ else
         console.log("failed");
    }
 }
+*/
 if(doc.getElementsByClassName("elements[3].getAttribute('href')"))
 {
     App[j].DeveloperPage = elements[3].getAttribute('href');
