@@ -699,64 +699,70 @@ App[j].AppAds = 0
                 for(elements in App)
                 {
                     if (blockdevpage == 1 && App[elements].HasDeveloperPage == 0) {
+                      App[elements].Result += "No developer page";
                 document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
                   ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 + ';' + App[
                     elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 + ";" + App[elements]
-                  .IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                  App[elements].Result = "No developer page";
+                  .IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                  
               } else {
                 if (blockkeywords == 1 && App[elements].ContainKeyword == 1) {
+                  App[elements].Result += "Contains sensitive keyword";
                   document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
                     ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 + ';' +
                     App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 + ";" + App[
-                      elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                      App[elements].Result = "Contains sensitive keyword";
+                      elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                      
                     } else {
                   if (utilitycheck == 1 && App[elements].IsUttility == 1) {
+                    App[elements].Result += "App is uttility";
                     document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
                       .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[
                         elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
                       .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
-                      .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                      App[elements].Result = "App is uttility";
+                      .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                      
                   } else {
 
 
                     if (App[elements].isHaving100Reviews == 0 || App[elements].Score0 == 1 || App[elements].ScoreBetween3to4 == 1) {
+                      App[elements].Result += "Doesn't match app tresholds";
                       document.getElementById("manual").innerHTML += App[elements].BundleId + ";" + App[elements].DeveloperPage +
                         ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' + App[elements].Score0 +
                         ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements].ScoreAbove4 +
-                        ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                        App[elements].Result = "Doesn't match app tresholds";
+                        ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements].ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                        
                       }
 
                     //Automatic approval validation check
                     if (App[elements].isHaving100Reviews == 1 && App[elements].ScoreAbove4 == 1) {
+                      App[elements].Result += "Approved";
                       document.getElementById("approved").innerHTML += App[elements].BundleId + ";" + App[elements]
                         .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' +
                         App[elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
                         .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
-                        .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                        App[elements].Result = "Approved";
+                        .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                        
                     }
                     //Automatic rejection validation check
 
                     if (App[elements].isHaving100Reviews == 1 && App[elements].ScoreBetween1to3) {
-
+                      App[elements].Result += "Doesn't match app tresholds";
                       document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
                         .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' +
                         App[elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
                         .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
-                        .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                        App[elements].Result = "Doesn't match app tresholds";
+                        .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                        
                     }
                     if (App[elements].isHaving100Reviews == 1 && App[elements].ScoreBetween1to3) {
+                      App[elements].Result += "Doesn't match app tresholds";
                       document.getElementById("notapproved").innerHTML += App[elements].BundleId + ";" + App[elements]
                         .DeveloperPage + ";" + App[elements].HasDeveloperPage + ";" + App[elements].isHaving100Reviews + ';' +
                         App[elements].Score0 + ';' + App[elements].ScoreBetween1to3 + ";" + App[elements].ScoreBetween3to4 + ";" + App[elements]
                         .ScoreAbove4 + ";" + App[elements].IsUttility + ";" + " " + App[elements].AverageRating + ";" + App[elements]
-                        .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + "<br>";
-                        App[elements].Result = "Doesn't match app tresholds";
+                        .ReviewCount + ";" + App[elements].AppAds + ";" + App[elements].ContainKeyword + ";" + App[elements].Result + "<br>";
+                        
                     }
                   }
 
@@ -787,7 +793,7 @@ App[j].AppAds = 0
                   file3 = temp3;
                   file4 = temp4;
                   var csv =
-                    'BundleId;DeveloperPage;HasDeveloperPage;isHaving100Reviews;Score0;ScoreBetween1to3;ScoreBetween3to4;ScoreAbove4;IsUttility;AverageRating;ReviewCount;App-Ads.txt;ContainSensitiveKeyword;Result';
+                    'BundleId;DeveloperPage;HasDeveloperPage;isHaving100Reviews;Score0;ScoreBetween1to3;ScoreBetween3to4;ScoreAbove4;IsUttility;AverageRating;ReviewCount;App-Ads.txt;ContainSensitiveKeyword;ReasonForResult;Result';
                   for (let element in file) {
                     csv += "\n";
                     csv += file[element] + ";Approved";
@@ -879,7 +885,7 @@ App[j].AppAds = 0
 
                     } else {
 
-                      document.getElementById("notfound").innerHTML += Apps_split[element] + ";;;;;;;;;;;;" + "<br>";
+                      document.getElementById("notfound").innerHTML += Apps_split[element] + ";;;;;;;;;;;;;" + "<br>";
                     }
                   }
                 
