@@ -129,7 +129,7 @@
 
 
         </div>
-
+<hr>
         <div id="result"></div>
         <hr>
         <hr>
@@ -359,18 +359,27 @@ $.getJSON(text, function (data) {
 
     }
     */
-   /*for(element in Keywords)
-   if(App[j].Name.includes(Keywords[element]))
+  let appname = App[j].Name.split(" ");
+  console.log(appname);
+  for(elements in appname)
+  {
+    if(Keywords.some(e => e.includes(appname[elements])))
    {
     App[j].ContainKeyword = 1;
+    break;
    
    }
    else
    {
-    App[j].ContainKeyword = 1;
+    App[j].ContainKeyword = 0;
    
    }
-*/
+  }
+    
+
+
+ 
+
     if (App[j].ReviewCount >= 100) {
       App[j].isHaving100Reviews = 1;
     } else {
@@ -500,38 +509,47 @@ if(doc.getElementsByClassName("AHFaub")[0])
 {
     App[j].Name = doc.getElementsByClassName("AHFaub")[0].innerText;
   var length2 = Keywords.length;
-  /*
-  for(element in Keywords)
-   if(App[j].Name.includes(Keywords[element]))
+  
+  let appname = App[j].Name.split(" ");
+  console.log(appname);
+  for(elemento in appname)
+  {
+    if(Keywords.some(e => e.includes(appname[elemento])))
    {
     App[j].ContainKeyword = 1;
-        console.log("passed");
+    break;
+   
    }
    else
    {
-    App[j].ContainKeyword = 1;
-        console.log("failed");
+    App[j].ContainKeyword = 0;
+   
    }
+  }
+   
+
 
 }
 else
 {
     App[j].Name = "No name"
     var length2 = Keywords.length;
-  /*
-    for(element in Keywords)
-   if(App[j].Name.includes(Keywords[element]))
+    let appname = App[j].Name.split(" ");
+  console.log(appname);
+  for(elements in appname)
+  {
+    if(Keywords.some(e => e.includes(appname[elements])))
    {
     App[j].ContainKeyword = 1;
-        console.log("passed");
+    break;
+   
    }
    else
    {
-    App[j].ContainKeyword = 1;
-        console.log("failed");
+    App[j].ContainKeyword = 0;
+   
    }
-}
-*/
+  }
 }
 if(doc.getElementsByClassName("elements[3].getAttribute('href')"))
 {
