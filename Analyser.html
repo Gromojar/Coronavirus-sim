@@ -380,7 +380,7 @@ $.getJSON(text, function (data) {
 
  
 
-    if (App[j].ReviewCount >= 100) {
+    if (App[j].ReviewCount >= 50) {
       App[j].isHaving100Reviews = 1;
     } else {
       App[j].isHaving100Reviews = 0;
@@ -390,12 +390,12 @@ $.getJSON(text, function (data) {
     } else {
       App[j].Score0 = 0;
     }
-    if (App[j].AverageRating >= 3 && App[j].AverageRating <= 4) {
+    if (App[j].AverageRating >= 3 && App[j].AverageRating < 4) {
       App[j].ScoreBetween3to4 = 1;
     } else {
       App[j].ScoreBetween3to4 = 0;
     }
-    if (App[j].AverageRating > 4) {
+    if (App[j].AverageRating >= 4) {
       App[j].ScoreAbove4 = 1;
     } else {
       App[j].ScoreAbove4 = 0;
@@ -577,7 +577,7 @@ else
 }
 
 
-                if (App[j].ReviewCount >= 100) {
+                if (App[j].ReviewCount >= 50) {
                   App[j].isHaving100Reviews = 1;
                 } else {
                   App[j].isHaving100Reviews = 0;
@@ -587,12 +587,12 @@ else
                 } else {
                   App[j].Score0 = 0;
                 }
-                if (App[j].AverageRating >= 3 && App[j].AverageRating <= 4) {
+                if (App[j].AverageRating >= 3 && App[j].AverageRating < 4) {
                   App[j].ScoreBetween3to4 = 1;
                 } else {
                   App[j].ScoreBetween3to4 = 0;
                 }
-                if (App[j].AverageRating > 4) {
+                if (App[j].AverageRating >= 4) {
                   App[j].ScoreAbove4 = 1;
                 } else {
                   App[j].ScoreAbove4 = 0;
