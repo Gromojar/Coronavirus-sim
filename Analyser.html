@@ -361,9 +361,9 @@ $.getJSON(text, function (data) {
     */
   let appname = App[j].Name.split(" ");
   console.log(appname);
-  for(elements in appname)
+  for(elemento in appname)
   {
-    if(Keywords.some(e => e.includes(appname[elements])))
+    if(Keywords.some(e => e.includes(appname[elemento])))
    {
     App[j].ContainKeyword = 1;
     break;
@@ -512,9 +512,9 @@ if(doc.getElementsByClassName("AHFaub")[0])
   
   let appname = App[j].Name.split(" ");
   console.log(appname);
-  for(elements in appname) 
+  for(elemento in appname) 
   {
-    if(Keywords.some(e => e.includes(appname[elements])))
+    if(Keywords.some(e => e.includes(appname[elemento])))
    {
     App[j].ContainKeyword = 1;
     break;
@@ -536,9 +536,9 @@ else
     var length2 = Keywords.length;
     let appname = App[j].Name.split(" ");
   console.log(appname);
-  for(elements in appname)
+  for(elemento in appname)
   {
-    if(Keywords.some(e => e.includes(appname[elements])))
+    if(Keywords.some(e => e.includes(appname[elemento])))
    {
     App[j].ContainKeyword = 1;
     break;
