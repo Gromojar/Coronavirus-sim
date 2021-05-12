@@ -474,8 +474,8 @@ else
 {
     subratingcount = 0;
 }
-
-let test = subratingcount.toString().replace(/,|,/g, '');
+let apac = subratingcount.toString().replace(/ |,/g, '');
+let test = apac.toString().replace(/,|,/g, '');
 var test2 = parseInt(test);
 App[j].ReviewCount = test2;
 
