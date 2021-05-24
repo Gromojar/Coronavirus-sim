@@ -100,6 +100,9 @@
         </div>
         <div class="col-4">
                   <label><b>Settings</b></label><br><br>
+                  <input type="checkbox" id="showresults" autocomplete="off">
+                  <label for="showresults">Show visual results one by one</label>
+                  <br><br>  
                   <input type="checkbox" id="Blockkeywords" autocomplete="off">
                   <label for="Blockkeywords">Block apps with sensitive keywords</label>
                   <br><br>
@@ -240,6 +243,7 @@
     var minreviews;
     var utilities;
     var file;
+    var showresults = 0;
     var appadstxtcheck;
     var utilitycheck;
     var blockdevpage;
@@ -255,6 +259,7 @@ function Selectall()
   document.getElementById("Appadstxt").checked = true;
   document.getElementById("BlockDeveloper").checked = true;
   document.getElementById("Blockuttility").checked = true;
+  document.getElementById("showresults").checked = true;
 }
     function Skanuj() {
       if (document.getElementById("Blockkeywords").checked == true) {
@@ -729,6 +734,8 @@ App[j].AppAds = 0
       document.getElementById("downloadcsv").disabled = false;
       document.getElementById("checkresults").disabled = true;
                 check();
+              if(document.getElementById("showresults").checked == true)
+              {
                 for(element in App)
     {
         
@@ -783,6 +790,7 @@ App[j].AppAds = 0
               }        
         finished = 1;
     }
+              }
                 for(elements in App)
                 {
                     if (blockdevpage == 1 && App[elements].HasDeveloperPage == 0) {
