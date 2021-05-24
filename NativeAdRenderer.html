@@ -94,8 +94,8 @@
   function Render()
   {
    json = document.getElementById("admarkup").value;
-    let jsonreplace = json.replace(/\\/g,"");
-   jsoncompiled = JSON.parse(jsonreplace);
+   //let jsonreplace = json.replace(/\\/g,"");
+   jsoncompiled = JSON.parse(json);
     console.log(jsoncompiled);
     var link = "";
     var title = "";
