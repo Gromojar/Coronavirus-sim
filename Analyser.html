@@ -18,6 +18,10 @@
     text-align:center;
     margin:auto;
   }
+  .reviewsclass
+  {
+    text-align:left;
+  }
 
 </style>
 
@@ -478,7 +482,7 @@ App[j] = {
 };
 
 var subratingcount;
-
+App[j].isGoogle = 1;
 if(doc.getElementsByClassName("AYi5wd TBRnV")[0])
 {
     subratingcount = doc.getElementsByClassName("AYi5wd TBRnV")[0].innerText;
@@ -492,7 +496,54 @@ let apac = subratingcount.toString().replace(/ |,/g, '');
 let test = apac.toString().replace(/,|,/g, '');
 var test2 = parseInt(test);
 App[j].ReviewCount = test2;
-
+if(doc.getElementsByClassName("L2o20d P41RMc")[0])
+{
+  App[j].FiveWidth = doc.getElementsByClassName("L2o20d P41RMc")[0].style.width;
+}
+else
+{
+  App[j].FiveWidth = "undefined";
+}
+if(doc.getElementsByClassName("VEF2C")[0])
+{
+  App[j].Reviews = doc.getElementsByClassName("VEF2C")[0].innerHTML;
+}
+else
+{
+  App[j].Reviews = "undefined";
+}
+if(doc.getElementsByClassName("L2o20d tpbQF")[0])
+{
+  App[j].FourWidth = doc.getElementsByClassName("L2o20d tpbQF")[0].style.width;
+}
+else
+{
+  App[j].FourWidth = "undefined"; 
+}
+if(doc.getElementsByClassName("L2o20d Sthl9e")[0])
+{
+  App[j].ThreeWidth = doc.getElementsByClassName("L2o20d Sthl9e")[0].style.width;
+}
+else
+{
+  App[j].ThreeWidth = "undefined";
+}
+if(doc.getElementsByClassName("L2o20d rhCabb")[0])
+{
+  App[j].TwoWidth = doc.getElementsByClassName("L2o20d rhCabb")[0].style.width;
+}
+else
+{
+  App[j].TwoWidth = "undefined";
+}
+if(doc.getElementsByClassName("L2o20d A3ihhc")[0])
+{
+  App[j].OneWidth = doc.getElementsByClassName("L2o20d A3ihhc")[0].style.width;
+}
+else
+{
+  App[j].OneWidth = "undefined";
+}
 if(doc.getElementsByClassName("T75of sHb2Xb")[0])
 {
     App[j].ImageUrl = doc.getElementsByClassName("T75of sHb2Xb")[0].getAttribute('src');
@@ -786,8 +837,28 @@ App[j].AppAds = 0
                 document.getElementById("result").innerHTML +=
                   "<b style='color:red'>Contains sensitive keyword!<br><hr>";
               } else {
+                if(App[element].isGoogle == 1)
+              {
+                document.getElementById("result").innerHTML += "<div id='reviews' class='reviewsclass'>";
+                document.getElementById("reviews").innerHTML += "Reviews distribution: <br>"; 
+                document.getElementById("reviews").innerHTML += " 5.<div id='five' style='background-color:#57bb8a;height:20px;text-align: left;'></div>";
+                  document.getElementById("five").style.width = App[element].FiveWidth;
+                  document.getElementById("reviews").innerHTML += "4. <div id='four' style='background-color:#9ace6a;height:20px;text-align: left;'></div>";
+                  document.getElementById("four").style.width = App[element].FourWidth;
+                  document.getElementById("reviews").innerHTML += "3. <div id='three' style='background-color:#ffcf02;height:20px'></div>";
+                  document.getElementById("three").style.width = App[element].ThreeWidth;
+                  document.getElementById("reviews").innerHTML += "2. <div id='two' style='background-color:#ff9f02;height:20px'></div>";
+                  document.getElementById("two").style.width = App[element].TwoWidth;
+                  document.getElementById("reviews").innerHTML += "1. <div id='one' style='background-color:#ff6f31;height:20px'></div>";
+                  document.getElementById("one").style.width = App[element].OneWidth;
+                  document.getElementById("result").innerHTML += "</div>"
+
+              }
                 document.getElementById("result").innerHTML += "<hr>";
               }        
+
+
+                
         finished = 1;
     }
               }
