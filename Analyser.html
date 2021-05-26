@@ -224,28 +224,27 @@ color:white;
       "wallpaper",
       "flashlight",
       "calc",
-      "Bang",
-      "Bdsm",
-      "Erotic",
-      "Erotik",
-      "Fuck",
-      "Hentai",
-      "Lesbian",
-      "Naughty",
-      "Nude",
-      "Porn",
-      "Prostitution",
-      "Pussy",
-      "Rape",
-      "Xtube",
-      "Locker",
-      "Launcher",
-      "Wallpaper",
-      "Flashlight",
-      "Calc",
-     "Lockscreen",
+      "bang",
+      "bdsm",
+      "erotic",
+      "erotik",
+      "fuck",
+      "hentai",
+      "lesbian",
+      "naughty",
+      "nude",
+      "porn",
+      "prostitution",
+      "pussy",
+      "rape",
+      "xtube",
+      "locker",
+      "launcher",
+      "wallpaper",
+      "flashlight",
+      "calc",
      "lockscreen",
-     "LockScreen"
+
     ];
     var data;
     var rating = 0;
@@ -374,7 +373,7 @@ $.getJSON(text, function (data) {
   console.log(appname);
   for(elemento in appname)
   {
-    if(Keywords.some(e => e.includes(appname[elemento])))
+    if(Keywords.some(e => e.includes(appname[elemento].toLowerCase())))
    {
     App[j].ContainKeyword = 1;
     break;
@@ -572,7 +571,7 @@ if(doc.getElementsByClassName("AHFaub")[0])
   console.log(appname);
   for(elemento in appname) 
   {
-    if(Keywords.some(e => e.includes(appname[elemento])))
+    if(Keywords.some(e => e.includes(appname[elemento].toLowerCase())))
    {
     App[j].ContainKeyword = 1;
     break;
