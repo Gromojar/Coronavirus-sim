@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+  
+</head>
+<style>
+  input {
+    text-align: center;
+  }
+
+  #image {
+    border-radius: 10px;
+  }
+  .width
+  {
+    width:20%;
+    text-align:center;
+    margin:auto;
+  }
+  .reviews
+  {
+    width:50%;
+  }
+  #five,#four,#three,#two,#one
+  {
+   font-weight:bolder;
+float:left;
+text-align:justify;
+color:white;
+
+  }
+  button
+  {
+      width:150px;
+  }
+
+</style>
+
+
+ 
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keywords</title>
+  <center>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Quality Tools</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Menu <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="QualityImageUrlRenderer.html">Image url renderer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Websiteanalyzer.html">Website analyser</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="UrlOpener.html">Url opener</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="PasswordGenerator.html">Password Generator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="WebsiteRenderer.html">Website Renderer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Merger.html">Text Merger</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Base64Decoder.html">Base64 Decoder</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="UrlDecoder.html">UrlDecoder</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Analyser.html">App Analyser</a>
+          </li>
+                    <li class="nav-item">
+            <a class="nav-link" href="AdRenderer.html">Ad Renderer</a>
+          </li>
+                    <li class="nav-item">
+            <a class="nav-link" href="NativeAdRenderer.html">Native Ad Renderer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Sampler.html">Sampler</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="card text-black bg-light mb-3">
+          
+        <div class="card-header">Keyword checker</div>
+        <p>Insert domains for keyword check</p>
+        <br><br>
+       
+
+        
+     
+      <div class="row">
+        <div class="col">
+
+          <textarea id="tocheck" cols="60" rows="15" class="inline-txtarea" placeholder="
+          Current keywords:
+          bdsm
+          erotic
+          erotik
+          fuck
+          hentai
+          lesbian
+          naughty
+          nude
+          porn
+          prostitution
+          pussy
+          rape
+          snuff
+          xtube
+          locker
+          launcher
+          wallpaper
+          flashlight
+          calc
+          bang
+          bdsm
+          erotic
+          erotik
+          fuck
+          hentai
+          lesbian
+          naughty
+          nude
+          porn
+          prostitution
+          pussy
+          rape
+          xtube
+          locker
+          launcher
+          wallpaper
+          flashlight
+          lockscreen
+          "></textarea><br>
+          <textarea id='additionalkeywords' cols="60" rows"15" class="inline-txtarea" placeholder ="Insert additional keywords separated by new line
+          "></textarea>
+        </div>
+
+</div><center><button onclick="check()" class="btn-secondary">Check</button>
+
+
+
+<hr>
+<b>Content containing bad keywords</b>
+        <div id="result"></div>
+
+
+  </center>
+  <script>
+      var content;
+      var content_split;
+      var additionalcontent;
+      var additionalcontent_split;
+      var finalcontent;
+var Keywords = [
+      "bdsm",
+      "erotic",
+      "erotik",
+      "fuck",
+      "hentai",
+      "lesbian",
+      "naughty",
+      "nude",
+      "porn",
+      "prostitution",
+      "pussy",
+      "rape",
+      "snuff",
+      "xtube",
+      "locker",
+      "launcher",
+      "wallpaper",
+      "flashlight",
+      "bang",
+      "bdsm",
+      "erotic",
+      "erotik",
+      "fuck",
+      "hentai",
+      "lesbian",
+      "naughty",
+      "nude",
+      "porn",
+      "prostitution",
+      "pussy",
+      "rape",
+      "xtube",
+      "locker",
+      "launcher",
+      "wallpaper",
+      "flashlight",
+     "lockscreen"
+    ];
+
+    function check()
+    {
+        content = document.getElementById("tocheck").value;
+        additionalcontent = document.getElementById("additionalkeywords").value;
+
+        content_split = content.split(/\n|,/g);
+        additionalcontent_split = additionalcontent.split(/\n|,/g);
+        //additionalcontent_split.pop();
+        Keywords = Keywords.concat(additionalcontent_split);
+        
+        finalcontent = content_split;
+        
+
+/*        for(elemento in finalcontent)
+  {
+    if(Keywords.some(e => e.includes(finalcontent[elemento].toLowerCase())))
+   {
+    document.getElementById("result").innerHTML += "<b>" + finalcontent[elemento] + "</b><br>";
+   
+   }
+   else
+   {
+    if(finalcontent[elemento].includes(Keywords[elemento]))
+    {
+        console.log(elemento)
+    }
+   
+   }
+  }
+  */
+
+  for(elemento in finalcontent)
+  {
+
+      for(element in Keywords)
+      {
+        
+          if(finalcontent[elemento].includes(Keywords[element]))
+          {
+              if(Keywords[element] == "")
+              {
+                Keywords.splice(element, 1);
+              }
+              else
+              {
+                console.log(finalcontent[elemento]);
+              document.getElementById("result").innerHTML += "<b>" + finalcontent[elemento] + "</b><br>";
+              break;
+              }
+
+          }
+      }
+  }
+    }
+  </script>
+</body>
+
+</html>
